@@ -1,31 +1,30 @@
-$col-gap: clamp(1.5rem, 2vw, 2.75rem);
-$row-gap: clamp(1.5rem, 2vw, 2.75rem);
-$col-gap-xl: calc(1rem + 0.8vw);
-$row-gap-xl: calc(1rem + 0.8vw);
+$col-gap: clamp(1rem, 1.4vw, 1.4rem);
+$row-gap: clamp(1rem, 1.4vw, 1.4rem);
+$col-gap-xl: calc($col-gap * 2);
+$row-gap-xl: calc($row-gap * 2);
 
 $sm-breakpoint: 950px;
 $md-breakpoint: 950px;
 $xl-breakpoint: 1600px;
 
-$font-size-base: clamp(1.2rem, 1.25vw, 1.4rem);
-$font-size-md: clamp(1.5rem, 2.5vw, 2rem);
-$font-size-lg: clamp(3rem, 5.5vw, 9rem);
-$font-size-xl: clamp(3rem, 10vw, 20rem);
+$font-size-sm: clamp(1.15rem, 1.2vw, 1.3rem);
+$font-size-md: clamp(1.35rem, 1.7vw, 1.55rem);
+$font-size-lg: clamp(3rem, 5vw, 5.5rem);
+$font-size-xl: clamp(4rem, 7.5vw, 7.5rem);
 
 $line-height-base: 1.15;
+$font-family-sans: "Uncut Sans", sans-serif;
+$font-weight: 440;
 
-$padding-x-sm: clamp(1rem, 2vw, 25rem);
-$padding-x-md: clamp(1.1rem, 3vw, 25rem);
-$padding-x-lg: clamp(1.75rem, 6.5vw, 25rem);
+$padding-x-sm: $col-gap;
+$padding-x-md: calc($col-gap * 1.5);
+$padding-x-lg: calc($col-gap * 3);
 
-$padding-y-sm: clamp(2.25rem, 2.5vh, 25rem);
-$padding-y-md: clamp(1.2rem, 6vh, 25rem);
-$padding-y-lg: clamp(1.75rem, 12vh, 25rem);
-
-$navbar-height: calc($padding-x-sm * 2 + $font-size-base * $line-height-base);
-$navbar-height-sm: calc(1.2rem * 2 + $font-size-base * $line-height-base);
+$padding-y-sm: $row-gap;
+$padding-y-md: calc($row-gap * 1.5);
+$padding-y-lg: calc($row-gap * 3);
 
 $gray: #ddd;
 $black: #191919;
-$magenta: rgb(150, 0, 200);
-$green: rgb(71, 221, 39);
+$red: #e42528;
+$white: #fff;

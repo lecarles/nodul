@@ -1,7 +1,9 @@
 <template>
   <div id="smooth-wrapper">
     <div id="smooth-content">
+      <navbar />
       <slot/>
+      <app-footer class="p-md" />
     </div>
   </div>
 </template>

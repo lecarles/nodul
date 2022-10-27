@@ -2,65 +2,57 @@
 import gsap from 'gsap'
 import { ref, onMounted } from 'vue'
 
-const showRed = ref(true)
-
-function toggleRed () {
-  showRed.value = !showRed.value
-}
-
 onMounted(() => {
-  gsap.from('.items', {
-    opacity: 0,
-    duration: 3
-  })
+  console.log('moputn')
 })
 
-const config = useRuntimeConfig()
+const today = new Date().toISOString()
 
 const { data } = await useAsyncData('article', async (nuxtApp) => {
   const { $contentfulClient } = nuxtApp
-  return await $contentfulClient.getEntries({
-    content_type: 'project',
+  const entries = await $contentfulClient.getEntries({
+    content_type: 'acte',
   })
-})
+  const ordered = entries.items.sort(function(a,b){
+    return a.fields.date.localeCompare(b.fields.date)
+  })
 
-const items = data.value.items
+  const filtered = ordered.filter(entry => entry.fields.date > today)
+  if (filtered.length > 0) {
+    return filtered
+  } else {
+    return array.slice(0, 4);
+  }
+})
 </script>
 
 <template>
   <div>
-    <nuxt-link to="/narrativa">narrativa</nuxt-link>
-    <button @click="toggleRed">Toggle Red</button>
-    <div class="red" v-show="showRed">
+    <div class="agenda-grid grid-5">
+      <agenda-event v-for="event in data" :event="event" :key="event.sys.id"/>
     </div>
-    <div class="items">
-      {{ items }}
+    <div class="about p-md">
+      <h2 class="color-white mb-auto">Som una associació cultural sense finalitat lucrativa que treballa des del 1983 per la promoció i ús del valencià i la difusió de la cultura del País Valencià.</h2>
     </div>
-    <div class="blue">
-    </div>
-    <div>end</div>
   </div>
 </template>
 
 <style scoped lang="scss">
-.red {
-  background: purple;
-  height: 800px;
-  width: 300px;
-  font-size: $font-size-lg;
+.agenda-grid {
+  justify-items: start;
+  padding: $padding-y-md $padding-x-md $padding-y-md;
+  height: calc(100vh - 4rem);
+}
 
-  .hi {
-    color: black;
+.about {
+  display: flex;
+  flex-direction: column;
+  background: $red;
+  justify-items: start;
+  height: 80vh;
+
+  h2 {
+    max-width: 22ch;
   }
-}
-
-button {
-  font-size: $font-size-lg;
-}
-
-.blue {
-  background: blue;
-  height: 900px;
-  width: 300px;
 }
 </style>
