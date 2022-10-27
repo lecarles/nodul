@@ -7,32 +7,29 @@
             ○ 19:00
           </div>
           <div class="agenda-full-info-time">
-            ● {{event.fields.place}}
+            ● asdgasd
           </div>
         </div>
         <div class="agenda-full-date font-size-lg mb-row">11.3</div>
       </div>
       <div class="agenda-full-img"></div>
-      <div class="agenda-full-title font-size-lg a-self-end">{{event.fields.title}}</div>
+      <div class="agenda-full-title font-size-lg a-self-end">asfd</div>
     </div>
     <div class="agenda-full-info">
       <div class="agenda-info-prim font-size-md">
-        {{event.fields.info1}}
+        wgfds
       </div>
       <div class="agenda-info-second">
-        {{event.fields.info2}}
+        sadg
       </div>
       <div class="agenda-info-links font-size-md">
-        {{event.fields.links}}
+        asdg
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-const props = defineProps({
-  event: Object,
-})
 </script>
 
 <style lang="scss" scoped>
