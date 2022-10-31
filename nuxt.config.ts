@@ -1,11 +1,13 @@
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
   runtimeConfig: {
-    private: {
-      CONTENTFUL_SPACE_ID: process.env.CONTENTFUL_SPACE_ID,
-      CONTENTFUL_ACCESS_TOKEN: process.env.CONTENTFUL_ACCESS_TOKEN,
-      GSAP_TOKEN: process.env.GSAP_TOKEN
-    },
+    kontent: {
+      projectId: process.env.KONTENT_PROJECT_ID,
+      previewApiKey: process.env.KONTENT_PREVIEW_KEY,
+      defaultQueryConfig: {
+        usePreviewMode: true
+    }
+  }
   },
   build: {
     transpile: ['gsap']
@@ -13,6 +15,7 @@ export default defineNuxtConfig({
   css: [
     '@/assets/scss/main.scss'
   ],
+  modules: [['@storyblok/nuxt', { accessToken: 'mEjjNiDdoKMNjC6QSOafmgtt' }]],
   vite: {
     css: {
       preprocessorOptions: {

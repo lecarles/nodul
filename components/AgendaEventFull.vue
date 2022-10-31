@@ -17,7 +17,7 @@
     </div>
     <div class="agenda-full-info">
       <div class="agenda-info-prim font-size-md">
-        wgfds
+        {{data}}
       </div>
       <div class="agenda-info-second">
         sadg
@@ -30,6 +30,9 @@
 </template>
 
 <script setup>
+const props = defineProps({
+  id: String,
+})
 </script>
 
 <style lang="scss" scoped>

@@ -13,7 +13,7 @@
     "sass-loader": "^10.3.1"
   },
   "dependencies": {
-    "contentful": "^9.2.5",
+    "@storyblok/nuxt": "^4.4.2",
     "gsap": "npm:@gsap/shockingly@^3.11.3"
   }
 }
