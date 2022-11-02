@@ -10,8 +10,8 @@
       <div class="mb-1">Activitats</div>
       <div class="grid-3 a-items-start">
         <div>
-          <nuxt-link to="/agenda">Agenda completa</nuxt-link>
-          <nuxt-link to="/volta">Volta a peu</nuxt-link>
+          <div>Agenda completa</div>
+          <div>Volta a peu</div>
           <nuxt-link to="/narrativa">Concurs de narrativa</nuxt-link>
           <div>La 49</div>
         </div>

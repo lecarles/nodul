@@ -195,6 +195,11 @@
 
 .bg-red {
   background-color: $red;
+  color: $white;
+
+  a {
+    color: $white;
+  }
 }
 
 .color-white {

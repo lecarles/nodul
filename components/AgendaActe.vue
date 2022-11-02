@@ -1,14 +1,14 @@
 <template>
-  <nuxt-link :to="'/events/' + event.fields.slug" class="agenda-event">
+  <nuxt-link :to="'/actes/' + acte.slug" class="agenda-event">
     <div class="agenda-date font-size-xl mb-row">{{day}}.{{month}}</div>
-    <agenda-image :file="event.fields.image.fields.file" :poster="event.fields.cartell" />
-    <div class="agenda-title font-size-md">{{event.fields.title}}</div>
+    <agenda-image :file="acte.content.image" :poster="acte.content.isPoster" />
+    <div class="agenda-title font-size-md">{{acte.content.title}}</div>
     <div class="agenda-info mt-auto">
       <div class="agenda-info-place">
         ○ {{time}}
       </div>
       <div class="agenda-info-time">
-        ● {{event.fields.place}}
+        ● {{acte.content.place}}
       </div>
     </div>
     <div class="agenda-more-info mt-row">
@@ -19,14 +19,10 @@
 
 <script setup>
 const props = defineProps({
-  event: Object,
+  acte: Object,
 })
 
-const date = new Date(props.event.fields.date)
-const year =  date.getFullYear()
-const month = date.getMonth()+1
-const day = date.getDate()
-const time = `${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}`
+const { year, month, day, time } = useDateFormatter(props.acte.content.date)
 </script>
 
 <style lang="scss" scoped>

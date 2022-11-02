@@ -1,7 +1,7 @@
 <template>
   <div :class="['agenda-image-container mb-row', {'agenda-poster' : poster }]" :style="file.description">
-    <img class="agenda-image" :src="file.url" :alt="file.title">
-    <img class="agenda-bg" :src="file.url">
+    <img class="agenda-image" :src="file.filename" :alt="file.alt">
+    <img class="agenda-bg" :src="file.filename">
   </div>
 </template>
 

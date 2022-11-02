@@ -4,26 +4,26 @@
       <div class="agenda-full-header-info">
         <div class="mr-auto font-size-md"> 
           <div class="agenda-full-info-place">
-            ○ 19:00
+            ○ {{acte.content.place}}
           </div>
           <div class="agenda-full-info-time">
-            ● asdgasd
+            ● {{time}}
           </div>
         </div>
-        <div class="agenda-full-date font-size-lg mb-row">11.3</div>
+        <div class="agenda-full-date font-size-lg mb-row">{{day}}.{{month}}</div>
       </div>
       <div class="agenda-full-img"></div>
-      <div class="agenda-full-title font-size-lg a-self-end">asfd</div>
+      <div class="agenda-full-title font-size-lg a-self-end">{{acte.content.title}}</div>
     </div>
     <div class="agenda-full-info">
       <div class="agenda-info-prim font-size-md">
-        {{data}}
+        {{acte.content.detailsPrimary}}
       </div>
       <div class="agenda-info-second">
-        sadg
+        {{acte.content.detailsSecondary}}
       </div>
       <div class="agenda-info-links font-size-md">
-        asdg
+        {{acte.content.links}}
       </div>
     </div>
   </div>
@@ -31,8 +31,10 @@
 
 <script setup>
 const props = defineProps({
-  id: String,
+  acte: Object,
 })
+
+const { year, month, day, time } = useDateFormatter(props.acte.content.date)
 </script>
 
 <style lang="scss" scoped>
@@ -41,8 +43,8 @@ const props = defineProps({
   display: grid;
   grid-template-rows: 1.35fr 1fr;
   padding: $padding-x-md;
-  background: $red;
   color: $white;
+  background: $red;
 
   &-header {
     display: grid;
