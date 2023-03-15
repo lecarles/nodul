@@ -1,0 +1,61 @@
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  font-family: $font-family-sans;
+  font-weight: $font-weight;
+  font-size: $font-size-sm;
+  color: $red;
+  letter-spacing: -0.01em;
+}
+
+
+p, .p {
+  font-family: $font-family-sans;
+  font-size: $font-size-sm;
+  line-height: 1.6;
+  font-weight: $font-weight;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+a {
+  text-decoration: none;
+  color: $red;
+}
+
+h1, .font-size-xl {
+  font-family: $font-family-sans;
+  font-size: $font-size-xl;
+  line-height: .8;
+  letter-spacing: -0.04em;
+  font-weight: $font-weight;
+  margin: 0;
+}
+
+.font-size-lg, h2 {
+  font-family: $font-family-sans;
+  font-size: $font-size-lg;
+  font-weight: $font-weight;
+  letter-spacing: -0.025em;
+  margin: 0;
+  line-height: 1;
+}
+
+.font-size-md, h3 {
+  font-family: $font-family-sans;
+  font-size: $font-size-md;
+  font-weight: $font-weight;
+  letter-spacing: -0.015em;
+  line-height: 1.1;
+  margin: 0;
+}
