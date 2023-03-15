@@ -1,30 +1,17 @@
 <template>
   <div class="agenda-grid grid-5">
-    <agenda-acte v-for="acte in actes" :acte="acte" :key="acte.uuid"/>
+    <nuxt-link :to="'project/' + project.slug" v-for="project in data.stories" :key="project.id">{{project.name}}</nuxt-link>
+    <span>{{ data }}</span>
   </div>
 </template>
 
 <script setup>
-const today = new Date().toISOString()
 const actes = ref(null)
 const storyblokApi = useStoryblokApi()
 const { data } = await storyblokApi.get('cdn/stories', {
   version: 'draft',
-  starts_with: 'actes',
+  starts_with: 'project',
 })
-
-actes.value = data.stories
-
-const ordered = actes.value.sort(function(a,b){
-  return a.content.date.localeCompare(b.content.date)
-})
-
-const filtered = ordered.filter(acte => acte.content.date > today)
-if (filtered.length > 0) {
-  actes.value = filtered
-} else {
-  actes.value = array.slice(0, 4);
-}
 </script>
 
 <style lang="scss" scoped>

@@ -1,46 +1,6 @@
 <template>
   <div class="footer color-white font-size-sm">
-    <div class="xarxes">
-      <div class="mb-1">Xarxes</div>
-      <a href="https://www.instagram.com/ac9octubre/">Instagram</a>
-      <a href="https://twitter.com/cultural_9">Twitter</a>
-      <a href="">Facebook</a>
-    </div>
-    <div class="activitats">
-      <div class="mb-1">Activitats</div>
-      <div class="grid-3 a-items-start">
-        <div>
-          <div>Agenda completa</div>
-          <div>Volta a peu</div>
-          <nuxt-link to="/narrativa">Concurs de narrativa</nuxt-link>
-          <div>La 49</div>
-        </div>
-        <div>
-          <a href="https://castellvilamarxant.com">El Castell</a>
-          <div>Jornades d'història</div>
-          <div>Literatura</div>
-          <div>Concerts</div>
-        </div>  
-        <div>
-          <div>Música Tradicional</div>
-          <div>Estellés a Vilamarxant</div>
-          <div>Documental 30 Anys</div>
-          <div>Concerts</div>
-        </div>
-      </div>
-    </div>
-    <div class="contacte">
-      <div class="mb-1">Contacte</div>
-      <div class="soci">Fes-te soci/sòcia</div>
-      <div>ac9octubre@gmail.com</div>
-      <div>C/Font Nova, 6</div>
-      <div>Vilamarxant, València</div>
-    </div>
-    <div class="logos a-self-end">
-      <img src="@/assets/logos/logo-ac9o.svg" alt="Associació Cultural 9 d'Octubre">
-      <img src="@/assets/logos/gva.svg" alt="Conselleria de Cultura">
-      <img src="@/assets/logos/sempreteua.svg" alt="Sempre Teua">
-    </div>
+    footer
   </div>
 </template>
 
