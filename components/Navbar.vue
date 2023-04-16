@@ -1,17 +1,18 @@
 <template>
-  <div :class="['navbar font-size-md']">
-    <nuxt-link to="/" class="mr-auto">Sergi Aroca</nuxt-link>
-    <nuxt-link to="/narrativa">hola@sergiaroca.com</nuxt-link>
+  <div class="navbar grid-5">
+    <nuxt-link to="/">Sergi Aroca</nuxt-link>
+    <nuxt-link to="/projects" class="col-2">Projectes</nuxt-link>
+    <a class="col-5 text-right" href="mailto:hola@sergiaroca.com">hola@sergiaroca.com</a>
   </div>
 </template>
 
 <style lang="scss">
 .navbar {
-  height: 4rem;
-  display: flex;
-  align-items: center;
-  padding: .75rem $padding-x-md;
+  position: absolute;
+  top: 0;
+  padding: $padding-x-md $padding-x-md 0;
   gap: $col-gap;
+  line-height: .8;
   width: 100%;
 }
 </style>

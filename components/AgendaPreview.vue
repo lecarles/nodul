@@ -1,12 +1,10 @@
 <template>
-  <div class="agenda-grid grid-5">
-    <nuxt-link :to="'project/' + project.slug" v-for="project in data.stories" :key="project.id">{{project.name}}</nuxt-link>
-    <span>{{ data }}</span>
+  <div class="project-grid">
+    <project-link :project="project" :i="i" v-for="(project, i) in data.stories" :key="project._uuid"></project-link>
   </div>
 </template>
 
 <script setup>
-const actes = ref(null)
 const storyblokApi = useStoryblokApi()
 const { data } = await storyblokApi.get('cdn/stories', {
   version: 'draft',
@@ -15,9 +13,15 @@ const { data } = await storyblokApi.get('cdn/stories', {
 </script>
 
 <style lang="scss" scoped>
-.agenda-grid {
+.project-grid {
+  margin: 15vh 0;
+  display: grid;
+  gap: 1.5rem;
+  width: 100%;
+  text-align: center;
   justify-items: start;
   padding: $padding-y-md $padding-x-md $padding-y-md;
-  height: calc(100vh - 4rem);
 }
+
+
 </style>

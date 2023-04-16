@@ -193,14 +193,6 @@
   color: $white;
 }
 
-.bg-red {
-  background-color: $red;
-  color: $white;
-
-  a {
-    color: $white;
-  }
-}
 
 .color-white {
   color: $white;
@@ -209,11 +201,6 @@
 .color-black {
   color: $black;
 }
-
-.color-red {
-  color: $red;
-}
-
 
 @media (min-width: $md-breakpoint) {
   .md-d-flex {

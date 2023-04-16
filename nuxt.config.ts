@@ -6,7 +6,7 @@ export default defineNuxtConfig({
   css: [
     '@/assets/scss/main.scss'
   ],
-  modules: [['@storyblok/nuxt', { accessToken: process.env.STORYBLOK_TOKEN }]],
+  modules: [['@storyblok/nuxt', { accessToken: process.env.STORYBLOK_TOKEN },], '@pinia/nuxt'],
   vite: {
     css: {
       preprocessorOptions: {

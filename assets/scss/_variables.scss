@@ -7,13 +7,13 @@ $sm-breakpoint: 950px;
 $md-breakpoint: 950px;
 $xl-breakpoint: 1600px;
 
-$font-size-sm: clamp(1rem, 1vw, 1.2rem);
+$font-size-sm: clamp(1.2rem, 1.5vw, 1.4rem);
 $font-size-md: clamp(1.2rem, 1.4vw, 1.4rem);
 $font-size-lg: clamp(2.5rem, 4vw, 5rem);
 $font-size-xl: clamp(3.5rem, 6vw, 6.25rem);
 
 $line-height-base: 1.15;
-$font-family-sans: "Uncut Sans", sans-serif;
+$font-family-sans: "Neue Montreal", sans-serif;
 $font-weight: 440;
 
 $padding-x-sm: $col-gap;
@@ -24,7 +24,8 @@ $padding-y-sm: $row-gap;
 $padding-y-md: calc($row-gap * 1.5);
 $padding-y-lg: calc($row-gap * 3);
 
+$navbar-height: calc($font-size-sm * 0.8 + $padding-x-md);
+
 $gray: #ddd;
 $black: #191919;
-$red: #e42528;
 $white: #fff;
