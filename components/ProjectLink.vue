@@ -1,9 +1,9 @@
 <template>
   <nuxt-link class="project-item" @mousemove="handleMove($event)" :to="'project/' + project.slug" @mouseenter="handleEnter()" @mouseleave="handleLeave()">
     <div class="project-item-title">
-      <div class="project-item-data-left">{{ projectNumber }}</div>
+      <div class="project-item-data-left">{{ year }}</div>
       <div class="project-item-name">{{project.content.name}}</div>
-      <div class="project-item-data-right">{{ year }}</div>
+      <div class="project-item-data-right">{{ projectNumber }}</div>
     </div>
     <div ref="imageWrap" class="project-item-img-wrapper">
       <img ref="image" :src="project.content.featuredPhoto.filename +'/m/1200x0'" alt="">
@@ -76,8 +76,8 @@ function handleMove(e) {
   const cursorX = e.clientX/sergiStore.windowSize.x - 0.5
   const cursorY = e.clientY/sergiStore.windowSize.y - 0.5
   console.log(cursorX, cursorY)
-  xTo((cursorX * e.clientX) * 0.8)
-  yTo((cursorY * e.clientY) * 0.1)
+  xTo(cursorX * sergiStore.windowSize.x * 0.25)
+  yTo(cursorY * sergiStore.windowSize.y * 0.1)
 }
 
 function handleEnter() {
