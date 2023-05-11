@@ -56,6 +56,30 @@
   margin-bottom: $row-gap;
 }
 
+.mt-row-2 {
+  margin-top: calc($row-gap * 2);
+}
+
+.mb-row-2 {
+  margin-bottom: calc($row-gap * 2);
+}
+
+.mt-row-3 {
+  margin-top: calc($row-gap * 3);
+}
+
+.mb-row-3 {
+  margin-bottom: calc($row-gap * 3);
+}
+
+.mt-row-4 {
+  margin-top: calc($row-gap * 4);
+}
+
+.mb-row-4 {
+  margin-bottom: calc($row-gap * 4);
+}
+
 .ml-col {
   margin-left: $col-gap;
 }
@@ -200,6 +224,10 @@
 
 .color-black {
   color: $black;
+}
+
+.image {
+  width: 100%;
 }
 
 @media (min-width: $md-breakpoint) {

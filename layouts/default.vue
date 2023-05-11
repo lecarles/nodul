@@ -1,8 +1,9 @@
 <template>
   <div>
-    <navbar />
     <div id="smooth-wrapper">
       <div id="smooth-content">
+
+        <navbar />
         <slot/>
       </div>
     </div>

@@ -70,13 +70,6 @@
   align-items: center;
 }
 
-
-@media (min-width: $xl-breakpoint) {
-  .grid-4 {
-    grid-template-columns: 350px 1fr 1fr 350px;
-  }
-}
-
 @media (min-width: $sm-breakpoint) and (max-width: $md-breakpoint) {
   .grid-6 {
     grid-template-columns: repeat(3, 1fr);
