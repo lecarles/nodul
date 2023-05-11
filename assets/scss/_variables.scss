@@ -7,6 +7,7 @@ $sm-breakpoint: 950px;
 $md-breakpoint: 950px;
 $xl-breakpoint: 1600px;
 
+$font-size-xs: clamp(1.05rem, 1.25vw, 1.2rem);
 $font-size-sm: clamp(1.2rem, 1.5vw, 1.6rem);
 $font-size-md: clamp(1.6rem, 3vw, 2rem);
 $font-size-lg: clamp(2.5rem, 4vw, 5rem);

@@ -17,6 +17,14 @@ html {
   letter-spacing: -0.01em;
 }
 
+.font-size-xs {
+  font-family: $font-family-sans;
+  font-size: $font-size-xs;
+  line-height: 1.4;
+  font-weight: $font-weight;
+  margin: 0;
+}
+
 
 p, .p, .font-size-sm {
   font-family: $font-family-sans;

@@ -8,14 +8,14 @@
       <span>1</span>
     </animated-separator>
     <div class="about-section p-md">
-      <div class="about-lema mt-row">
+      <div class="about-lema mt-1">
         <div class="font-size-xl"><gsap-lines id="pertot">Per tot allò</gsap-lines></div>
         <div class="font-size-xl font-serif"><gsap-lines id="cor">que tens al cor</gsap-lines></div>
       </div>
       <div class="mt-row-2 mb-row-3 about-image">
         <img class="span-2-row" src="@/assets/grupal-lowres.jpg" alt="">
       </div>
-      <div class="grid-3 mb-row-2">
+      <div class="grid-3 mb-row-3">
         <div>
           <div class="font-size-sm about-texts">Un sèrie de propostes per tot allò que tens al cor, que podrem fer realitat amb tu a partir del 28 de maig</div>
           <gsap-button class="mt-1 font-size-md" id="programa"><a href="#"><span>Programa</span><span class="ml-auto">→</span></a></gsap-button>        </div>
@@ -30,13 +30,13 @@
       </div>
     </div>
     <animated-separator class="programa-separator" id="programa">
-      <span class="mr-auto">Programa</span>
-      <span>①</span>
+      <span class="mr-auto font-size-xs">Programa</span>
+      <span>1</span>
     </animated-separator>
-    <div class="programa mt-row-3">
+    <div class="programa mt-1">
       <div class="programa-section" v-for="section in data.stories" :key="section._uid">
-        <div class="programa-sticky">
-          <div class="font-size-lg p-md mb-auto">{{section.content.title}}</div>
+        <div class="programa-sticky p-md">
+          <div class="font-size-lg mb-auto">{{section.content.title}}</div>
           <video :src="section.content.video.filename" autoplay muted></video>
         </div>
         <div class="programa-mesures p-md">
@@ -49,8 +49,8 @@
       </div>
     </div>
     <animated-separator id="candidates">
-      <span class="mr-auto">La llista</span>
-      <span>②</span>
+      <span class="mr-auto font-size-xs">La llista</span>
+      <span>2</span>
     </animated-separator>
     <div class="p-md candidates-section mb-row-2">
       <div class="grid-2 font-size-md mt-row">
@@ -77,8 +77,8 @@
       </div>
     </div>
     <animated-separator>
-      <span class="mr-auto">Participa</span>
-      <span>③</span>
+      <span class="mr-auto font-size-xs">Participa</span>
+      <span>3</span>
     </animated-separator>
     <div class="p-md grid-3 contact-section mt-row" id="contact">
       <div class="font-size-md span-2-col">Tu també pots formar part d'Acord per Vilamarxant</div>
@@ -89,7 +89,7 @@
         <a href="https://www.facebook.com/acordvilamarxant/">Facebook</a>
         <a href="https://www.tiktok.com/@acordpervilamarxant">Tiktok</a>
       </div>
-      <img src="@/assets/logo-tots.svg" class="span-2-col j-self-end a-self-end" alt="">
+      <img src="@/assets/logo-tots.svg" class="span-2-col j-self-end a-self-end mt-row" alt="">
     </div>
   </div>
 </template>
@@ -111,7 +111,7 @@ const candidates = await storyblokApi.get('cdn/stories/', {
 
 <style lang="scss">
 .intro-section {
-  height: 80vh;
+  height: 75vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -167,8 +167,6 @@ const candidates = await storyblokApi.get('cdn/stories/', {
   .programa-sticky {
     height: 100vh;
     width: 100%;
-    position: sticky;
-    top: 0;
     display: flex;
     flex-direction: column;
 
@@ -256,6 +254,12 @@ const candidates = await storyblokApi.get('cdn/stories/', {
 #pertot {
   .gsap-line-parent {
     padding: 0;
+  }
+}
+
+.programa-separator {
+  .separator {
+    background: transparent;
   }
 }
 </style>
