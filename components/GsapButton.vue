@@ -38,7 +38,6 @@ onMounted(() => {
   gsap.registerPlugin(CustomEase)
 
   setupTimeline()
-  console.log('mount button')
 })
 
 

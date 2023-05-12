@@ -21,11 +21,11 @@
           <gsap-button class="mt-1 font-size-md" id="list"><a href="#"><span>Coneix-nos</span><span class="ml-auto">→</span></a></gsap-button>
         </div>
         <div>
-          <gsap-image delay="0.1"><div class="font-size-sm about-texts">Un sèrie de propostes per tot allò que tens al cor, que podrem fer realitat amb tu a partir del 28 de maig</div></gsap-image>
+          <gsap-image :delay="0.1"><div class="font-size-sm about-texts">Un sèrie de propostes per tot allò que tens al cor, que podrem fer realitat amb tu a partir del 28 de maig</div></gsap-image>
           <gsap-button class="mt-1 font-size-md" id="programa"><a href="#"><span>Programa</span><span class="ml-auto">→</span></a></gsap-button>        
         </div>
         <div>
-          <gsap-image delay="0.2"><div class="font-size-sm about-texts">Parla amb nosaltres i assabenta't de la campanya. Para'ns pel carrer per a xarrar o segueix-nos a les xarxes</div></gsap-image>
+          <gsap-image :delay="0.2"><div class="font-size-sm about-texts">Parla amb nosaltres i assabenta't de la campanya. Para'ns pel carrer per a xarrar o segueix-nos a les xarxes</div></gsap-image>
           <gsap-button class="mt-1 font-size-md" id="list"><a href="#"><span>Participa</span><span class="ml-auto">→</span></a></gsap-button>
         </div>
       </div>
@@ -85,7 +85,13 @@
 
 
 <script setup>
-import { computed } from 'vue'
+useSeoMeta({
+  title: 'Acord per Vilamarxant - Compromís + Podem + Esquerra Unida',
+  ogTitle: 'Acord per Vilamarxant - Compromís + Podem + Esquerra Unida',
+  description: "Acord per Vilamarxant és la coalició d'esquerres per Vilamarxant. El 28M, vota per tot allò que tens al cor. ",
+  ogDescription: "Acord per Vilamarxant és la coalició d'esquerres per Vilamarxant. El 28M, vota per tot allò que tens al cor. ",
+  ogImage: 'https://a.storyblok.com/f/229615/1200x630/5a5953c342/artboard-1.png',
+})
 
 const storyblokApi = useStoryblokApi()
 const { data } = await storyblokApi.get('cdn/stories/', {

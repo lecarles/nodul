@@ -1,5 +1,5 @@
 <template>
-  <div class="gsap-image" :id="id" ref="gsapImage">
+  <div class="gsap-image" ref="gsapImage">
     <slot></slot>
   </div>
 </template>
@@ -14,20 +14,20 @@ let anim = null
 const gsapImage = ref(null)
 
 const props = defineProps({
-  id: {
-    type: String,
-    default: ''
+  delay: {
+    type: Number,
+    default: 0
   },
 })
 
 onMounted(() => {
   gsap.registerPlugin(ScrollTrigger)
   gsap.registerPlugin(CustomEase)
-  animateLetters()
+  animate()
 })
 
-function animateLetters() {
-  anim = gsap.timeline({scrollTrigger: gsapImage.value, defaults: { ease: CustomEase.create("custom", "M0,0,C0.084,0.6,0.194,0.892,0.548,0.968,0.667,0.993,0.831,1,1,1"),}})
+function animate() {
+  anim = gsap.timeline({scrollTrigger: gsapImage.value, delay: props.delay, defaults: { ease: CustomEase.create("custom", "M0,0,C0.084,0.6,0.194,0.892,0.548,0.968,0.667,0.993,0.831,1,1,1"),}})
   anim.to(gsapImage.value, {
     opacity: 1,
     duration: .1

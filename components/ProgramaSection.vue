@@ -33,29 +33,12 @@ const props = defineProps({
 
 onMounted(() => {
   gsap.registerPlugin(ScrollTrigger)
-
-  let mm = gsap.matchMedia()
-    mm.add("(min-width: 950px)", () => {
-
     let st = ScrollTrigger.create({
       trigger: section.value,
       pin: sticky.value,
       start: "top top",
       end: 'bottom bottom'
-    })  
-
-    return () => {
-      st.kill()
-    }
-  })
-  mm.add("(max-width: 949px)", () => {
-    let st = ScrollTrigger.create({
-      trigger: section.value,
-      pin: sticky.value,
-      start: "top top",
-      end: 'bottom bottom'
-    }) 
-  })
+    })
 })
 </script>
 
@@ -113,7 +96,7 @@ onMounted(() => {
     .programa-sticky {
       display: flex;
       align-items: flex-end;
-      height: 100vh;
+      height: calc(var(--vh, 1vh) * 100);
       display: grid;
       grid-template-columns: 1fr;
       z-index: 1;
