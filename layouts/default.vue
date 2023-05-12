@@ -31,7 +31,7 @@ onMounted(() => {
 
 function onResize() {
   sergiStore.setWindowSize({x: window.innerWidth,  y: window.innerHeight})
-  let vh = window.innerHeight * 0.1
+  let vh = window.innerHeight * 0.01
   document.documentElement.style.setProperty('--vh', `${vh}px`);
 }
 </script>

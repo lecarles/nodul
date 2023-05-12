@@ -97,6 +97,8 @@ onMounted(() => {
       display: flex;
       align-items: flex-end;
       height: 100vh;
+      height: calc(var(--vh, 1vh) * 100);
+      box-sizing: border-box;
       display: grid;
       grid-template-columns: 1fr;
       z-index: 1;
