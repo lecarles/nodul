@@ -34,19 +34,7 @@
       <span>1</span>
     </animated-separator>
     <div class="programa mt-1">
-      <div class="programa-section" v-for="section in data.stories" :key="section._uid">
-        <div class="programa-sticky p-md">
-          <div class="font-size-lg mb-auto">{{section.content.title}}</div>
-          <video :src="section.content.video.filename" autoplay muted></video>
-        </div>
-        <div class="programa-mesures p-md">
-          <div v-for="mesura in section.content.starred" :key="mesura._uuid">
-            <div class="font-size-sm">{{ mesura.overtitle }}</div>
-            <div class="font-size-md mb-row">{{ mesura.title }}</div>
-          </div>
-          <div class="font-size-sm" v-html="renderRichText(section.content.list)"></div>
-        </div>
-      </div>
+      <programa-section v-for="section in data.stories" :key="section._uid" :section="section" />
     </div>
     <animated-separator id="candidates">
       <span class="mr-auto font-size-xs">La llista</span>
@@ -154,48 +142,6 @@ const candidates = await storyblokApi.get('cdn/stories/', {
   background: black;
 }
 
-.programa-section {
-  display: grid;
-  grid-template-columns: .6fr 1fr;
-  gap: $col-gap;
-
-  .programa-mesures {
-    max-width: 60%;
-    margin: 0 auto;
-  }
-
-  .programa-sticky {
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-
-    video {
-      width: 100%;
-    }
-  }
-
-  ol {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    transform: translateX(calc(($col-gap * -1) - 20px));
-
-    li {
-      display: grid;
-      grid-template-columns: 20px 1fr;
-      gap: $col-gap;
-      counter-increment: item;
-      margin-bottom: .8rem;
-    }
-
-    li::before {
-      text-align: right;
-      content: counter(item);
-    }
-  }
-}
-
 .candidates-section {
   .candidates-text {
     max-width: 45ch;
@@ -223,24 +169,6 @@ const candidates = await storyblokApi.get('cdn/stories/', {
 }
 
 @media (max-width: $sm-breakpoint)  {
-  .programa-section {
-    grid-template-columns: 1fr;
-
-    .programa-sticky {
-      height: auto;
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-    }
-
-    .programa-mesures {
-      max-width: 100%;
-    }
-
-    ol {
-      transform: none;
-    }
-  }
-
   .contact-section {
     img {
       height: auto;
