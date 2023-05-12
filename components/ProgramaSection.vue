@@ -33,29 +33,12 @@ const props = defineProps({
 
 onMounted(() => {
   gsap.registerPlugin(ScrollTrigger)
-
-  let mm = gsap.matchMedia()
-    mm.add("(min-width: 950px)", () => {
-
     let st = ScrollTrigger.create({
       trigger: section.value,
       pin: sticky.value,
       start: "top top",
       end: 'bottom bottom'
     })  
-
-    return () => {
-      st.kill()
-    }
-  })
-  mm.add("(max-width: 949px)", () => {
-    let st = ScrollTrigger.create({
-      trigger: section.value,
-      pin: sticky.value,
-      start: "top top",
-      end: 'bottom bottom'
-    }) 
-  })
 })
 </script>
 
