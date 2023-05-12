@@ -10,9 +10,9 @@
 
 <style lang="scss">
 .navbar {
+  box-sizing: border-box;
   display: flex;
   padding: $padding-x-md;
-  gap: $col-gap;
   line-height: .8;
   width: 100%;
   z-index: 200;

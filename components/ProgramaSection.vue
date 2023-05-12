@@ -1,15 +1,16 @@
 <template>
   <div class="programa-section" ref="section">
-    <div class="programa-sticky p-md" ref="sticky">
-      <div class="font-size-lg mb-auto">{{props.section.content.title}}</div>
-      <video :src="props.section.content.video.filename" autoplay muted></video>
+    <div class="programa-sticky" ref="sticky">
+      <div class="font-size-lg mb-auto sm-d-none">{{props.section.content.title}}</div>
+      <video :src="props.section.content.video.filename" playsinline autoplay muted></video>
     </div>
-    <div class="programa-mesures p-md">
+    <div class="programa-mesures">
+      <div class="font-size-lg mb-row md-d-none">{{props.section.content.title}}</div>
       <div v-for="mesura in props.section.content.starred" :key="mesura._uuid">
-        <div class="font-size-sm">{{ mesura.overtitle }}</div>
-        <div class="font-size-md mb-row">{{ mesura.title }}</div>
+        <div class="font-size-md">{{ mesura.title }}</div>
+        <div class="font-size-sm mt-1 mb-row">{{ mesura.overtitle }}</div>
       </div>
-      <div class="font-size-sm" v-html="renderRichText(props.section.content.list)"></div>
+      <div class="font-size-sm mt-row-2" v-html="renderRichText(props.section.content.list)"></div>
     </div>
   </div>
 </template>
@@ -32,12 +33,28 @@ const props = defineProps({
 
 onMounted(() => {
   gsap.registerPlugin(ScrollTrigger)
-  
-  let st = ScrollTrigger.create({
-    trigger: section.value,
-    pin: sticky.value,
-    start: "top top",
-    end: 'bottom bottom'
+
+  let mm = gsap.matchMedia()
+    mm.add("(min-width: 950px)", () => {
+
+    let st = ScrollTrigger.create({
+      trigger: section.value,
+      pin: sticky.value,
+      start: "top top",
+      end: 'bottom bottom'
+    })  
+
+    return () => {
+      st.kill()
+    }
+  })
+  mm.add("(max-width: 949px)", () => {
+    let st = ScrollTrigger.create({
+      trigger: section.value,
+      pin: sticky.value,
+      start: "top top",
+      end: 'bottom bottom'
+    }) 
   })
 })
 </script>
@@ -51,6 +68,7 @@ onMounted(() => {
   .programa-mesures {
     max-width: 60%;
     margin: 0 auto;
+    padding: $padding-x-md;
   }
 
   .programa-sticky {
@@ -59,6 +77,7 @@ onMounted(() => {
     display: flex;
     flex-direction: column;
     height: 100vh;
+    padding: $padding-x-md;
 
     video {
       width: 100%;
@@ -89,15 +108,23 @@ onMounted(() => {
 @media (max-width: $sm-breakpoint)  {
   .programa-section {
     grid-template-columns: 1fr;
+    position: relative;
 
     .programa-sticky {
-      height: auto;
+      display: flex;
+      align-items: flex-end;
+      height: 100vh;
       display: grid;
-      grid-template-columns: 2fr 1fr;
+      grid-template-columns: 1fr;
+      z-index: 1;
+      position: absolute;
+      top: 0;
+      padding: 0;
     }
 
     .programa-mesures {
       max-width: 100%;
+      z-index: 2;
     }
 
     ol {

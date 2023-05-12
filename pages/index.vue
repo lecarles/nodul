@@ -13,18 +13,19 @@
         <div class="font-size-xl font-serif"><gsap-lines id="cor">que tens al cor</gsap-lines></div>
       </div>
       <div class="mt-row-2 mb-row-3 about-image">
-        <img class="span-2-row" src="@/assets/grupal-lowres.jpg" alt="">
+        <gsap-image><img class="span-2-row" src="@/assets/grupal-lowres.jpg" alt=""></gsap-image>
       </div>
       <div class="grid-3 mb-row-3">
         <div>
-          <div class="font-size-sm about-texts">Un sèrie de propostes per tot allò que tens al cor, que podrem fer realitat amb tu a partir del 28 de maig</div>
-          <gsap-button class="mt-1 font-size-md" id="programa"><a href="#"><span>Programa</span><span class="ml-auto">→</span></a></gsap-button>        </div>
-        <div>
-          <div class="font-size-sm about-texts">Acord per Vilamarxant som Compromís, Podem i Esquerra Unida units en una coalició d’esquerres històrica al nostre poble.</div>
+          <gsap-image><div class="font-size-sm about-texts">Acord per Vilamarxant som Compromís, Podem i Esquerra Unida units en una coalició d’esquerres històrica al nostre poble.</div></gsap-image>
           <gsap-button class="mt-1 font-size-md" id="list"><a href="#"><span>Coneix-nos</span><span class="ml-auto">→</span></a></gsap-button>
         </div>
         <div>
-          <div class="font-size-sm about-texts">Parla amb nosaltres i assabenta't de la campanya. Para'ns pel carrer per a xarrar o segueix-nos a les xarxes</div>
+          <gsap-image delay="0.1"><div class="font-size-sm about-texts">Un sèrie de propostes per tot allò que tens al cor, que podrem fer realitat amb tu a partir del 28 de maig</div></gsap-image>
+          <gsap-button class="mt-1 font-size-md" id="programa"><a href="#"><span>Programa</span><span class="ml-auto">→</span></a></gsap-button>        
+        </div>
+        <div>
+          <gsap-image delay="0.2"><div class="font-size-sm about-texts">Parla amb nosaltres i assabenta't de la campanya. Para'ns pel carrer per a xarrar o segueix-nos a les xarxes</div></gsap-image>
           <gsap-button class="mt-1 font-size-md" id="list"><a href="#"><span>Participa</span><span class="ml-auto">→</span></a></gsap-button>
         </div>
       </div>
@@ -134,12 +135,6 @@ const candidates = await storyblokApi.get('cdn/stories/', {
     display: flex;
     width: 100%;
   }
-}
-
-.separator {
-  width: 100%;
-  height: 1px;
-  background: black;
 }
 
 .candidates-section {
