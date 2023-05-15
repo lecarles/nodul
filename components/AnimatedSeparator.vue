@@ -1,5 +1,5 @@
 <template>
-  <div class="separator-parent" ref="parent">
+  <div class="separator-parent font-size-xs" ref="parent">
     <div class="separator" ref="separator"></div>
     <div class="extra-info" ref="extrainfo">
       <slot></slot>

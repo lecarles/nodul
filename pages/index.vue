@@ -4,7 +4,7 @@
       <video class="logo-video" src="@/assets/video/logo-1080.mp4" autoplay muted></video>
     </div>
     <animated-separator>
-      <span class="mr-auto">La coalició</span>
+      <span class="mr-auto">{{ $t('coalicio') }}</span>
       <span>1</span>
     </animated-separator>
     <div class="about-section p-md">
@@ -17,35 +17,34 @@
       </div>
       <div class="grid-3 mb-row-3">
         <div>
-          <gsap-image><div class="font-size-sm about-texts">Acord per Vilamarxant som Compromís, Podem i Esquerra Unida units en una coalició d’esquerres històrica al nostre poble.</div></gsap-image>
-          <gsap-button class="mt-1 font-size-md" id="list"><a href="#"><span>Coneix-nos</span><span class="ml-auto">→</span></a></gsap-button>
+          <gsap-image><div class="font-size-sm about-texts">{{ $t('about') }}</div></gsap-image>
+          <gsap-button class="mt-1 font-size-md" id="list"><a href="#"><span>{{ $t('meet') }}</span><span class="ml-auto">→</span></a></gsap-button>
         </div>
         <div>
-          <gsap-image :delay="0.1"><div class="font-size-sm about-texts">Un sèrie de propostes per tot allò que tens al cor, que podrem fer realitat amb tu a partir del 28 de maig</div></gsap-image>
-          <gsap-button class="mt-1 font-size-md" id="programa"><a href="#"><span>Programa</span><span class="ml-auto">→</span></a></gsap-button>        
+          <gsap-image :delay="0.1"><div class="font-size-sm about-texts">{{ $t('aboutProgram') }}</div></gsap-image>
+          <gsap-button class="mt-1 font-size-md" id="programa"><a href="#"><span>{{ $t('program') }}</span><span class="ml-auto">→</span></a></gsap-button>        
         </div>
         <div>
-          <gsap-image :delay="0.2"><div class="font-size-sm about-texts">Parla amb nosaltres i assabenta't de la campanya. Para'ns pel carrer per a xarrar o segueix-nos a les xarxes</div></gsap-image>
-          <gsap-button class="mt-1 font-size-md" id="list"><a href="#"><span>Participa</span><span class="ml-auto">→</span></a></gsap-button>
+          <gsap-image :delay="0.2"><div class="font-size-sm about-texts">{{ $t('aboutContact') }}</div></gsap-image>
+          <gsap-button class="mt-1 font-size-md" id="list"><a href="#"><span>{{ $t('Participa') }}</span><span class="ml-auto">→</span></a></gsap-button>
         </div>
       </div>
     </div>
     <animated-separator class="programa-separator" id="programa">
-      <span class="mr-auto font-size-xs">Programa</span>
+      <span class="mr-auto font-size-xs">{{ $t('program') }}</span>
       <span>1</span>
     </animated-separator>
     <div class="programa mt-1">
       <programa-section v-for="section in data.stories" :key="section._uid" :section="section" />
     </div>
     <animated-separator id="candidates">
-      <span class="mr-auto font-size-xs">La llista</span>
+      <span class="mr-auto font-size-xs">{{ $t('list') }}</span>
       <span>2</span>
     </animated-separator>
     <div class="p-md candidates-section mb-row-2">
       <div class="grid-2 font-size-md mt-row">
         <div class="candidates-text">
-          Som un equip de vilamarxanters i vilamarxanteres decidit a treballar per un poble cohesionat, dinàmic i creatiu, 
-          on valga la pena construir un projecte de vida. Assumim el repte de treballar amb el poble i per al poble, sense caure en personalismes.
+          {{ $t('list') }}
         </div>
       </div>
       <div class="grid-3 mt-row-2">
@@ -56,7 +55,7 @@
         </div>
       </div>
       <div class="font-size-md mt-row-2">
-        <div class="mb-row">A la llista també anem:</div>
+        <div class="mb-row">{{ $t('moreCandidates') }}</div>
         <div class="grid-4 font-size-sm candidates-grid">
           <div v-for="candidate in candidates.data.stories[0].content.candidates" :key="candidate._uid">
             <div>{{ candidate.name }} {{ candidate.surnames }}</div>
@@ -66,12 +65,12 @@
       </div>
     </div>
     <animated-separator>
-      <span class="mr-auto font-size-xs">Participa</span>
+      <span class="mr-auto font-size-xs">{{ $t('participate') }}</span>
       <span>3</span>
     </animated-separator>
     <div class="p-md grid-3 contact-section mt-row" id="contact">
-      <div class="font-size-md span-2-col">Tu també pots formar part d'Acord per Vilamarxant</div>
-      <div class="font-size-sm col-1">Segueix-nos a les xarxes i envia'ns un MD si tens qualsevol pregunta, suggerència o si vols implicar-te a la campanya.</div>
+      <div class="font-size-md span-2-col">{{ $t('participateHeader') }}</div>
+      <div class="font-size-sm col-1">{{ $t('participateText') }}</div>
       <div class="font-size-sm col-1 social-list">
         <a href="https://www.instagram.com/acordvilamarxant/">Instagram</a>
         <a href="https://twitter.com/compromisvlmxnt">Twitter</a>
@@ -92,15 +91,18 @@ useSeoMeta({
   ogDescription: "Acord per Vilamarxant és la coalició d'esquerres per Vilamarxant. El 28M, vota per tot allò que tens al cor. ",
   ogImage: 'https://a.storyblok.com/f/229615/1200x630/5a5953c342/artboard-1.png',
 })
+const route = useRoute()
 
 const storyblokApi = useStoryblokApi()
 const { data } = await storyblokApi.get('cdn/stories/', {
   starts_with: 'programa-resum',
-  sort_by: 'content.order:asc'
+  sort_by: 'content.order:asc',
+  language: route.name.endsWith('es') ? 'es' : 'ca'
 })
 
 const candidates = await storyblokApi.get('cdn/stories/', {
   starts_with: 'candidates',
+  language: route.name.endsWith('es') ? 'es' : 'ca'
 })
 </script>
 

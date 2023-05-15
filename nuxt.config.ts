@@ -15,7 +15,25 @@ export default defineNuxtConfig({
   css: [
     '@/assets/scss/main.scss'
   ],
-  modules: [['@storyblok/nuxt', { accessToken: process.env.STORYBLOK_TOKEN },], '@pinia/nuxt'],
+  modules: [
+    ['@storyblok/nuxt', { accessToken: process.env.STORYBLOK_TOKEN },], 
+    '@pinia/nuxt',
+    '@nuxtjs/i18n'
+  ],
+  i18n: {
+    locales: [
+      {
+        code: 'ca',
+        name: 'Valencià'
+      },
+      {
+        code: 'es',
+        name: 'Castellano'
+      },
+    ],
+    defaultLocale: 'ca',    
+    vueI18n: './i18n.config.ts'
+  },
   vite: {
     css: {
       preprocessorOptions: {

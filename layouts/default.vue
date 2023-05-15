@@ -2,7 +2,7 @@
   <div>
     <div id="smooth-wrapper">
       <div id="smooth-content">
-        <navbar />
+        <app-nav />
         <slot/>
       </div>
     </div>

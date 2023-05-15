@@ -4,7 +4,7 @@
       <div>Acord per</div>
       <div class="font-serif">Vilamarxant</div>
     </nuxt-link>
-    <img class="logo-partits d-sm-none" src="@/assets/acord-partits.svg" alt="">
+    <img class="logo-partits d-sm-none" src="@/assets/tots-bn.svg" alt="">
   </div>
 </template>
 
@@ -20,6 +20,7 @@
   .logo {
     &-acord {
       line-height: 1;
+      display: none;
     }
 
     &-partits {
@@ -31,7 +32,6 @@
 @media (max-width: $sm-breakpoint)  {
   .logo {
     &-acord {
-      text-align: center;
       width: 100%;
       margin: 0 auto;
     }
