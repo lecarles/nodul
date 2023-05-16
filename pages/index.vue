@@ -44,7 +44,7 @@
     <div class="p-md candidates-section mb-row-2">
       <div class="grid-2 font-size-md mt-row">
         <div class="candidates-text">
-          {{ $t('list') }}
+          {{ $t('canidatesText') }}
         </div>
       </div>
       <div class="grid-3 mt-row-2">
