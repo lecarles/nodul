@@ -18,15 +18,15 @@
       <div class="grid-3 mb-row-3">
         <div>
           <gsap-image><div class="font-size-sm about-texts">{{ $t('about') }}</div></gsap-image>
-          <gsap-button class="mt-1 font-size-md" id="list"><a href="#"><span>{{ $t('meet') }}</span><span class="ml-auto">→</span></a></gsap-button>
+          <gsap-button @click="scrollToSection('#candidates')" class="mt-1 font-size-md" id="meet"><span>{{ $t('meet') }}</span><span class="ml-auto">→</span></gsap-button>
         </div>
         <div>
           <gsap-image :delay="0.1"><div class="font-size-sm about-texts">{{ $t('aboutProgram') }}</div></gsap-image>
-          <gsap-button class="mt-1 font-size-md" id="programa"><a href="#"><span>{{ $t('program') }}</span><span class="ml-auto">→</span></a></gsap-button>        
+          <gsap-button @click="scrollToSection('#programa')" class="mt-1 font-size-md" id="program"><span>{{ $t('program') }}</span><span class="ml-auto">→</span></gsap-button>        
         </div>
         <div>
           <gsap-image :delay="0.2"><div class="font-size-sm about-texts">{{ $t('aboutContact') }}</div></gsap-image>
-          <gsap-button class="mt-1 font-size-md" id="list"><a href="#"><span>{{ $t('Participa') }}</span><span class="ml-auto">→</span></a></gsap-button>
+          <gsap-button @click="scrollToSection('#contact')" class="mt-1 font-size-md" id="participate"><span>{{ $t('participate') }}</span><span class="ml-auto">→</span></gsap-button>
         </div>
       </div>
     </div>
@@ -64,11 +64,11 @@
         </div>
       </div>
     </div>
-    <animated-separator>
+    <animated-separator id="contact">
       <span class="mr-auto font-size-xs">{{ $t('participate') }}</span>
       <span>3</span>
     </animated-separator>
-    <div class="p-md grid-3 contact-section mt-row" id="contact">
+    <div class="p-md grid-3 contact-section mt-row">
       <div class="font-size-md span-2-col">{{ $t('participateHeader') }}</div>
       <div class="font-size-sm col-1">{{ $t('participateText') }}</div>
       <div class="font-size-sm col-1 social-list">
@@ -84,6 +84,11 @@
 
 
 <script setup>
+import { onMounted } from 'vue'
+import { useSergiStore } from '../stores/sergiStore'
+
+const sergiStore = useSergiStore()
+
 useSeoMeta({
   title: 'Acord per Vilamarxant - Compromís + Podem + Esquerra Unida',
   ogTitle: 'Acord per Vilamarxant - Compromís + Podem + Esquerra Unida',
@@ -104,6 +109,15 @@ const candidates = await storyblokApi.get('cdn/stories/', {
   starts_with: 'candidates',
   language: route.name.endsWith('es') ? 'es' : 'ca'
 })
+
+onMounted(() => {
+  console.log(sergiStore.smoother)
+})
+
+function scrollToSection(section) {
+  console.log('click')
+  sergiStore.smoother.scrollTo(section, true, "top 20px")
+}
 </script>
 
 <style lang="scss">

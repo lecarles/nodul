@@ -23,7 +23,7 @@ onMounted(() => {
   window.addEventListener('resize', onResize)
 
   gsap.registerPlugin(ScrollTrigger, ScrollSmoother)  
-  const smoother = ScrollSmoother.create({
+  sergiStore.smoother = ScrollSmoother.create({
     smooth: 1.5,
     effects: true
   })
