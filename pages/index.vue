@@ -22,7 +22,7 @@
         </div>
         <div>
           <gsap-image :delay="0.1"><div class="font-size-sm about-texts">{{ $t('aboutProgram') }}</div></gsap-image>
-          <gsap-button @click="scrollToSection('#programa')" class="mt-1 font-size-md" id="program"><span>{{ $t('program') }}</span><span class="ml-auto">→</span></gsap-button>        
+          <gsap-button class="mt-1 font-size-md" id="program"><nuxt-link to="programa"><span>{{ $t('program') }}</span><span class="ml-auto">→</span></nuxt-link></gsap-button>        
         </div>
         <div>
           <gsap-image :delay="0.2"><div class="font-size-sm about-texts">{{ $t('aboutContact') }}</div></gsap-image>
