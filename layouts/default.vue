@@ -38,7 +38,7 @@ function onResize() {
 
 <style lang="scss">
 #smooth-content { 
-  background: white;
+  background: var(--background);
   padding: 1px 0;
 }
 </style>

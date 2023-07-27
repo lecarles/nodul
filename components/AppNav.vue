@@ -1,9 +1,7 @@
 <template>
-  <div class="navbar navbar-wrapper font-size-xs">
-    <nuxt-link class="mr-auto navbar-logo-link" :to="localePath('/')"><img class="navbar-logo" src="@/assets/tots-bn.svg" alt="Logo d'Acord per Vilamarxant - Compromís, Podem i Esquerra Unida"></nuxt-link>
-    <nuxt-link class="font-size-sm logo-acord mr-auto" to="/">
-      <div>Acord per</div>
-      <div class="font-serif">Vilamarxant</div>
+  <div class="navbar navbar-wrapper font-size-sm">
+    <nuxt-link class="mr-auto navbar-logo-link" :to="localePath('/')">
+      Circuit Viu
     </nuxt-link>
     <div class="navbar-md" ref="navbar">
       <NuxtLink class="locale-change" v-for="locale in availableLocales" :key="locale.code" :to="switchLocalePath(locale.code)">{{
@@ -57,8 +55,6 @@ function toggleMenu() {
     menuTl.tweenFromTo(0, "leave", { ease: 'Power4.out' })
     navbarActive.value = true
   }
-
-  console.log(navbarSm.value.children)
 }
 
 function setupMenu() {
@@ -111,6 +107,8 @@ function setupTl() {
 
 <style lang="scss">
 .navbar {
+  text-transform:  uppercase;
+  
   &-wrapper {
     padding: $padding-x-sm $padding-x-md;
     width: 100%;
