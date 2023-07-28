@@ -3,9 +3,7 @@
     <viu-anim />
     <marquee-line />
     <concerts-list></concerts-list>
-    <div>separator</div>
-    <viu-anim-yoyo />
-    <div>footer</div>
+    <marquee-viu class="mt-row marquee-viu-intro"/>
   </div>
 </template>
 

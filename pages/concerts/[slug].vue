@@ -6,17 +6,20 @@
       </div>
       <div class="concert-data font-size-md secondary">
         <div class="concert-date">{{ day }} {{ fullMonth.ca }}</div>
-        <div class="concert-time">{{ time }}</div>
+        <div class="concert-time">{{ time }} H</div>
+        <a href="/" class="button font-size-md j-self-center">Entrades</a>
         <div class="concert-venue">{{ data.story.content.sala }}</div>
         <div class="concert-city">{{ data.story.content.localitat }}</div>
       </div>
-      <a href="/" class="button font-size-md j-self-center">
-        Entrades
-      </a>
     </div>
-    <div>image</div>
-    <div>separator</div>
-    <div class="concert-bios">
+    <div>
+      <div>
+        <image-switcher v-if="data.story.content.imatgeartista2" :images="[data.story.content.imatgeartista1.filename, data.story.content.imatgeartista2.filename]"/>
+        <img v-else :src="data.story.content.imatgeartista1.filename" :alt="data.story.content.artist1">
+      </div>
+      <marquee-viu class="marquee-viu-concert" data-speed="0.9"/>
+    </div>
+    <div class="concert-bios mt-row-3">
       <div class="concert-bio-item p-md">
         <div class="concert-bio-item-aside">
           <div class="font-size-lg">{{ data.story.content.artist1 }}</div>
@@ -40,7 +43,11 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
+import { onMounted } from 'vue'
+import { useSergiStore } from '~/stores/sergiStore'
+import gsap from 'gsap'
+
+const sergiStore = useSergiStore()
 const { slug } = useRoute().params
 const storyblokApi = useStoryblokApi()
 const route = useRoute()
@@ -49,6 +56,19 @@ const { data } = await storyblokApi.get('cdn/stories/concerts/' + slug, {
 })
 
 const { year, month, day, time, fullMonth } = useDateFormatter(data.story.content.data)
+
+onMounted(() => {
+  gsap.set('html', {
+    "--primary": sergiStore.colors[data.story.content.color],
+  })
+  gsap.set('html', {
+    "--background": sergiStore.colors[data.story.content.bgcolor],
+  })
+  let color = (data.story.content.bgcolor === 'purple' ||  data.story.content.bgcolor === 'green') ? sergiStore.colors['white'] : sergiStore.colors['black']
+  gsap.set('html', {
+    "--secondary": color,
+  })
+})
 
 definePageMeta({
   pageTransition: {
@@ -75,9 +95,11 @@ definePageMeta({
   }
 
   .concert-data {
-    display: flex;
+    display: grid;
+    align-items: center;
     text-align: center;
-    gap: 1rem;
+    grid-template-columns: 1fr 1fr auto 1fr 1fr;
+    gap: clamp(1em, 1.5vw, 2em);
     margin: 0 auto;
   }
 
@@ -91,4 +113,14 @@ definePageMeta({
     }
   }
 }
+</style>
+
+<style lang="scss">
+.concert-page {
+  .marquee-viu-concert {
+    position: absolute;
+    top: 90vh;
+  }
+}
+
 </style>

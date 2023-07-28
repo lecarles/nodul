@@ -82,7 +82,6 @@ function handleMove(e) {
 }
 
 function handleEnter() {
-  console.log(props.concert.content.color)
   gsap.to('html', {
     "--primary": sergiStore.colors[props.concert.content.color],
     duration: 0.25
@@ -91,6 +90,13 @@ function handleEnter() {
     "--background": sergiStore.colors[props.concert.content.bgcolor],
     duration: 0.25
   })
+  if (props.concert.content.bgcolor === 'purple' ||  props.concert.content.bgcolor === 'green') {
+    gsap.to('html', {
+      "--secondaryfades": sergiStore.colors['white'],
+      "--secondary": sergiStore.colors['white'],
+      duration: 0.25
+    })
+  }
   gsap.to('.concert-item-title', {
     color: '#2b2b2b30',
     duration: 0.25
@@ -103,12 +109,13 @@ function handleEnter() {
 }
 
 function handleLeave() {
+  let color =  (props.concert.content.bgcolor === 'purple' ||  props.concert.content.bgcolor === 'green') ? sergiStore.colors['white'] : sergiStore.colors['black']
   gsap.to('.concert-item-title', {
-    color: '#2b2b2b',
+    color: color,
     duration: 0.25
   })
   gsap.to(title.value, {
-    color: '#2b2b2b',
+    color: color,
     duration: 0.25
   })
   tl.tweenFromTo('exit', tl.duration())

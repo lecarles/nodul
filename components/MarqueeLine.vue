@@ -35,7 +35,7 @@ function  runMarquee () {
 
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .marquee-part {
   display: inline;
   flex-shrink: 0;
@@ -44,6 +44,8 @@ function  runMarquee () {
 }
 
 .marquee {
+  position: relative;
+  z-index: -10;
   pointer-events: none;
   color: var(--background);
   background: var(--primary);

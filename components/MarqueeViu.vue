@@ -1,0 +1,85 @@
+<template>
+  <div class="marquee-viu" ref="marquee">
+    <div ref="inner" class="marquee-inner-viu" aria-hidden="true">
+      <div class="marquee-part-viu">
+        <viu-anim-yoyo-b />
+      </div>
+      <div class="marquee-part-viu">
+        <viu-anim-yoyo-b />
+      </div>
+      <div class="marquee-part-viu">
+        <viu-anim-yoyo-b />
+      </div>
+      <div class="marquee-part-viu">
+        <viu-anim-yoyo-b />
+      </div>
+      <div class="marquee-part-viu">
+        <viu-anim-yoyo-b />
+      </div>
+      <div class="marquee-part-viu">
+        <viu-anim-yoyo-b />
+      </div>
+      <div class="marquee-part-viu">
+        <viu-anim-yoyo-b />
+      </div>
+      <div class="marquee-part-viu">
+        <viu-anim-yoyo-b />
+      </div>
+      <div class="marquee-part-viu">
+        <viu-anim-yoyo-b />
+      </div>
+      <div class="marquee-part-viu">
+        <viu-anim-yoyo-b />
+      </div>
+      <div class="marquee-part-viu">
+        <viu-anim-yoyo-b />
+      </div>
+    </div>
+  </div>
+</template>
+
+<script setup>
+import gsap from 'gsap'
+import { onMounted, ref } from 'vue'
+
+let inner = ref(null)
+let marquee = ref(null)
+
+onMounted (() => {
+  runMarquee()
+})
+  
+function  runMarquee () {
+  const tween = gsap.to('.marquee-part-viu', { xPercent: -100, repeat: -1, duration: 3, ease: 'linear' }).totalProgress(0.5)
+
+  gsap.set('.marquee-inner-viu', { xPercent: -50 })
+}
+</script>
+
+<style lang="scss" scoped>
+.marquee-part-viu {
+  display: inline;
+  flex-shrink: 0;
+  font-smooth: always;
+  line-height: 1.1;
+}
+
+.marquee-viu {
+  position: relative;
+  z-index: -10;
+  transform: scale(1.5);
+  pointer-events: none;
+  font-size: $font-size-md;
+  perspective-origin: center;
+  overflow: hidden;
+}
+
+.marquee-inner-viu {
+  -webkit-font-smoothing: antialiased;
+  width: fit-content;
+  display: flex;
+  flex: auto;
+  flex-direction: row;
+}
+
+</style>
