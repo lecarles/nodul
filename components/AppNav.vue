@@ -134,11 +134,6 @@ function setupTl() {
 
   a {
     text-decoration: none;
-    transition: .5s ease-in-out;
-
-    &:hover {
-      opacity: .7;
-    }
   }
 
   &-md {

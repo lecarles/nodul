@@ -2,7 +2,8 @@
   <div class="concert-page">
     <div class="p-md concert-info grid-1">
       <div class="concert-artists font-size-xl secondary">
-        <div>{{data.story.content.artist1}}</div><div v-if="data.story.content.artist2"> + {{data.story.content.artist2}}</div>
+        <div>{{data.story.content.artist1}}</div>
+        <div v-if="data.story.content.artist2"> + {{data.story.content.artist2}}</div>
       </div>
       <div class="concert-data font-size-md secondary">
         <div class="concert-date">{{ day }} {{ fullMonth.ca }}</div>
@@ -13,13 +14,13 @@
       </div>
     </div>
     <div>
-      <div>
-        <image-switcher v-if="data.story.content.imatgeartista2" :images="[data.story.content.imatgeartista1.filename, data.story.content.imatgeartista2.filename]"/>
-        <img v-else :src="data.story.content.imatgeartista1.filename" :alt="data.story.content.artist1">
+      <div class="img-container">
+        <image-switcher v-if="data.story.content.imatgeartista2.filename" :images="[data.story.content.imatgeartista1.filename, data.story.content.imatgeartista2.filename]"/>
+        <img class="img-artista" v-else :src="data.story.content.imatgeartista1.filename" :alt="data.story.content.artist1">
       </div>
       <marquee-viu class="marquee-viu-concert" data-speed="0.9"/>
     </div>
-    <div class="concert-bios mt-row-3">
+    <div class="concert-bios mt-row-4">
       <div class="concert-bio-item p-md">
         <div class="concert-bio-item-aside">
           <div class="font-size-lg">{{ data.story.content.artist1 }}</div>
@@ -98,7 +99,7 @@ definePageMeta({
     display: grid;
     align-items: center;
     text-align: center;
-    grid-template-columns: 1fr 1fr auto 1fr 1fr;
+    grid-template-columns: 1fr 1fr 12em 1fr 1fr;
     gap: clamp(1em, 1.5vw, 2em);
     margin: 0 auto;
   }
@@ -112,6 +113,19 @@ definePageMeta({
       text-transform: uppercase;
     }
   }
+
+  .img-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .img-artista {
+    max-width: 70vw;
+    max-height: 60vh;
+    object-fit: contain;
+    margin: 0 auto;
+  }
 }
 </style>
 
@@ -119,7 +133,7 @@ definePageMeta({
 .concert-page {
   .marquee-viu-concert {
     position: absolute;
-    top: 90vh;
+    top: 85vh;
   }
 }
 
