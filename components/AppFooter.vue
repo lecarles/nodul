@@ -1,5 +1,5 @@
 <template>
-  <div class="footer font-size-sm p-md mt-row-3">
+  <div class="footer font-size-sm p-md mt-row-2">
     <footer-logos />
     <div class="grid-2 mt-row-2">
       <p>
@@ -23,15 +23,22 @@
 
   .social-links {
     display: flex;
-    align-self: end;
-    justify-self: end;
+    align-self: flex-end;
+    justify-self: flex-end;
     gap: 1rem;
   }
 
   a {
     text-transform: uppercase;
-    text-decoration: underline;
     display: block;
+  }
+}
+
+@media (max-width: $sm-breakpoint) {
+  .footer {
+    .social-links {
+      justify-self: flex-start;
+    }
   }
 }
 </style>

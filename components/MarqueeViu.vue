@@ -34,6 +34,9 @@
       <div class="marquee-part-viu">
         <viu-anim-yoyo-b />
       </div>
+      <div class="marquee-part-viu">
+        <viu-anim-yoyo-b />
+      </div>
     </div>
   </div>
 </template>
@@ -67,7 +70,7 @@ function  runMarquee () {
 .marquee-viu {
   position: relative;
   z-index: -10;
-  transform: scale(1.5);
+  transform: scale(1.7);
   pointer-events: none;
   font-size: $font-size-md;
   perspective-origin: center;

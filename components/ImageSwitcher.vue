@@ -64,7 +64,7 @@ onBeforeUnmount(() => {
   height: 60vh;
 
   .slide {
-    max-width: 60vw;
+    max-width: 100%;
     max-height: 60vh;
     position: absolute;
     margin: 0 auto;
@@ -88,5 +88,20 @@ onBeforeUnmount(() => {
 
 .slide-up-leave-to {
   transform: translateY(-100%);
+}
+
+@media (max-width: $sm-breakpoint)  {
+  .image-switcher {
+    height: 30vh;
+    align-items: center;
+
+    .slide {
+      max-height: 30vh;
+
+      img {
+        max-height: 40vh;
+      }
+    }
+  }
 }
 </style>

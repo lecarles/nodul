@@ -43,6 +43,9 @@ p, .p, .font-size-sm {
 a {
   text-decoration: none;
   color: var(--secondary);
+}
+
+a.button-link {
   position: relative;
   padding: .3em .75em .1em;
   

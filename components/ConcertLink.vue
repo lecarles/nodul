@@ -201,4 +201,35 @@ function handleLeave() {
     }
   }
 }
+
+@media (max-width: $sm-breakpoint) {
+  .concert-item {
+    &-title {
+      grid-template-columns:  auto;
+      gap: .25em;
+    } 
+
+    &-data-left {
+      display: flex;
+      gap: .75em;
+      grid-row: 1;
+      text-align: center;
+      margin: 0 auto;
+
+      .concert-date {
+        margin-bottom: 0;
+      }
+    }
+
+    &-data-right {
+      grid-row: 2;
+      text-align: center;
+    }
+
+    &-name {
+      margin-top: .15em;
+      grid-row: 3;
+    }
+  }
+}
 </style>

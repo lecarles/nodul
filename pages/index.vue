@@ -29,4 +29,8 @@ useSeoMeta({
     max-width: clamp(420px, 30vw, 1080px);
   }
 }
+
+.marquee-viu-intro {
+  padding: 3em 0;
+}
 </style>

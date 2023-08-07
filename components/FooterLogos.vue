@@ -41,4 +41,29 @@
 .logo {
   fill: var(--primary);
 }
+
+
+@media (max-width: $sm-breakpoint) {
+  .logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+
+    svg {
+      width: auto;
+      height: 100%;
+    }
+
+    #generalitat {
+      max-height: 3.75em;
+    }
+
+    #ivc {
+      transform: translateY(-.4em);
+      max-height: 3.5em;
+    }
+  }
+}
 </style>

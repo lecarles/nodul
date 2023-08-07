@@ -4,7 +4,7 @@
       Circuit Viu
     </nuxt-link>
     <div class="navbar-md" ref="navbar">
-      <NuxtLink class="locale-change" v-for="locale in availableLocales" :key="locale.code" :to="switchLocalePath(locale.code)">{{
+      <NuxtLink class="locale-change button-link" v-for="locale in availableLocales" :key="locale.code" :to="switchLocalePath(locale.code)">{{
       locale.name
     }}</NuxtLink>
     </div>
@@ -158,10 +158,6 @@ function setupTl() {
     gap: .3rem;
   }
 
-  .navbar .navbar-logo-link {
-    display: none;
-  }
-
   .navbar .logo-acord {
     line-height: 1;
     margin-right: auto;
@@ -197,7 +193,7 @@ function setupTl() {
       outline: none;
 
       svg {
-        stroke: $black;
+        stroke: var(--secondary);
         stroke-width: 3px;
         height: 1.5em;
       }

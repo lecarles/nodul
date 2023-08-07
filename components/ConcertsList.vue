@@ -15,7 +15,7 @@ const { data } = await storyblokApi.get('cdn/stories', {
 
 <style lang="scss" scoped>
 .concert-grid {
-  margin: 6vh 0;
+  margin: 5vh 0;
   display: grid;
   gap: 1.5rem;
   width: 100%;
@@ -23,6 +23,4 @@ const { data } = await storyblokApi.get('cdn/stories', {
   justify-items: start;
   padding: $padding-y-md $padding-x-md $padding-y-md;
 }
-
-
 </style>

@@ -13,18 +13,18 @@
         <div class="concert-city">{{ data.story.content.localitat }}</div>
       </div>
     </div>
-    <div>
+    <div v-if="data.story.content.imatgeartista1.filename">
       <div class="img-container">
         <image-switcher v-if="data.story.content.imatgeartista2.filename" :images="[data.story.content.imatgeartista1.filename, data.story.content.imatgeartista2.filename]"/>
         <img class="img-artista" v-else :src="data.story.content.imatgeartista1.filename" :alt="data.story.content.artist1">
+        <marquee-viu class="marquee-viu-concert" data-speed="0.9"/>
       </div>
-      <marquee-viu class="marquee-viu-concert" data-speed="0.9"/>
     </div>
-    <div class="concert-bios mt-row-4">
+    <div class="concert-bios">
       <div class="concert-bio-item p-md">
         <div class="concert-bio-item-aside">
           <div class="font-size-lg">{{ data.story.content.artist1 }}</div>
-          <div>links</div>
+          <xarxes-links />
         </div>
         <div class="concert-bio-item-text secondary">
           bio
@@ -95,6 +95,10 @@ definePageMeta({
     text-align: center;
   }
 
+  .concert-bios {
+    margin-top: calc($padding-x-md * 4 + 8rem);
+  }
+
   .concert-data {
     display: grid;
     align-items: center;
@@ -127,13 +131,45 @@ definePageMeta({
     margin: 0 auto;
   }
 }
+
+@media (max-width: $sm-breakpoint) {
+  .concert-page {
+    .concert-data {
+    grid-template-columns: auto auto;
+    grid-auto-flow: row;
+    gap: .5em;
+    width: 100%;
+
+      .concert-date, .concert-venue {
+        text-align: left;
+      }
+
+      .concert-time, .concert-city {
+        text-align: right;
+      }
+
+      .concert-venue, .concert-city {
+        grid-row: 2;
+      }
+      .button {
+        grid-row: 3;
+        grid-column: span 2;
+      }
+    }  
+  }
+  
+}
 </style>
 
 <style lang="scss">
 .concert-page {
+  .img-container {
+    position: relative;
+  }
+
   .marquee-viu-concert {
     position: absolute;
-    top: 85vh;
+    bottom: -5rem;
   }
 }
 
