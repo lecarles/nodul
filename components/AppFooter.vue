@@ -6,9 +6,9 @@
         En Viu! rep una subvenció anual de 13080€ de l'Institut Valencià de Cultura per a l'Organització i manteniment d’estructures administratives i una subvenció de 25.588€ de per al foment d'activitats musicals per l'organització del Circuit Viu.
       </p>
       <div class="social-links">
-        <a href="https://instagram.com/">Instagram</a>
-        <a href="https://instagram.com/">Facebook</a>
-        <a href="https://enviu.es">Enviu.es</a>
+        <a target="_blank" href="https://instagram.com/">Instagram</a>
+        <a target="_blank" href="https://instagram.com/">Facebook</a>
+        <a target="_blank" href="https://enviu.es">Enviu.es</a>
       </div>
     </div>
   </div>

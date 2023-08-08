@@ -1,15 +1,18 @@
 <template>
-  <nuxt-link class="concert-item" @mousemove="handleMove($event)" :to="'concerts/' + concert.slug" @mouseenter="handleEnter()" @mouseleave="handleLeave()">
+  <nuxt-link :class="[{ disabled: concert.content.tba}, 'concert-item']" @mousemove="handleMove($event)" :to="concert.content.tba ? '' : 'concerts/' + concert.slug" @mouseenter="handleEnter()" @mouseleave="handleLeave()">
     <div class="concert-item-title" ref="title">
       <div class="concert-item-data-left">
-        <div class="concert-date">{{ day }} {{ fullMonth.ca }}</div>
+        <div class="concert-date">{{ day }} {{ fullMonth[locale] }}</div>
         <div class="concert-city">{{ concert.content.localitat }}</div>
       </div>
-      <div class="concert-item-name"><span>{{concert.content.artist1}}</span><span v-if="concert.content.artist2"> + {{concert.content.artist2}}</span></div>
+      <div class="concert-item-name">
+        <span v-if="concert.content.tba">TBA</span>
+        <span v-else><span>{{concert.content.artist1}}</span><span v-if="concert.content.artist2"> + {{concert.content.artist2}}</span></span>
+      </div>
       <div class="concert-item-data-right">{{ concert.content.sala }}</div>
     </div>
     <div ref="imageWrap" class="concert-item-img-wrapper">
-      <img v-if="concert.content.imatgeartista1.filename" class="image" :src="concert.content.imatgeartista1.filename" ref="image" />
+      <img v-if="concert.content.imatgeartista1.filename + '/m/1400x0'" class="image" :src="concert.content.imatgeartista1.filename" ref="image" />
     </div>
   </nuxt-link>
 </template>
@@ -21,9 +24,10 @@ import scrollTrigger from "gsap/ScrollTrigger"
 import CustomEase from "gsap/CustomEase"
 import { useSergiStore } from '~/stores/sergiStore'
 
+const route = useRoute()
 const sergiStore = useSergiStore()
 const { year, month, day, time, fullMonth } = useDateFormatter(props.concert.content.data)
-
+let locale = route.name.endsWith('es') ? 'es' : 'ca'
 
 const title = ref(null)
 const image = ref(null)
@@ -88,6 +92,7 @@ function handleEnter() {
   })
   gsap.to('html', {
     "--background": sergiStore.colors[props.concert.content.bgcolor],
+    "--secondary": sergiStore.colors['black'],
     duration: 0.25
   })
   if (props.concert.content.bgcolor === 'purple' ||  props.concert.content.bgcolor === 'green') {
@@ -132,6 +137,10 @@ function handleLeave() {
   width: 100%;
   line-height: 1;
   text-transform: uppercase;
+
+  &.disabled {
+    pointer-events: none;
+  }
 
   &-name {
     font-size: $font-size-lg;

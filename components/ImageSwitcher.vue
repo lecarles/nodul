@@ -45,10 +45,10 @@ onBeforeUnmount(() => {
   <div class="image-switcher" ref="imageSwitcher">
 		<Transition name="slide-up">
       <div class="slide slide-a" v-if="activeSlide === 0">
-        <img class="image1" ref="image1" :src="props.images[0]" alt="">
+        <img class="image1" ref="image1" :src="props.images[0] + '/m/1400x0'" alt="">
       </div>
       <div class="slide slide-b" v-else-if="activeSlide === 1">
-        <img class="image2" ref="image2" :src="props.images[1]" alt="">
+        <img class="image2" ref="image2" :src="props.images[1] + '/m/1400x0'" alt="">
       </div>
     </Transition>
   </div>
