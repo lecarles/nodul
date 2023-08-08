@@ -4,7 +4,7 @@ useSeoMeta({
   ogTitle: 'Circuit Viu',
   description: "Circuit Viu",
   ogDescription: "Circuit Viu",
-  ogImage: 'https://a.storyblok.com/f/229615/1200x630/5a5953c342/artboard-1.png',
+  ogImage: 'https://a.storyblok.com/f/243306/2149x1080/3bba475e90/fons-taronja.png',
 })
 </script>
 
