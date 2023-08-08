@@ -1,12 +1,3 @@
-<template>
-  <div>
-    <viu-anim />
-    <marquee-line />
-    <concerts-list></concerts-list>
-    <marquee-viu class="mt-row marquee-viu-intro"/>
-  </div>
-</template>
-
 <script setup>
 useSeoMeta({
   title: 'Circuit Viu',
@@ -16,6 +7,16 @@ useSeoMeta({
   ogImage: 'https://a.storyblok.com/f/229615/1200x630/5a5953c342/artboard-1.png',
 })
 </script>
+
+<template>
+  <div>
+    <viu-anim />
+    <marquee-line />
+    <concerts-list></concerts-list>
+    <marquee-viu class="mt-row marquee-viu-intro"/>
+    <app-footer />
+  </div>
+</template>
 
 <style lang="scss">
 .intro-section {

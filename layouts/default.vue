@@ -4,7 +4,6 @@
       <div id="smooth-content">
         <app-nav />
         <slot/>
-        <app-footer />
       </div>
     </div>
   </div>
