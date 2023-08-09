@@ -96,13 +96,12 @@ function horizontalLoop(items, config) {
 
 <style lang="scss" scoped>
 .wrapper {
-  width: 110%;
-  transform: scale(1.06) translateX(-5%);
+  width: 100%;
   position: relative;
   display: flex;
   align-items: center;
   overflow: hidden;
-  z-index: -10;
+  z-index: -1;
 }
 
 .box {
