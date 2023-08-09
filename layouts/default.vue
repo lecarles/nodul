@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div id="smooth-wrapper">
+    <div id="smooth-wrapper" ref="main">
       <div id="smooth-content">
         <app-nav />
         <slot/>
@@ -13,20 +13,29 @@
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
 import ScrollSmoother from 'gsap/ScrollSmoother'
-import { onMounted } from 'vue'
+import { onMounted, onUnmounted, ref } from 'vue'
 import { useSergiStore } from '../stores/sergiStore'
 
 const sergiStore = useSergiStore()
+let ctx
+let smoother
+const main = ref(null)
 
 onMounted(() => {
   onResize()
   window.addEventListener('resize', onResize)
 
   gsap.registerPlugin(ScrollTrigger, ScrollSmoother)  
-  sergiStore.smoother = ScrollSmoother.create({
-    smooth: 1.5,
-    effects: true
-  })
+  ctx = gsap.context(() => {
+    smoother = ScrollSmoother.create({
+      smooth: 1.5, 
+      effects: true, 
+    })
+  }, main.value)
+})
+      
+onUnmounted(() => {
+  ctx.revert();
 })
 
 function onResize() {

@@ -184,6 +184,7 @@ onMounted(() => {
     right: 0;
     width: 100%;
     overflow: hidden;
+    padding: 2em;
   }
 }
 
