@@ -113,4 +113,9 @@ function horizontalLoop(items, config) {
   flex-direction: row;
 }
 
+@media (max-width: $sm-breakpoint)  {
+  .wrapper {
+    z-index: 1;
+  }
+}
 </style>

@@ -62,6 +62,7 @@ onBeforeUnmount(() => {
   justify-content: center;
   width: 100%;
   height: 60vh;
+  z-index: 20;
 
   .slide {
     max-width: 100%;
@@ -92,14 +93,17 @@ onBeforeUnmount(() => {
 
 @media (max-width: $sm-breakpoint)  {
   .image-switcher {
-    height: 30vh;
+    height: 50vh;
     align-items: center;
 
     .slide {
-      max-height: 30vh;
+      height: 50vh;
+      max-width: 100%;
 
       img {
-        max-height: 40vh;
+        height: 50vh;
+        max-width: 100%;
+        padding: 0 $padding-x-md;
       }
     }
   }

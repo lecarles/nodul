@@ -136,7 +136,7 @@ onMounted(() => {
 
 @media (max-width: $sm-breakpoint) {
   .viu-anim {
-    height: calc((var(--vh, 1vh) * 100) - $navbar-height * 2 - $font-size-md * 1.1);
+    height: calc((var(--vh, 1vh) * 100) - $navbar-height-sm - $font-size-md * 1.1);
   }
 
 }

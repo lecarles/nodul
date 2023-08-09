@@ -37,14 +37,18 @@ onMounted(() => {
           <div v-if="data.story.content.artist2"> + {{data.story.content.artist2}}</div>
         </div>
         <div class="concert-data font-size-md secondary">
-          <div class="concert-date">{{ day }} {{ fullMonth[locale] }}</div>
-          <div class="concert-time">{{ time }}H</div>
+          <div class="concert-data-temporal">
+            <div class="concert-date">{{ day }} {{ fullMonth[locale] }}</div>
+            <div class="concert-time">{{ time }}H</div>
+          </div>
           <a target="_blank" :href="data.story.content.entrades" class="button font-size-md j-self-center">{{ $t('tickets') }}</a>
-          <div class="concert-venue">{{ data.story.content.sala }}</div>
-          <div class="concert-city">{{ data.story.content.localitat }}</div>
+          <div class="concert-data-space">
+            <div class="concert-venue">{{ data.story.content.sala }}</div>
+            <div class="concert-city">{{ data.story.content.localitat }}</div>
+          </div>
         </div>
       </div>
-      <div v-if="data.story.content.imatgeartista1.filename">
+      <div class="img-wrapper" v-if="data.story.content.imatgeartista1.filename">
         <div class="img-container">
           <image-switcher v-if="data.story.content.imatgeartista2.filename" :images="[data.story.content.imatgeartista1.filename, data.story.content.imatgeartista2.filename]"/>
           <img class="img-artista" v-else :src="data.story.content.imatgeartista1.filename + '/m/1400x0'" :alt="data.story.content.artist1">
@@ -88,9 +92,15 @@ onMounted(() => {
     display: grid;
     align-items: center;
     text-align: center;
-    grid-template-columns: 1fr 1fr 12em 1fr 1fr;
+    grid-template-columns: 1fr 12em 1fr;
     gap: clamp(1em, 1.5vw, 2em);
     margin: 0 auto;
+
+    &-space, &-temporal {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1em;
+    }
   }
 
   .concert-bio-item {
@@ -114,35 +124,42 @@ onMounted(() => {
     max-height: 60vh;
     object-fit: contain;
     margin: 0 auto;
+    z-index: 15;
   }
 }
 
 @media (max-width: $sm-breakpoint) {
   .concert-page {
     .concert-main {
-      min-height: 100vh;
+      height: calc(100vh - $navbar-height-sm);
       position: relative;
+      display: grid;
+      grid-template-rows: auto 1fr;
+    }
+
+    .img-artista {
+      height: 100%;
+      max-width: 100%;
+      padding: 0 $padding-x-md;
+    }
+
+    .img-wrapper {
+      height: 100%;
     }
     .concert-data {
-    grid-template-columns: auto auto;
-    grid-auto-flow: row;
-    gap: .5em;
-    width: 100%;
+      grid-template-columns: auto;
+      grid-auto-flow: row;
+      gap: .15em;
+      width: 100%;
 
-      .concert-date, .concert-venue {
-        text-align: left;
-      }
-
-      .concert-time, .concert-city {
-        text-align: right;
-      }
-
-      .concert-venue, .concert-city {
-        grid-row: 2;
+      &-space, &-temporal {
+        display: flex;
+        justify-content: center;
       }
       .button {
         grid-row: 3;
-        grid-column: span 2;
+        width: 100%;
+        margin-top: $padding-x-md;
       }
     }  
 
@@ -163,7 +180,36 @@ onMounted(() => {
   .marquee-viu-concert {
     position: absolute;
     bottom: -5rem;
+    left: 0;
+    right: 0;
+    width: 100%;
+    overflow: hidden;
   }
 }
 
+@media (max-width: $sm-breakpoint) {
+.concert-page {
+  .img-container {
+    height: 100%;
+    position: static;
+  }
+
+  .marquee-viu-concert {
+    position: absolute;
+    bottom: 0;
+  }
+
+  .img-switcher {
+    height: 100%;
+
+    .slide {
+      height: 100%;
+    }
+
+    img {
+      height: 100%;
+    }
+  }
+}
+}
 </style>

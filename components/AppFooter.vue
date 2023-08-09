@@ -1,10 +1,10 @@
 <template>
   <div class="footer font-size-sm p-md mt-row-2">
     <footer-logos />
-    <div class="grid-2 mt-row-2">
+    <div class="footer-links grid-2 mt-row-2">
       <div class="social-links left">
-        <a target="_blank" href="https://instagram.com/">Instagram</a>
-        <a target="_blank" href="https://instagram.com/">Facebook</a>
+        <a target="_blank" href="https://www.instagram.com/enviuassociacio/">Instagram</a>
+        <a target="_blank" href="https://www.facebook.com/people/En-Viu/100063577120821/">Facebook</a>
       </div>
       <div class="social-links">
         <a target="_blank" href="https://enviu.es">Enviu.es</a>
@@ -39,6 +39,11 @@
 
 @media (max-width: $sm-breakpoint) {
   .footer {
+
+    &-links {
+      display: flex;
+      gap: 1rem;
+    }
     .social-links {
       justify-self: center;
     }
