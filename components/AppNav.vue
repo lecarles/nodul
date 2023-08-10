@@ -154,6 +154,7 @@ function setupTl() {
 
 @media (max-width: $sm-breakpoint)  {
   .navbar-wrapper {
+    padding: $padding-x-md;
     display: grid;
     grid-template-columns: 1fr auto;
     gap: .3rem;
@@ -174,13 +175,16 @@ function setupTl() {
   }
 
   .navbar-sm {
+    position: absolute;
+    top: calc($navbar-height - .5em);
+    width: 100%;
+    padding: 0 $padding-x-md;
     visibility: hidden;
     display: flex;
     flex-direction: column;
     width: 100%;
-    gap: .35em;
     text-align: right;
-    grid-column: span 2;
+    z-index: 100;
 
     a {
       opacity: 0;
@@ -192,6 +196,7 @@ function setupTl() {
       background: none;
       border: none;
       outline: none;
+      padding: 0;
 
       svg {
         stroke: var(--secondary);

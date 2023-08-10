@@ -118,14 +118,14 @@ onMounted(() => {
   position: relative;
   z-index: 1;
   height: calc(100vh - $navbar-height);
-  height: calc((var(--vh, 1vh) * 100) - 2px - $navbar-height - $font-size-md * 1.1 - $font-size-md * 0.9);
+  height: calc((var(--vh, 1vh) * 100) - $navbar-height - $font-size-md * 1.1 - $font-size-md * 0.67);
   display: flex;
   align-items: flex-end;
 
   svg {
     fill: var(--primary);
     width: 97%;
-    max-height: calc((var(--vh, 1vh) * 100) - 2px - $navbar-height - $font-size-md * 1.1);
+    max-height: calc((var(--vh, 1vh) * 100) - $navbar-height - $font-size-md * 1.1 - $font-size-md * 0.67);
     transform: translateX(3.5%);
   }
 }
@@ -136,7 +136,7 @@ onMounted(() => {
 
 @media (max-width: $sm-breakpoint) {
   .viu-anim {
-    height: calc((var(--vh, 1vh) * 100) - $navbar-height-sm - $font-size-md * 1.1);
+    height: calc((var(--vh, 1vh) * 100) - $padding-x-md * 2 - 24px - $font-size-md * 1.1 - $font-size-md * 0.67);
   }
 
 }

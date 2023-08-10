@@ -131,7 +131,7 @@ onMounted(() => {
 @media (max-width: $sm-breakpoint) {
   .concert-page {
     .concert-main {
-      height: calc(100vh - $navbar-height-sm);
+      height: calc((var(--vh, 1vh) * 100) - $navbar-height-sm);
       position: relative;
       display: grid;
       grid-template-rows: auto 1fr;
