@@ -117,6 +117,7 @@ function setupTl() {
     box-sizing: border-box;
     z-index: 10000;
     gap: 1rem;
+    position: relative;
   }
 
   .logo-acord {
