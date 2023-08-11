@@ -41,7 +41,10 @@ onMounted(() => {
             <div class="concert-date">{{ day }} {{ fullMonth[locale] }}</div>
             <div class="concert-time">{{ time }}H</div>
           </div>
-          <a target="_blank" :href="data.story.content.entrades" class="button font-size-md j-self-center">{{ $t('tickets') }}</a>
+          <div class="font-size-md j-self-center">
+            <a v-if="data.story.content.entrades" target="_blank" :href="data.story.content.entrades" class="button font-size-md j-self-center">{{ $t('tickets') }}</a>
+            <span class="button disabled">{{ $t('soon') }}</span>
+          </div>
           <div class="concert-data-space">
             <div class="concert-venue">{{ data.story.content.sala }}</div>
             <div class="concert-city">{{ data.story.content.localitat }}</div>

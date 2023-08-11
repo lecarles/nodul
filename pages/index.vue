@@ -14,6 +14,7 @@ useSeoMeta({
     <marquee-line />
     <concerts-list></concerts-list>
     <marquee-viu class="mt-row marquee-viu-intro"/>
+    <about-section />
     <app-footer />
   </div>
 </template>

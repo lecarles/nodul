@@ -105,6 +105,15 @@ h2 {
    }
 }
 
+.font-size-mdlg {
+  font-family: $font-family-sans;
+  font-size: $font-size-mdlg;
+  font-weight: $font-weight;
+  letter-spacing: -0.02em;
+  margin: 0;
+  line-height: 1.2;
+}
+
 .font-size-md, h3 {
   font-family: $font-family-sans;
   font-size: $font-size-md;
@@ -129,5 +138,13 @@ h2 {
 
   &:hover {
     padding: .55em 3em .4em;
+  }
+
+  &.disabled {
+    background: var(--secondary);
+
+    &:hover {
+      padding: .55em 2.25em .4em;
+    }
   }
 }
