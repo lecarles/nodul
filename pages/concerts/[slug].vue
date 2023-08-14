@@ -43,7 +43,7 @@ onMounted(() => {
           </div>
           <div class="font-size-md j-self-center button-container">
             <a v-if="data.story.content.entrades" target="_blank" :href="data.story.content.entrades" class="button j-self-center">{{ $t('tickets') }}</a>
-            <span class="button disabled">{{ $t('soon') }}</span>
+            <span v-else class="button disabled">{{ $t('soon') }}</span>
           </div>
           <div class="concert-data-space">
             <div class="concert-venue">{{ data.story.content.sala }}</div>
