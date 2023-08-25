@@ -10,5 +10,5 @@ export const useDateFormatter = (date) => {
   const day = ref(dateInstance.getDate())
   const time = ref(`${dateInstance.getHours().toString().padStart(2, '0')}:${dateInstance.getMinutes().toString().padStart(2, '0')}`)
 
-  return { year, month, day, time, fullMonth}
+  return { year, month, day, time, fullMonth }
 }
