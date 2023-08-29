@@ -12,7 +12,7 @@
       <div class="concert-item-data-right">{{ concert.content.sala }}</div>
     </div>
     <div ref="imageWrap" class="concert-item-img-wrapper">
-      <img v-if="concert.content.imatgeartista1.filename + '/m/1400x0'" class="image" :src="concert.content.imatgeartista1.filename" ref="image" />
+      <img v-if="concert.content.imatgeartista1.filename + '/m/1400x0'" :class="[{'active-concert-image': isActive}, 'image']" :src="concert.content.imatgeartista1.filename" ref="image" />
     </div>
   </nuxt-link>
 </template>
@@ -35,6 +35,7 @@ const imageWrap = ref(null)
 let tl = null
 let xTo = null
 let yTo = null
+let isActive = ref(false)
 
 const props = defineProps({
   concert: {
@@ -86,6 +87,7 @@ function handleMove(e) {
 }
 
 function handleEnter() {
+  isActive.value = true
   gsap.to('html', {
     "--primary": sergiStore.colors[props.concert.content.color],
     duration: 0.25
@@ -114,6 +116,7 @@ function handleEnter() {
 }
 
 function handleLeave() {
+  isActive.value = false
   let color =  (props.concert.content.bgcolor === 'purple' ||  props.concert.content.bgcolor === 'green') ? sergiStore.colors['white'] : sergiStore.colors['black']
   gsap.to('.concert-item-title', {
     color: color,
@@ -149,13 +152,13 @@ function handleLeave() {
   &-data {
     &-right {
       text-align: left;
-      line-height: 0.85;
+      line-height: 0.9;
       font-size: $font-size-md;
     }
 
     &-left {
       text-align: right;
-      line-height: 0.85;
+      line-height: 0.9;
       font-size: $font-size-md;
 
       .concert-date {
@@ -169,7 +172,9 @@ function handleLeave() {
     grid-template-columns: 1fr auto 1fr;
     gap: 1.5rem;
     width: 100%;
-    line-height: .8;
+    line-height: .9;
+    padding-top: .7em;
+    overflow: hidden;
     color: var(--secondaryfades);
   }
 

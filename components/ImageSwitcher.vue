@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { ref, onMounted } from 'vue'
 import gsap from 'gsap'
 
 let activeSlide = ref(0)
@@ -23,21 +23,6 @@ const props = defineProps({
 
 onMounted(() => {
   setInterval(loopSlides, 3000)
-
-  gsap.from(imageSwitcher.value, {
-    y: '150%',
-    delay: .75,
-    duration: 1,
-    ease: 'Power4.Out'
-  })
-})
-
-onBeforeUnmount(() => {
-  gsap.to(imageSwitcher.value, {
-    y: '-150%',
-    duration: .75,
-    ease: 'Power4.Out'
-  })
 })
 </script>
 

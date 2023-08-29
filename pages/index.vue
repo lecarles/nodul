@@ -6,6 +6,12 @@ useSeoMeta({
   ogDescription: "Circuit Viu",
   ogImage: 'https://a.storyblok.com/f/243306/2149x1080/3bba475e90/fons-taronja.png',
 })
+
+import { pageTransition } from '@/helpers/transitionConfig'
+
+definePageMeta({
+  pageTransition: pageTransition,
+})
 </script>
 
 <template>

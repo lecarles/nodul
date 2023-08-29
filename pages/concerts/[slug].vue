@@ -2,6 +2,11 @@
 import { onMounted } from 'vue'
 import { useSergiStore } from '~/stores/sergiStore'
 import gsap from 'gsap'
+import { concertTransition } from '~/helpers/transitionConfig';
+
+definePageMeta({
+  pageTransition: concertTransition,
+})
 
 const sergiStore = useSergiStore()
 const { slug } = useRoute().params
@@ -33,8 +38,8 @@ onMounted(() => {
     <div class="concert-main">
       <div class="p-md concert-info grid-1">
         <div class="concert-artists font-size-xl secondary">
-          <div>{{data.story.content.artist1}}</div>
-          <div v-if="data.story.content.artist2"> + {{data.story.content.artist2}}</div>
+          <div class="concert-artists-line"><div class="concert-artist">{{data.story.content.artist1}}</div></div>
+          <div class="concert-artists-line" v-if="data.story.content.artist2"><div class="concert-artist"> + {{data.story.content.artist2}}</div></div>
         </div>
         <div class="concert-data font-size-md secondary">
           <div class="concert-data-temporal">
@@ -53,8 +58,10 @@ onMounted(() => {
       </div>
       <div class="img-wrapper" v-if="data.story.content.imatgeartista1.filename">
         <div class="img-container">
-          <image-switcher v-if="data.story.content.imatgeartista2.filename" :images="[data.story.content.imatgeartista1.filename, data.story.content.imatgeartista2.filename]"/>
-          <img class="img-artista" v-else :src="data.story.content.imatgeartista1.filename + '/m/1400x0'" :alt="data.story.content.artist1">
+          <div class="img-if">
+            <image-switcher v-if="data.story.content.imatgeartista2.filename" :images="[data.story.content.imatgeartista1.filename, data.story.content.imatgeartista2.filename]"/>
+            <img class="img-artista" v-else :src="data.story.content.imatgeartista1.filename + '/m/1400x0'" :alt="data.story.content.artist1">
+          </div>
           <marquee-viu class="marquee-viu-concert" data-speed="0.9"/>
         </div>
       </div>
@@ -85,6 +92,7 @@ onMounted(() => {
   .concert-info {
     text-transform: uppercase;
     text-align: center;
+    overflow: hidden;
   }
 
   .concert-bios {
@@ -98,6 +106,8 @@ onMounted(() => {
     grid-template-columns: 1fr 12em 1fr;
     gap: clamp(1em, 1.5vw, 2em);
     margin: 0 auto;
+    overflow: hidden;
+    padding: .6em 0;
 
     &-space, &-temporal {
       display: grid;
@@ -128,6 +138,19 @@ onMounted(() => {
     object-fit: contain;
     margin: 0 auto;
     z-index: 15;
+  }
+
+  .img-if {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+  }
+
+  .concert-artists-line {
+    overflow: hidden;
+    padding-top: .3em;
+    margin-top: -.3em;
   }
 }
 

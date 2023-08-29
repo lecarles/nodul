@@ -45,14 +45,22 @@
 
 <script setup>
 import gsap from 'gsap'
-import { onMounted, ref } from 'vue'
+import { watch, ref } from 'vue'
+import { useTransitionComposable } from '@/composables/transitionComposable'
+
+const { transitionState } = useTransitionComposable()
 
 let inner = ref(null)
 let marquee = ref(null)
 
-onMounted (() => {
-  runMarquee()
-})
+watch(
+  () => transitionState.transitionComplete,
+  (newValue) => {
+    if (newValue) {
+      runMarquee()
+    }
+  }
+)
   
 function  runMarquee () {
   const tween = gsap.to('.marquee-part-viu', { xPercent: -100, repeat: -1, duration: 3, ease: 'linear' }).totalProgress(0.5)

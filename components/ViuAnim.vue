@@ -1,5 +1,5 @@
 <template>
-  <div class="viu-anim p-md">
+  <div class="viu-anim p-md" ref="main">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 735 371.72">
       <path class="base" @mouseenter="enter(v1)" @mouseleave="exit(v1)" id="v1" d="M64.6,371.72H56.78L0,333v-7.81L176.1,64h7.82l56.78,38.67v7.82Z"/>
       <path class="base" @mouseenter="enter(v2)" @mouseleave="exit(v2)" id="v2" d="M109.24,333.25,290.89,63.75h7.82l56.78,38.68v7.81L208.19,328.72l-6.58,4.53Z"/>
@@ -20,11 +20,30 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, watch, onUnmounted } from 'vue'
 import gsap from "gsap"
 import ScrollTrigger from "gsap/ScrollTrigger"
 import MorphSVGPlugin from "gsap/MorphSVGPlugin"
 import CustomEase from "gsap/CustomEase"
+import { useTransitionComposable } from '@/composables/transitionComposable'
+
+const { transitionState } = useTransitionComposable()
+const main = ref()
+
+onMounted(() => {
+  gsap.registerPlugin(ScrollTrigger)
+  gsap.registerPlugin(CustomEase)
+  gsap.registerPlugin(MorphSVGPlugin)
+})
+
+watch(
+  () => transitionState.transitionComplete,
+  (newValue) => {
+    if (newValue) {
+      setupTimelines()
+    }
+  }
+)
 
 let v1, v2, i, u1, u2, p
 
@@ -97,20 +116,16 @@ function setupTimelines() {
 }
 
 function enter(letter) {
-  letter.tweenFromTo(0, 'mid', {ease: 'Power4.easeOut'})
+  if(transitionState.transitionComplete) {
+    letter.tweenFromTo(0, 'mid', {ease: 'Power4.easeOut'})
+  }
 }
 
 function exit(letter) {
-  letter.tweenTo(letter.duration(), {ease: 'Power4.easeOut'})
+  if (transitionState.transitionComplete) {
+    letter.tweenTo(letter.duration(), {ease: 'Power4.easeOut'})
+  }
 }
-
-onMounted(() => {
-  gsap.registerPlugin(ScrollTrigger)
-  gsap.registerPlugin(CustomEase)
-  gsap.registerPlugin(MorphSVGPlugin)
-
-  setupTimelines()
-})
 </script>
 
 <style lang="scss" scoped>

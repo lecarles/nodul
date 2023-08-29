@@ -30,11 +30,14 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, watch } from 'vue'
 import gsap from "gsap"
 import ScrollTrigger from "gsap/ScrollTrigger"
 import MorphSVGPlugin from "gsap/MorphSVGPlugin"
 import CustomEase from "gsap/CustomEase"
+import { useTransitionComposable } from '@/composables/transitionComposable'
+
+const { transitionState } = useTransitionComposable()
 
 let v1 = ref(null)
 let v2 = ref(null)
@@ -64,6 +67,15 @@ const props = defineProps({
     default: 0
   }
 })
+
+watch(
+  () => transitionState.transitionComplete,
+  (newValue) => {
+    if (newValue) {
+      setupTimelines()
+    }
+  }
+)
 
 function setupTimelines() {
   v1Tl = gsap.timeline()
@@ -147,8 +159,6 @@ onMounted(() => {
   gsap.registerPlugin(ScrollTrigger)
   gsap.registerPlugin(CustomEase)
   gsap.registerPlugin(MorphSVGPlugin)
-
-  setupTimelines()
 })
 </script>
 

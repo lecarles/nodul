@@ -17,10 +17,11 @@ const { data } = await storyblokApi.get('cdn/stories', {
 .concert-grid {
   margin: 5vh 0;
   display: grid;
-  gap: 1.5rem;
+  gap: .45rem;
   width: 100%;
   text-align: center;
   justify-items: start;
   padding: $padding-y-md $padding-x-md $padding-y-md;
+  box-sizing: border-box;
 }
 </style>

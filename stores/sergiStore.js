@@ -4,7 +4,6 @@ export const useSergiStore = defineStore('sergiStore', {
   state: () => { 
     return {
       windowSize: {x: 0, y: 0},
-      smoother: null,
       colors: {
         white: '#ecefe5',
         black: '#2b2b2b',

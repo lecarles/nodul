@@ -1,11 +1,7 @@
 <template>
   <div>
-    <div id="smooth-wrapper" ref="main">
-      <div id="smooth-content">
-        <app-nav />
-        <slot/>
-      </div>
-    </div>
+      <app-nav />
+      <NuxtPage />
   </div>
 </template>
 
@@ -14,28 +10,25 @@ import gsap from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
 import ScrollSmoother from 'gsap/ScrollSmoother'
 import { onMounted, onUnmounted, ref } from 'vue'
-import { useSergiStore } from '../stores/sergiStore'
+import { useSergiStore } from '@/stores/sergiStore'
 
 const sergiStore = useSergiStore()
 let ctx
 let smoother
 const main = ref(null)
 
+const { toggleTransitionComplete } = useTransitionComposable()
+
 onMounted(() => {
   onResize()
   window.addEventListener('resize', onResize)
+  toggleTransitionComplete(true)
 
   gsap.registerPlugin(ScrollTrigger, ScrollSmoother)  
-  ctx = gsap.context(() => {
-    smoother = ScrollSmoother.create({
-      smooth: 1.5, 
-      effects: true, 
-    })
-  }, main.value)
 })
       
 onUnmounted(() => {
-  ctx.revert();
+  ctx.revert()
 })
 
 function onResize() {
@@ -46,8 +39,7 @@ function onResize() {
 </script>
 
 <style lang="scss">
-#smooth-content { 
+.wrapper { 
   background: var(--background);
-  padding: 1px 0;
 }
 </style>

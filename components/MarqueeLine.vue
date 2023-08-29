@@ -13,17 +13,24 @@
 
 <script setup>
 import gsap from 'gsap'
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, watchPostEffect } from 'vue'
+import { useTransitionComposable } from '@/composables/transitionComposable'
 
+const { transitionState } = useTransitionComposable()
 let wrapper = ref(null)
 
-onMounted (() => {
-  const loop = horizontalLoop(wrapper.value.children, {
-    paused: false,
-    repeat: -1,
-    speed: 1.25,  
-  })
-})
+watch(
+  () => transitionState.transitionComplete,
+  (newValue) => {
+    if (newValue) {
+      const loop = horizontalLoop(wrapper.value.children, {
+        paused: false,
+        repeat: -1,
+        speed: 1.25,  
+      })
+    }
+  }
+)
 
 function horizontalLoop(items, config) {
 	items = gsap.utils.toArray(items);
