@@ -37,6 +37,7 @@ const pageTransition = {
         },
       })
       .to(el, { opacity: 1, duration: .3})
+      .play()
     })
   },
   onLeave: (el, done) => {
