@@ -1,19 +1,21 @@
 <template>
-    <div ref="wrapper" class="wrapper" aria-hidden="true">
-      <div class="marquee-part">
-        CONCERTS EN SALES · AIORA · CIRCUIT VIU 2023 · ALACANT · CONCERTS EN SALES · ALBORAIA · CIRCUIT VIU 2023 · ALMÀSSERA · 
-        CONCERTS EN SALES · CASTELLÓ · CIRCUIT VIU 2023 · MISLATA · CONCERTS EN SALES · ST. JOAN D'ALACANT · CIRCUIT VIU 2023 · ST. VICENT DEL RASPEIG ·  CONCERTS EN SALES · VALÈNCIA · 
-      </div>
-      <div class="marquee-part">
-        CIRCUIT VIU 2023 · AIORA · CONCERTS EN SALES · ALACANT · CIRCUIT VIU 2023 · ALBORAIA · CONCERTS EN SALES · ALMÀSSERA · 
-        CIRCUIT VIU 2023 · CASTELLÓ · CONCERTS EN SALES · MISLATA · CIRCUIT VIU 2023 · ST. JOAN D'ALACANT · CONCERTS EN SALES · ST. VICENT DEL RASPEIG ·  CIRCUIT VIU 2023 · VALÈNCIA · 
+    <div class="marquee-line">
+      <div ref="wrapper" class="wrapper" aria-hidden="true">
+        <div class="marquee-part">
+          CONCERTS EN SALES · AIORA · CIRCUIT VIU 2023 · ALACANT · CONCERTS EN SALES · ALBORAIA · CIRCUIT VIU 2023 · ALMÀSSERA · 
+          CONCERTS EN SALES · CASTELLÓ · CIRCUIT VIU 2023 · MISLATA · CONCERTS EN SALES · ST. JOAN D'ALACANT · CIRCUIT VIU 2023 · ST. VICENT DEL RASPEIG ·  CONCERTS EN SALES · VALÈNCIA · 
+        </div>
+        <div class="marquee-part">
+          CIRCUIT VIU 2023 · AIORA · CONCERTS EN SALES · ALACANT · CIRCUIT VIU 2023 · ALBORAIA · CONCERTS EN SALES · ALMÀSSERA · 
+          CIRCUIT VIU 2023 · CASTELLÓ · CONCERTS EN SALES · MISLATA · CIRCUIT VIU 2023 · ST. JOAN D'ALACANT · CONCERTS EN SALES · ST. VICENT DEL RASPEIG ·  CIRCUIT VIU 2023 · VALÈNCIA · 
+        </div>
       </div>
     </div>
 </template>
 
 <script setup>
 import gsap from 'gsap'
-import { onMounted, ref, watchPostEffect } from 'vue'
+import { onMounted, ref, watch } from 'vue'
 import { useTransitionComposable } from '@/composables/transitionComposable'
 
 const { transitionState } = useTransitionComposable()
@@ -23,14 +25,24 @@ watch(
   () => transitionState.transitionComplete,
   (newValue) => {
     if (newValue) {
-      const loop = horizontalLoop(wrapper.value.children, {
-        paused: false,
-        repeat: -1,
-        speed: 1.25,  
-      })
+      setupLoop()
     }
   }
 )
+
+function setupLoop() {
+  const loop = horizontalLoop(wrapper.value.children, {
+    paused: false,
+    repeat: -1,
+    speed: 1.25,  
+  })
+
+  gsap.to(wrapper.value, {
+    y: 0,
+    duration: 0.5,
+    ease: 'Power4.Out'
+  })
+}
 
 function horizontalLoop(items, config) {
 	items = gsap.utils.toArray(items);
@@ -92,6 +104,10 @@ function horizontalLoop(items, config) {
 </script>
 
 <style lang="scss" scoped>
+
+.marquee-line {
+  overflow: hidden;
+}
 .marquee-part {
   display: inline;
   flex-shrink: 0;
@@ -110,6 +126,7 @@ function horizontalLoop(items, config) {
   background: var(--primary);
   font-size: $font-size-md;
   padding: .45em 0 .22em 0;
+  transform: translateY(110%);
 }
 
 .marquee-inner {

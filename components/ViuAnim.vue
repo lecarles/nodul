@@ -1,6 +1,6 @@
 <template>
   <div class="viu-anim p-md" ref="main">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 735 371.72">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 735 371.72" ref="svg">
       <path class="base" @mouseenter="enter(v1)" @mouseleave="exit(v1)" id="v1" d="M64.6,371.72H56.78L0,333v-7.81L176.1,64h7.82l56.78,38.67v7.82Z"/>
       <path class="base" @mouseenter="enter(v2)" @mouseleave="exit(v2)" id="v2" d="M109.24,333.25,290.89,63.75h7.82l56.78,38.68v7.81L208.19,328.72l-6.58,4.53Z"/>
       <path class="base" id="vt" d="M90.39,333.25l25.23-37.44-.4,37.44Z"/>
@@ -29,6 +29,7 @@ import { useTransitionComposable } from '@/composables/transitionComposable'
 
 const { transitionState } = useTransitionComposable()
 const main = ref()
+const svg = ref()
 
 onMounted(() => {
   gsap.registerPlugin(ScrollTrigger)

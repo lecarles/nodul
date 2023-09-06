@@ -22,8 +22,8 @@ const pageTransition = {
           done()
         },
       })
-      .to(el, { opacity: 1, duration: .3})
-      .to('.concert-item-name, .concert-item-data-left, .concert-item-data-right', { y: 0, duration: 0.6, stagger: 0.008})
+      .to(el, { opacity: 1, duration: .25})
+      .to('.concert-item-name, .concert-item-data-left, .concert-item-data-right', { y: 0, duration: 0.6, stagger: 0.004})
       .play()
     })
     mm.add("(max-width: 949px)", () => {
@@ -46,8 +46,8 @@ const pageTransition = {
       gsap
       .timeline({ paused: true, onComplete: done, defaults: { ease: 'Power4.InOut'}})
       .to('.concert-item-data-left, .concert-item-data-right', { y: '-300%', duration: 0.65, stagger: 0.008})
-      .to('.concert-item-name', { y: '-270%', duration: 0.7, stagger: 0.008}, '<0.1')
-      .to('.active-concert-image', { y: '-120%', duration: 0.5, stagger: 0.008}, '<0.5')
+      .to('.concert-item-name', { y: '-270%', duration: 0.7, stagger: 0.008}, '<0.02')
+      .to('.active-concert-image', { y: '-120%', duration: 0.6, stagger: 0.008}, '<0.1')
       .to(el, { opacity: 0, duration: .2}, '>')
       .play()
     })
@@ -81,7 +81,6 @@ const concertTransition = {
         .to('.concert-artist', { y: 0, duration: 0.5, stagger: 0.1 }, '<0.2')
         .to('.concert-date, .concert-time, .button-container, .concert-venue, .concert-city', { y: 0, duration: 0.5, stagger: 0.05 }, '<0.15')
         .to('.img-artista, .image-switcher', { y: 0, duration: 0.75, stagger: 0.05 }, '<0.1')
-        .to('.marquee-viu', { y: 0, duration: 0.75 }, '<0.05')
         .play()
     })
     mm.add("(max-width: 949px)", () => {

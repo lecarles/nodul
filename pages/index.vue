@@ -2,8 +2,8 @@
 useSeoMeta({
   title: 'Circuit Viu',
   ogTitle: 'Circuit Viu',
-  description: "Circuit Viu",
-  ogDescription: "Circuit Viu",
+  description: "El Circuit Viu és un projecte que naix l’any 2020 amb uns objectius molt clars: reivindicar la importància de les sales de música en directe com a llocs primordials en la cadena de valor cultural de les ciutats i els territoris, visibilitzar la seua activitat a través d’una programació conjunta i dinamitzar l’escena musical valenciana.",
+  ogDescription: "El Circuit Viu és un projecte que naix l’any 2020 amb uns objectius molt clars: reivindicar la importància de les sales de música en directe com a llocs primordials en la cadena de valor cultural de les ciutats i els territoris, visibilitzar la seua activitat a través d’una programació conjunta i dinamitzar l’escena musical valenciana.",
   ogImage: 'https://a.storyblok.com/f/243306/2149x1080/3bba475e90/fons-taronja.png',
 })
 

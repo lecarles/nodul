@@ -63,6 +63,11 @@ watch(
 )
   
 function  runMarquee () {
+  gsap.to(marquee.value, {
+    y: 0,
+    duration: .6,
+    ease: 'Power4.InOut'
+  })
   const tween = gsap.to('.marquee-part-viu', { xPercent: -100, repeat: -1, duration: 3, ease: 'linear' }).totalProgress(0.5)
 
   gsap.set('.marquee-inner-viu', { xPercent: -50 })
@@ -85,7 +90,7 @@ function  runMarquee () {
 .marquee-viu {
   position: relative;
   z-index: 1;
-  transform: scale(1.2);
+  transform: scale(1.2) translateY(100%);
   pointer-events: none;
   font-size: $font-size-md;
   perspective-origin: center;

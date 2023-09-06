@@ -96,7 +96,7 @@ onMounted(() => {
   }
 
   .concert-bios {
-    margin-top: calc($padding-x-md * 4 + 8rem);
+    margin-top: calc($padding-x-md * 4);
   }
 
   .concert-data {
