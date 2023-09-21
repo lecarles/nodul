@@ -1,7 +1,7 @@
 <template>
   <div class="navbar navbar-wrapper font-size-sm">
     <nuxt-link class="mr-auto navbar-logo-link" :to="localePath('/')">
-      Circuit Viu
+      Nòdul
     </nuxt-link>
     <div class="navbar-md" ref="navbar">
       <NuxtLink class="locale-change button-link" v-for="locale in availableLocales" :key="locale.code" :to="switchLocalePath(locale.code)">{{
@@ -107,8 +107,6 @@ function setupTl() {
 
 <style lang="scss">
 .navbar {
-  text-transform:  uppercase;
-  
   &-wrapper {
     padding: $padding-x-sm $padding-x-md;
     width: 100%;

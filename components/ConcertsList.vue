@@ -1,6 +1,13 @@
 <template>
   <div class="concert-grid">
-    <concert-link :concert="concert" :i="i" v-for="(concert, i) in data.stories" :key="concert._uuid"></concert-link>
+    <div class="concert-item" v-for="concert in data.stories" :key="concert.uuid">
+      <div>{{concert.content.date}}</div>
+      <div>
+        <div>{{concert.content.place}}</div>
+        <div>{{concert.content.town}}</div>
+        <div>{{concert.content.artists}}</div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -15,9 +22,9 @@ const { data } = await storyblokApi.get('cdn/stories', {
 
 <style lang="scss" scoped>
 .concert-grid {
-  margin: 5vh 0;
+  background: var(--secondary);
+  color: var(--background);
   display: grid;
-  gap: .45rem;
   width: 100%;
   text-align: center;
   justify-items: start;

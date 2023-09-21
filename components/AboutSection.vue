@@ -1,9 +1,18 @@
 <template>
-  <div class="about-grid p-md mt-row-2">
-    <div class="font-size-mdlg">
-      {{ data.story.content.header }}
+  <div>
+    <div class="about-grid p-md">
+      <div class="font-size-md about-header">
+        {{ data.story.content.aboutHeader }}
+      </div>
+      <div class="font-size-md about-grid-text" v-html="renderRichText(data.story.content.aboutText)">
+      </div>
     </div>
-    <div class="font-size-md about-grid-text" v-html="renderRichText(data.story.content.about)">
+    <div class="filera-zero p-md">
+      <div class="font-size-md about-header">
+        {{ data.story.content.zeroHeader }}
+      </div>
+      <div class="font-size-md about-grid-text" v-html="renderRichText(data.story.content.zeroText)">
+      </div>
     </div>
   </div>
 </template>
@@ -11,24 +20,30 @@
 <script setup>
 const storyblokApi = useStoryblokApi()
 const route = useRoute()
-const { data } = await storyblokApi.get('cdn/stories/home/', {
-language: route.name.endsWith('es') ? 'es' : 'ca'
-})
+const { data } = await storyblokApi.get('cdn/stories/home/')
 </script>
 
 <style lang="scss">
-.about-grid {
+.about-grid, .filera-zero {
+  background: var(--primary);
+  color: var(--background);
   display: grid;
-  grid-template-columns: 1fr 1.5fr;
-  gap: 4em;
-
-  &-text {
-    margin: 0 auto;
-  }
+  grid-template-columns: 2fr 3fr;
+  height: calc(var(--vh, 1vh) * 100);
 
   p {
     margin-bottom: 1rem;
   }
+}
+
+.about-header {
+  max-width: 20ch;
+  line-height: 1.2;
+}
+
+.filera-zero {
+  background: var(--background);
+  color: var(--secondary);
 }
 
 @media (max-width: $sm-breakpoint) {
