@@ -25,11 +25,7 @@ export default defineNuxtConfig({
       {
         code: 'ca',
         name: 'Valencià'
-      },
-      {
-        code: 'es',
-        name: 'Castellano'
-      },
+      }
     ],
     defaultLocale: 'ca',    
     vueI18n: './i18n.config.ts'
