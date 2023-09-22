@@ -47,8 +47,14 @@ const { data } = await storyblokApi.get('cdn/stories/home/')
 }
 
 @media (max-width: $sm-breakpoint) {
-  .about-grid {
+  .about-grid, .filera-zero {
     grid-template-columns: 1fr;
+    gap: 2rem;
+    height: auto;
+
+    &-text {
+      font-size: $font-size-sm;
+    }
   }
 }
 </style>

@@ -5,7 +5,9 @@
       <div>
         <div>{{concert.content.place}}</div>
         <div>{{concert.content.town}}</div>
-        <div>{{concert.content.artists}}</div>
+        <div>
+          <artist-item v-for="artist in concert.content.artists" :artist="artist" :key="artist"></artist-item>
+        </div>
       </div>
     </div>
   </div>
@@ -13,11 +15,13 @@
 
 <script setup>
 const storyblokApi = useStoryblokApi()
-const { data } = await storyblokApi.get('cdn/stories', {
+
+const data = await storyblokApi.get('cdn/stories', {
   version: 'draft',
   starts_with: 'concerts',
   sort_by: 'content.data:asc'
 })
+
 </script>
 
 <style lang="scss" scoped>
