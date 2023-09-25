@@ -8,8 +8,12 @@
       <img src="@/assets/logos/europa.svg" alt="Finançat per la Unió Europea Next Generation EU ">
     </div>
     <div class="logos logos-ajuntaments">
+      <img src="@/assets/logos/alcantera.png" alt="Ajuntament d'Alcàntera">
       <img src="@/assets/logos/antella.png" alt="Ajuntament d'Antella">
+      <img src="@/assets/logos/beneixida.png" alt="Ajuntament de Beneixida">
+      <img src="@/assets/logos/carcer.png" alt="Ajuntament de Càrcer">
       <img src="@/assets/logos/cotes.png" alt="Ajuntament de Cotes">
+      <img src="@/assets/logos/gavarda.png" alt="Ajuntament de Gavarda">
       <img src="@/assets/logos/sellent.png" alt="Ajuntament de Sellent">
       <img src="@/assets/logos/sumacarcer.png" alt="Ajuntament de Sumacàrcer">
     </div>
