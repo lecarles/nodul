@@ -16,7 +16,7 @@
 <script setup>
 const storyblokApi = useStoryblokApi()
 
-const data = await storyblokApi.get('cdn/stories', {
+const { data } = await storyblokApi.get('cdn/stories', {
   version: 'draft',
   starts_with: 'concerts',
   sort_by: 'content.data:asc'

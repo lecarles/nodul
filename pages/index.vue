@@ -19,6 +19,6 @@ definePageMeta({
     <intro-section />
     <!-- <concerts-list /> -->
     <about-section />
-    <!-- <app-footer /> -->
+    <app-footer />
   </div>
 </template>
