@@ -1,8 +1,10 @@
 <template>
   <div class="intro-section font-size-md grid-1">
     <div class="grid-5 a-self-start">
-      <div class="intro-section-artists span-3-col"><span v-for="artist in data.stories" :key="artist.uuid">{{artist.content.name}}, </span></div>
-      <div class="intro-section-info font-size-sm">
+      <div class="intro-section-artists span-2-col">
+        <div class="artist" v-for="artist in data.stories" :key="artist.uuid">{{artist.content.name}}</div>
+      </div>
+      <div class="intro-section-info font-size-sm col-4">
         <div>Nòdul</div>
         <div>I Festival de <br>La Vall del Xúquer</div>
         <div>11–15 d’Octubre</div>
@@ -30,8 +32,21 @@ const { data } = await storyblokApi.get('cdn/stories', {
   position: relative;
 
   &-artists {
+    display: flex;
     align-self: start;
-    max-width: 50%;
+    width: 100%;
+    flex-wrap: wrap;
+    column-gap: .25em;
+
+    .artist {
+      &::after {
+        content: ',';
+      }
+
+      &:last-child::after{
+        content: '';
+      }
+    }
   }
   
   &-info {
