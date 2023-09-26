@@ -1,10 +1,10 @@
 <template>
   <div class="grid-1">
     <div class="logos">
+      <img src="@/assets/logos/europa.svg" alt="Finançat per la Unió Europea Next Generation EU ">
       <img src="@/assets/logos/generalitat.svg" alt="Generalitat Valenciana">
       <img src="@/assets/logos/ivc.svg" alt="Institut Valencià de Cultura">
       <img src="@/assets/logos/dipuv2.svg" alt="Diputació de València - Àrea de Cultura">
-      <img src="@/assets/logos/europa.svg" alt="Finançat per la Unió Europea Next Generation EU ">
       <img src="@/assets/logos/primavera.svg" alt="Primavera d'Hivern">
     </div>
     <div class="logos logos-ajuntaments">
