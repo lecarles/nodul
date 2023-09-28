@@ -8,7 +8,7 @@ export const useDateFormatter = (date) => {
     es: dateInstance.toLocaleString('es', { month: 'long' })
   })
   const day = ref(dateInstance.getDate())
-  const time = ref(`${dateInstance.getHours().toString().padStart(2, '0')}:${dateInstance.getMinutes().toString().padStart(2, '0')}`)
+  const time = ref(`${dateInstance.getHours().toString().padStart(2, '0')}`)
 
   return { year, month, day, time, fullMonth }
 }

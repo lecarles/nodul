@@ -1,6 +1,6 @@
 <template>
   <div class="artist-item">
-    {{data.story.name}}
+    {{data.story.content.name}}
   </div>
 </template>
 
