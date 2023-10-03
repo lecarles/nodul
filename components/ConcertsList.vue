@@ -14,11 +14,12 @@
           </div>
           <div class="concert-item-time col-1 font-size-sm">{{computedDate(concert.content.date).time.value}}h</div>
           <div class="font-size-md concert-item-artists col-2">
-            <artist-item v-for="artist in concert.content.artists" :artist="artist" :key="artist"></artist-item>
+            <artist-item v-for="artist in concert.content.artists" :artist="getArtist(artist)[0]" :key="artist"></artist-item>
           </div>
         </div>
       </div>
       <div class="concert-image" ref="pin">
+        <artist-images />
         <img src="@/assets/background.png">
       </div>
     </div>
@@ -52,6 +53,15 @@ const { data } = await storyblokApi.get('cdn/stories', {
   starts_with: 'concerts',
   sort_by: 'content.date:asc'
 })
+
+const artists = await storyblokApi.get('cdn/stories', {
+  starts_with: 'artists',
+  sort_by: 'content.date:asc'
+})
+
+function getArtist(id) {
+  return artists.data.stories.filter((story) => story.uuid === id)
+}
 
 function wtf(i){
   if(i-1 < 0) {

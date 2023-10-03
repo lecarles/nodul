@@ -1,7 +1,20 @@
 <template>
   <div class="artist-images">
     <div class="artist-image-wrapper" v-for="artist in data.stories" :key="artist.uuid">
-      <img v-if="artist.uuid === sergiStore.activeArtist" class="artist-image" :src="artist.content.image.filename" :alt="artist.content.name">
+      <img 
+        v-if="artist.uuid === sergiStore.activeArtist" 
+        class="artist-image" 
+        :src="artist.content.image.filename" 
+        :alt="artist.content.name"
+        :style="{clipPath: 'url(#' + artist.uuid + ')'}"
+      >
+      <svg>
+        <defs>
+          <clipPath transform="scale(0.00148148148)" :id="artist.uuid" clipPathUnits="objectBoundingBox">
+              <path :d="artist.content.path"/>
+          </clipPath>
+        </defs>
+      </svg>
     </div>
   </div>
 </template>

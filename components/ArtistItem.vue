@@ -1,13 +1,13 @@
 <template>
-  <div :class="['artist-item-wrapper', {'active' : data.story.uuid === sergiStore.activeBio }]">
-    <div class="artist-item" @mouseenter="setHoverArtist(data.story.uuid)" @click="handleActiveBio(data.story.uuid)">
-      <span class="mr-col">{{data.story.content.name}}</span>
+  <div :class="['artist-item-wrapper', {'active' : props.artist.uuid === sergiStore.activeBio }]">
+    <div class="artist-item" @mouseenter="setHoverArtist(props.artist.uuid)" @click="handleActiveBio(props.artist.uuid)">
+      <span class="mr-col">{{props.artist.content.name}}</span>
       <span class="more"> + </span>
     </div>
     <Transition name="slide">
-      <div class="artist-bio" v-show="data.story.uuid === sergiStore.activeBio">
-        <div class="font-size-sm" v-html="renderRichText(data.story.content.bio)"></div>
-        <img class="artist-image-mb" :src="data.story.content.image.filename" :alt="data.story.content.name">
+      <div class="artist-bio" v-show="props.artist.uuid === sergiStore.activeBio">
+        <div class="font-size-sm" v-html="renderRichText(props.artist.content.bio)"></div>
+        <img class="artist-image-mb" :src="props.artist.content.image.filename" :alt="props.artist.content.name">
       </div>
     </Transition>
   </div>
@@ -19,12 +19,10 @@ import gsap from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
 
 const sergiStore = useSergiStore()
-const storyblokApi = useStoryblokApi()
-
 const props = defineProps({
   artist: {
-    type: String,
-    default: '0'
+    type: Object,
+    default: null
   },
 })
 
@@ -40,11 +38,6 @@ function handleActiveBio(id) {
   }
   ScrollTrigger.refresh(true)
 }
-
-const { data } = await storyblokApi.get('cdn/stories/' + props.artist, {
-  find_by: 'uuid',
-})
-
 </script>
 
 <style lang="scss">
