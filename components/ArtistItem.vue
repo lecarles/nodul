@@ -4,10 +4,12 @@
       <span class="mr-col">{{data.story.content.name}}</span>
       <span class="more"> + </span>
     </div>
-    <div v-show="data.story.uuid === sergiStore.activeBio">
-      <div class="font-size-sm" v-html="renderRichText(data.story.content.bio)"></div>
-      <img class="artist-image-mb" :src="data.story.content.imageCropped.filename" :alt="data.story.content.name">
-    </div>
+    <Transition name="slide">
+      <div class="artist-bio" v-show="data.story.uuid === sergiStore.activeBio">
+        <div class="font-size-sm" v-html="renderRichText(data.story.content.bio)"></div>
+        <img class="artist-image-mb" :src="data.story.content.image.filename" :alt="data.story.content.name">
+      </div>
+    </Transition>
   </div>
 </template>
 
@@ -93,5 +95,21 @@ const { data } = await storyblokApi.get('cdn/stories/' + props.artist, {
     width: 100%;
     height: auto;
   }
+}
+
+.slide-enter-active,
+.slide-leave-active {
+  transition: all .3s ease-out;
+  max-height: 1200px;
+  overflow: hidden;
+}
+
+.slide-enter-from,
+.slide-leave-to {
+  transform: translateY(-10px);
+  opacity: 0;
+  transition: all .3s ease-out;
+  max-height: 0;
+  overflow: hidden;
 }
 </style>

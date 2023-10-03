@@ -1,11 +1,16 @@
 <template>
   <div class="artist-images">
-    <artist-image v-for="artist in data.stories" :key="artist.uuid" :artist="artist"></artist-image>
+    <div class="artist-image-wrapper" v-for="artist in data.stories" :key="artist.uuid">
+      <img v-if="artist.uuid === sergiStore.activeArtist" class="artist-image" :src="artist.content.image.filename" :alt="artist.content.name">
+    </div>
   </div>
 </template>
 
 <script setup>
+import { useSergiStore } from '@/stores/sergiStore'
+
 const storyblokApi = useStoryblokApi()
+const sergiStore = useSergiStore()
 
 const { data } = await storyblokApi.get('cdn/stories', {
   version: 'draft',

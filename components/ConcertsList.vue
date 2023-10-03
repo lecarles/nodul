@@ -19,7 +19,6 @@
         </div>
       </div>
       <div class="concert-image" ref="pin">
-        <artist-images></artist-images>
         <img src="@/assets/background.png">
       </div>
     </div>
@@ -38,6 +37,7 @@ let st
 
 
 onMounted (() => {
+  console.log('onmounted')
   gsap.to(pin.value, {
     scrollTrigger: {
       trigger: trigger.value,
@@ -49,7 +49,6 @@ onMounted (() => {
 })
 
 const { data } = await storyblokApi.get('cdn/stories', {
-  version: 'draft',
   starts_with: 'concerts',
   sort_by: 'content.date:asc'
 })
