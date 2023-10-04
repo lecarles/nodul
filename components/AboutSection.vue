@@ -13,7 +13,7 @@
       </div>
       <div>
         <div class="font-size-md filera-zero-text" v-html="renderRichText(data.story.content.zeroText)"></div>
-        <a href="#" class="filera-btn">
+        <a href="https://www.primaveradh.com/tenda/producto/fila-zero/" target="blank" class="filera-btn">
           <span>Col·labora amb Nòdul</span>
         </a>
       </div>

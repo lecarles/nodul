@@ -63,7 +63,7 @@ function handleActiveBio(id) {
 <style lang="scss">
 .mask {
   height: 0;
-    width: 0;
+  width: 0;
 }
 
 .artist-item-wrapper {

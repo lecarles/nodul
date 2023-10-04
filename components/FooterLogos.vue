@@ -6,7 +6,6 @@
       <img src="@/assets/logos/ivc.svg" alt="Institut Valencià de Cultura">
       <img src="@/assets/logos/dipuv2.svg" alt="Diputació de València - Àrea de Cultura">
       <img src="@/assets/logos/primavera.svg" alt="Primavera d'Hivern">
-      <img src="@/assets/logos/blauverd.svg" alt="Blauverd Impresors">
     </div>
     <div class="logos logos-ajuntaments">
       <img src="@/assets/logos/alcantera.png" alt="Ajuntament d'Alcàntera de Xúquer">
@@ -17,6 +16,11 @@
       <img src="@/assets/logos/gavarda.png" alt="Ajuntament de Gavarda">
       <img src="@/assets/logos/sellent.png" alt="Ajuntament de Sellent">
       <img src="@/assets/logos/sumacarcer.png" alt="Ajuntament de Sumacàrcer">
+    </div>
+    <div class="logos logos-patrocinadors">
+      <img src="@/assets/logos/blauverd.svg" alt="Blauverd Impresors">
+      <img src="@/assets/logos/platino.svg" alt="Producciones Platino">
+      <img src="@/assets/logos/vondom.svg" alt="Vondom">
     </div>
   </div>
 </template>
@@ -37,6 +41,10 @@
   }
 
   &-ajuntaments img{
+    height: 2em;
+  }
+
+  &-patrocinadors img {
     height: 2em;
   }
 }
