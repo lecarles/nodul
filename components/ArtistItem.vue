@@ -1,7 +1,7 @@
 <template>
   <div :class="['artist-item-wrapper', {'active' : props.artist.uuid === sergiStore.activeBio }]">
     <div class="artist-item" @mouseenter="setHoverArtist(props.artist.uuid)" @click="handleActiveBio(props.artist.uuid)">
-      <span class="mr-col">{{props.artist.content.name}}</span>
+      <span class="mr-1">{{props.artist.content.name}}</span>
       <span class="more"> + </span>
     </div>
     <Transition name="slide">
@@ -14,6 +14,7 @@
 </template>
 
 <script setup>
+import { nextTick } from 'vue'
 import { useSergiStore } from '@/stores/sergiStore'
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
@@ -28,6 +29,7 @@ const props = defineProps({
 
 function setHoverArtist(id) {
   sergiStore.activeArtist = id
+  ScrollTrigger.refresh(true)
 }
 
 function handleActiveBio(id) {
@@ -36,6 +38,11 @@ function handleActiveBio(id) {
   } else {
     sergiStore.activeBio = id
   }
+
+  nextTick(() => {
+    ScrollTrigger.refresh(true)
+  })
+
   ScrollTrigger.refresh(true)
 }
 </script>
@@ -44,12 +51,14 @@ function handleActiveBio(id) {
 .artist-item-wrapper {
   p {
     padding-top: .6em;
+    max-width: 25ch;
 
     &:last-child {
       padding-bottom: 1em;
     }
   }
 }
+
 .active .artist-item {
   color: var(--primary);
 
@@ -57,6 +66,7 @@ function handleActiveBio(id) {
     transform: rotate(45deg);
   }
 }
+
 .artist-item {
   transition: .2s ease;
   display: flex;
@@ -92,8 +102,8 @@ function handleActiveBio(id) {
 
 .slide-enter-active,
 .slide-leave-active {
-  transition: all .3s ease-out;
-  max-height: 1200px;
+  transition: all .35s ease;
+  max-height: 800px;
   overflow: hidden;
 }
 
@@ -101,7 +111,7 @@ function handleActiveBio(id) {
 .slide-leave-to {
   transform: translateY(-10px);
   opacity: 0;
-  transition: all .3s ease-out;
+  transition: all .35s ease;
   max-height: 0;
   overflow: hidden;
 }

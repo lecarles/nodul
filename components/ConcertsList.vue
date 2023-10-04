@@ -20,7 +20,7 @@
       </div>
       <div class="concert-image" ref="pin">
         <artist-images />
-        <img src="@/assets/background.png">
+        <img class="background-pattern" src="@/assets/pattern.svg">
       </div>
     </div>
   </div>
@@ -38,7 +38,6 @@ let st
 
 
 onMounted (() => {
-  console.log('onmounted')
   gsap.to(pin.value, {
     scrollTrigger: {
       trigger: trigger.value,
@@ -75,38 +74,40 @@ function computedDate(date){
 
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .concerts-section {
   background: var(--secondary);
   color: var(--background);
-  padding-bottom: $padding-x-md;
+  min-height: 100vh;
 }
 .concert-list {
   width: 100%;
   box-sizing: border-box;
-  display: grid;
-  grid-template-columns: 2fr 3fr;
+  position: relative;
 }
 
 .concert-grid {
-  padding: $padding-y-md $padding-x-md 0 $padding-x-md;
+  padding: calc($padding-y-md * 3) $padding-x-md;
 }
 
 .concert-image {
+  z-index: 1;
   pointer-events: none;
-  position: relative;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
   height: 100vh;
   justify-self: end;
   aspect-ratio: 1;
   overflow: hidden;
+  pointer-events: none;
 
-  img {
+  .background-pattern {
     position: absolute;
     top: 0;
-    bottom: 0;
     right: 0;
-    aspect-ratio: 1;
-    width: 100%;
+    bottom: 0;
     height: 100%;
   }
 }
@@ -114,8 +115,9 @@ function computedDate(date){
 
 .concert-item {
   display: grid;
-  grid-template-columns: 1fr 1.5fr;
+  grid-template-columns: 8em 1fr;
   gap: calc($row-gap / 3);
+  column-gap: $col-gap;
   margin-bottom: calc($row-gap * 1);
 
   &:last-child {
@@ -135,6 +137,10 @@ function computedDate(date){
       margin-top: calc($row-gap * 2);
     }
   }
+}
+
+.pin-spacer {
+  pointer-events: none;
 }
 
 @media (max-width: $sm-breakpoint) {

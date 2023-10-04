@@ -45,6 +45,7 @@ const props = defineProps({
   left: calc((100vh/16) * 3);
   height: calc((100vh/16) * 10);
   overflow: hidden;
+  z-index: 1;
   
   .artist-image {
     height: calc((100vh/16) * 10);
@@ -54,6 +55,29 @@ const props = defineProps({
     &-wrapper {
       overflow: hidden;
     }
+  }
+}
+
+@media (max-aspect-ratio: 6/5) {
+  .artist-images {
+    top: calc((100vh/16) * 4);
+    height: calc((100vh/16) * 8);
+    left: calc((100vh/16) * 5);
+
+    .artist-image {
+      height: calc((100vh/16) * 8);
+    }
+  }
+}
+
+@media (max-aspect-ratio: 1/1) {
+  .background-pattern {
+    display: none;
+  }
+
+  .artist-images {
+    width: calc((100vh/16) * 8);
+    left: 50%;
   }
 }
 </style>
