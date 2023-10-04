@@ -7,7 +7,20 @@
     <Transition name="slide">
       <div class="artist-bio" v-show="props.artist.uuid === sergiStore.activeBio">
         <div class="font-size-sm" v-html="renderRichText(props.artist.content.bio)"></div>
-        <img class="artist-image-mb" :src="props.artist.content.image.filename" :alt="props.artist.content.name">
+        <img 
+        v-if="artist.uuid === sergiStore.activeArtist" 
+        class="artist-image-mb" 
+        :src="artist.content.image.filename" 
+        :alt="artist.content.name"
+        :style="{clipPath: 'url(#' + artist.uuid + '-mb )'}"
+      >
+      <svg class="mask">
+        <defs>
+          <clipPath transform="scale(0.00148148148)" :id="artist.uuid + '-mb'" clipPathUnits="objectBoundingBox">
+              <path :d="artist.content.path"/>
+          </clipPath>
+        </defs>
+      </svg>
       </div>
     </Transition>
   </div>
@@ -48,6 +61,11 @@ function handleActiveBio(id) {
 </script>
 
 <style lang="scss">
+.mask {
+  height: 0;
+    width: 0;
+}
+
 .artist-item-wrapper {
   p {
     padding-top: .6em;
@@ -97,6 +115,7 @@ function handleActiveBio(id) {
     display: block;
     width: 100%;
     height: auto;
+    margin-bottom: 1em;
   }
 }
 
