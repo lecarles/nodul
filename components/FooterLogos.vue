@@ -6,9 +6,10 @@
       <img src="@/assets/logos/ivc.svg" alt="Institut Valencià de Cultura">
       <img src="@/assets/logos/dipuv2.svg" alt="Diputació de València - Àrea de Cultura">
       <img src="@/assets/logos/primavera.svg" alt="Primavera d'Hivern">
+      <img src="@/assets/logos/blauverd.svg" alt="Blauverd Impresors">
     </div>
     <div class="logos logos-ajuntaments">
-      <img src="@/assets/logos/alcantera.png" alt="Ajuntament d'Alcàntera">
+      <img src="@/assets/logos/alcantera.png" alt="Ajuntament d'Alcàntera de Xúquer">
       <img src="@/assets/logos/antella.png" alt="Ajuntament d'Antella">
       <img src="@/assets/logos/beneixida.png" alt="Ajuntament de Beneixida">
       <img src="@/assets/logos/carcer.png" alt="Ajuntament de Càrcer">

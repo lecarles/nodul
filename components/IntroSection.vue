@@ -8,7 +8,7 @@
         <div>Nòdul</div>
         <div>I Festival de <br>La Vall del Xúquer</div>
         <div>11–15 d’Octubre</div>
-        <div class="span-2-col">Alcàntera, Antella, Beneixida, Cotes, Càrcer, Gavarda, Sellent, Sumacàrcer</div>
+        <div class="span-2-col">Alcàntera de Xúquer, Antella, Beneixida, Cotes, Càrcer, Gavarda, Sellent, Sumacàrcer</div>
       </div>
     </div>
     <div class="logo"><nodul-logo></nodul-logo></div>

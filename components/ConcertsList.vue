@@ -12,7 +12,7 @@
             <div class="concert-item-place">{{concert.content.place}}</div>
             <div class="concert-item-town">{{concert.content.town}}</div>
           </div>
-          <div class="concert-item-time col-1 font-size-sm">{{computedDate(concert.content.date).time.value}}h</div>
+          <div class="concert-item-time col-1 font-size-sm">{{computedDate(concert.content.date).time.value}}<span v-if="computedDate(concert.content.date).minutes.value !== '00'">:{{ computedDate(concert.content.date).minutes.value }}</span>h</div>
           <div class="font-size-md concert-item-artists col-2">
             <artist-item v-for="artist in concert.content.artists" :artist="getArtist(artist)[0]" :key="artist"></artist-item>
           </div>
