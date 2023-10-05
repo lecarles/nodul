@@ -17,6 +17,11 @@
             <artist-item v-for="artist in concert.content.artists" :artist="getArtist(artist)[0]" :key="artist"></artist-item>
           </div>
         </div>
+        <div class="concert-item disclaimer">
+          <div class="col-2 disclaimer-text">
+            <p>L'entrada als concerts és lliure fins completar aforament i no cal adquirir ticket per accedir-ne.</p>
+          </div>
+        </div>
       </div>
       <div class="concert-image" ref="pin">
         <artist-images />
@@ -135,6 +140,16 @@ function computedDate(date){
 
     &:not(:first-child) {
       margin-top: calc($row-gap * 2);
+    }
+  }
+
+  &.disclaimer {
+    margin-top: calc($row-gap * 2);
+
+    .disclaimer-text {
+      max-width: 18ch;
+      font-size: $font-size-xs;
+      line-height: 0.9;
     }
   }
 }
