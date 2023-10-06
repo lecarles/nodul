@@ -25,7 +25,8 @@
       </div>
       <div class="concert-image" ref="pin">
         <artist-images />
-        <img class="background-pattern" src="@/assets/pattern.svg">
+        <div class="pattern-container" ref="pattern">
+        </div>
       </div>
     </div>
   </div>
@@ -34,11 +35,13 @@
 <script setup>
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
+import { SteppedEase } from 'gsap'
 import { onMounted, ref } from 'vue'
 
 const storyblokApi = useStoryblokApi()
 const trigger = ref(null)
 const pin = ref(null)
+const pattern = ref(null)
 let st 
 
 
@@ -50,6 +53,15 @@ onMounted (() => {
       start: "top top",
       end: "bottom bottom"
     }
+  })
+
+  let steps = 18
+
+  gsap.to(pattern.value, { 
+    backgroundPosition: "100% 0",
+    duration: 7,
+    ease: SteppedEase.config(steps), 
+    repeat: -1
   })
 })
 
@@ -107,6 +119,19 @@ function computedDate(date){
   aspect-ratio: 1;
   overflow: hidden;
   pointer-events: none;
+
+  .pattern-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    overflow: hidden;
+    aspect-ratio: 5/16;
+    background: url('@/assets/pattern-tiled.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
 
   .background-pattern {
     position: absolute;
