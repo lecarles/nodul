@@ -10,6 +10,11 @@
         <div>11–15 d’Octubre</div>
         <div class="span-2-col">Alcàntera de Xúquer, Antella, Beneixida, Cotes, Càrcer, Gavarda, Sellent, Sumacàrcer</div>
       </div>
+      <div class="col-5 a-self-start j-self-end collab-container">
+        <a href="#colabora" class="collab-btn">
+          <span>Col·labora amb Nòdul</span>
+        </a>
+      </div>
     </div>
     <div class="logo"><nodul-logo></nodul-logo></div>
   </div>
@@ -55,6 +60,27 @@ const { data } = await storyblokApi.get('cdn/stories', {
     align-self: start;
     gap: .5em;
   }
+
+  .collab-btn {
+    font-size: $font-size-xs;
+    max-width: 40ch;
+    background: var(--primary);
+    color: var(--background);
+    line-height: 1;
+    width: auto;
+    transition: .15s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom-left-radius: 4em;
+    border-bottom-right-radius: 4em;
+    padding: .5em 2.25em;
+    width: fit-content;
+
+    &:hover {
+      background: var(--secondary);
+    }
+  }
 }
 .logo {
   padding: $padding-x-md;
@@ -83,6 +109,10 @@ const { data } = await storyblokApi.get('cdn/stories', {
       position: relative;
       padding: 0;
     }
+  }
+
+  .collab-container {
+    display: none;
   }
 }
 </style>

@@ -7,7 +7,7 @@
       <div class="font-size-md about-grid-text" v-html="renderRichText(data.story.content.aboutText)">
       </div>
     </div>
-    <div class="filera-zero p-md">
+    <div class="filera-zero p-md" id="colabora">
       <div class="font-size-md about-header">
         {{ data.story.content.zeroHeader }}
       </div>
@@ -52,8 +52,9 @@ const { data } = await storyblokApi.get('cdn/stories/home/')
 .filera-zero {
   background: var(--background);
   color: var(--secondary);
+}
 
-  .filera-btn {
+.filera-btn {
     margin-top: 1.5em;
     font-size: $font-size-md;
     max-width: 40ch;
@@ -74,7 +75,6 @@ const { data } = await storyblokApi.get('cdn/stories/home/')
       background: var(--primary);
     }
   }
-}
 
 @media (max-width: $sm-breakpoint) {
   .about-grid, .filera-zero {
