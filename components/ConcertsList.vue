@@ -150,6 +150,10 @@ function computedDate(date){
   column-gap: $col-gap;
   margin-bottom: calc($row-gap * 1);
 
+  &-place {
+    max-width: 25ch;
+  }
+
   &:last-child {
     margin-bottom: 0;
   }

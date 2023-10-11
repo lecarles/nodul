@@ -1,6 +1,6 @@
 import { ref } from 'vue'
 export const useDateFormatter = (date) => {
-  const dateInstance = new Date(date)
+  const dateInstance = new Date(date.replace(/-/g, "/"))
   const year =  ref(dateInstance.getFullYear())
   const month = ref(dateInstance.getMonth()+1)
   const fullMonth = ref({
