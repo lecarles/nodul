@@ -24,7 +24,7 @@
 <script setup>
 const storyblokApi = useStoryblokApi()
 const route = useRoute()
-const { data } = await storyblokApi.get('cdn/stories/home/')
+const { data } = await storyblokApi.get('cdn/stories/home23/')
 </script>
 
 <style lang="scss">
