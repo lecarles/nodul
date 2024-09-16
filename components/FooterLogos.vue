@@ -1,26 +1,18 @@
 <template>
   <div class="grid-1">
     <div class="logos">
-      <img src="@/assets/logos/europa.svg" alt="Finançat per la Unió Europea Next Generation EU ">
-      <img src="@/assets/logos/generalitat.svg" alt="Generalitat Valenciana">
-      <img src="@/assets/logos/ivc.svg" alt="Institut Valencià de Cultura">
-      <img src="@/assets/logos/dipuv2.svg" alt="Diputació de València - Àrea de Cultura">
+      <img src="@/assets/logos/generalitat-ivc.svg" alt="Generalitat Valenciana Institut Valencià de Cultura">
+      <img src="@/assets/logos/dipu.svg" alt="Diputació de València">
+      <img src="@/assets/logos/aie.svg" alt="AIE Artistas Intérpretes o Ejecutantes">
       <img src="@/assets/logos/primavera.svg" alt="Primavera d'Hivern">
     </div>
     <div class="logos logos-ajuntaments">
-      <img src="@/assets/logos/alcantera.png" alt="Ajuntament d'Alcàntera de Xúquer">
-      <img src="@/assets/logos/antella.png" alt="Ajuntament d'Antella">
-      <img src="@/assets/logos/beneixida.png" alt="Ajuntament de Beneixida">
-      <img src="@/assets/logos/carcer.png" alt="Ajuntament de Càrcer">
-      <img src="@/assets/logos/cotes.png" alt="Ajuntament de Cotes">
-      <img src="@/assets/logos/gavarda.png" alt="Ajuntament de Gavarda">
-      <img src="@/assets/logos/sellent.png" alt="Ajuntament de Sellent">
-      <img src="@/assets/logos/sumacarcer.png" alt="Ajuntament de Sumacàrcer">
-    </div>
-    <div class="logos logos-patrocinadors">
-      <img src="@/assets/logos/blauverd.svg" alt="Blauverd Impresors">
-      <img src="@/assets/logos/platino.svg" alt="Producciones Platino">
-      <img src="@/assets/logos/vondom.svg" alt="Vondom">
+      <img src="@/assets/logos/alcantera.svg" alt="Ajuntament d'Alcàntera de Xúquer">
+      <img src="@/assets/logos/antella.svg" alt="Ajuntament d'Antella">
+      <img src="@/assets/logos/beneixida.svg" alt="Ajuntament de Beneixida">
+      <img src="@/assets/logos/cotes.svg" alt="Ajuntament de Cotes">
+      <img src="@/assets/logos/sellent.svg" alt="Ajuntament de Sellent">
+      <img src="@/assets/logos/sumacarcer.svg" alt="Ajuntament de Sumacàrcer">
     </div>
   </div>
 </template>
@@ -37,11 +29,11 @@
 
   img {
     width: auto;
-    height: 2.75em;
+    height: 2.5em;
   }
 
   &-ajuntaments img{
-    height: 2em;
+    height: 2.5em;
   }
 
   &-patrocinadors img {

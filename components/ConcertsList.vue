@@ -66,12 +66,12 @@ onMounted (() => {
 })
 
 const { data } = await storyblokApi.get('cdn/stories', {
-  starts_with: 'concerts',
+  starts_with: 'concerts/24',
   sort_by: 'content.date:asc'
 })
 
 const artists = await storyblokApi.get('cdn/stories', {
-  starts_with: 'artists',
+  starts_with: 'artists/24',
   sort_by: 'content.date:asc'
 })
 

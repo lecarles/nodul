@@ -27,7 +27,7 @@ const sergiStore = useSergiStore()
 
 const { data } = await storyblokApi.get('cdn/stories', {
   version: 'draft',
-  starts_with: 'artists',
+  starts_with: 'artists/24',
 })
 
 const props = defineProps({
