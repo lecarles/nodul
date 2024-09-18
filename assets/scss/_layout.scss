@@ -1,5 +1,5 @@
 /* LAYOUT */
-@for $i from 1 through 6 {
+@for $i from 1 through 10 {
   .grid-#{$i} {
     display: grid;
     width: 100%;

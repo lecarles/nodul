@@ -11,8 +11,8 @@ useSeoMeta({
 <template>
   <div>
     <intro-section />
-    <concerts-list />
-    <about-section />
+    <!-- <concerts-list />
+    <about-section /> -->
     <app-footer />
   </div>
 </template>

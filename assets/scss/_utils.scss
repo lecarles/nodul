@@ -237,17 +237,22 @@
   background-color: var(--background)
 }
 
-.primary {
-  color: var(--primary)
+.primary, .color-primary {
+  color: var(--primary);
 }
 
-.secondary {
-  color: var(--secondary)
+.secondary, .color-secondary {
+  color: var(--secondary);
 }
 
-.background {
-  color: var(--background)
+.background, .color-background{
+  color: var(--background);
 }
+
+.foreground, .color-foreground{
+  color: var(--foreground);
+}
+
 .color-white {
   color: $white;
 }

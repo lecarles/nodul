@@ -10,6 +10,7 @@ export const useDateFormatter = (date) => {
   const day = ref(dateInstance.getDate())
   const time = ref(`${dateInstance.getHours().toString().padStart(2, '0')}`)
   const minutes = ref(`${dateInstance.getMinutes().toString().padStart(2, '0')}`)
+  const fullDay = dateInstance.toLocaleDateString('ca', { weekday: 'long' })
 
-  return { year, month, day, time, fullMonth, minutes }
+  return { year, month, day, time, fullMonth, minutes, fullDay }
 }

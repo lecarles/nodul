@@ -5,7 +5,7 @@
       <div class="social-links">
         <a target="_blank" href="https://www.instagram.com/nodulfestival/">Instagram</a>
         <div class="ml-auto">
-          Nòdul – I Festival de la Vall del Xúquer
+          Nòdul – II Festival de la Vall del Xúquer
         </div>
       </div>
     </div>
@@ -18,11 +18,12 @@
   display: grid;
   column-gap: $col-gap;
   line-height: 1.1;
+  //border-top: 1px solid var(--foreground);
 
   .social-links {
     display: flex;
     gap: 1rem;
-    color: var(--secondary);
+    color: var(--primary);
   }
 
   a {
