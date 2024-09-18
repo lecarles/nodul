@@ -19,10 +19,19 @@
       <div class="artist" v-for="artist in data.stories" :key="artist.uuid">
         <div class="artist-name font-size-lg">{{artist.content.name}}</div>
         <div class="artist-details">
-          <div v-if="getConcert(artist.content.concert)[0]">{{ getConcert(artist.content.concert)[0].content.town }}</div>
-          <div v-if="getConcert(artist.content.concert)[0]">
-            {{ useDateFormatter(getConcert(artist.content.concert)[0].content.date).fullDay }}
-            {{ useDateFormatter(getConcert(artist.content.concert)[0].content.date).day }}
+          <div v-if="artist.content.concert[0]">
+            {{ getConcert(artist.content.concert[0])[0].content.town }}
+            <span v-if="artist.content.concert[1]">
+              i {{getConcert(artist.content.concert[1])[0].content.town}}
+            </span>
+          </div>
+          <div v-if="artist.content.concert[0]">
+              {{ useDateFormatter(getConcert(artist.content.concert[0])[0].content.date).fullDay }}
+              {{ useDateFormatter(getConcert(artist.content.concert[0])[0].content.date).day }}
+              <span v-if="artist.content.concert[1]">
+              i {{ useDateFormatter(getConcert(artist.content.concert[1])[0].content.date).fullDay }}
+                {{ useDateFormatter(getConcert(artist.content.concert[1])[0].content.date).day }}
+              </span>
           </div>
         </div>
       </div>
@@ -138,7 +147,7 @@ function getConcert(id) {
       &-details {
         border-bottom: 1px solid var(--foreground);
         border-right: 1px solid var(--foreground);
-        padding: 0 .2em;
+        padding: 0 .4em .1em 0;
         min-width: 10ch;
       }
     }
