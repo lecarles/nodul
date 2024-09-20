@@ -30,7 +30,7 @@ const { data } = await storyblokApi.get('cdn/stories/home/')
 <style lang="scss">
 .about-grid, .filera-zero {
   background: var(--primary);
-  color: var(--background);
+  color: var(--foreground);
   display: grid;
   grid-template-columns: 2fr 3fr;
   height: calc(var(--vh, 1vh) * 100);
@@ -44,6 +44,10 @@ const { data } = await storyblokApi.get('cdn/stories/home/')
   }
 }
 
+.about-grid {
+  margin-top: 10vw;
+}
+
 .about-header {
   max-width: 20ch;
   line-height: 1.2;
@@ -51,23 +55,23 @@ const { data } = await storyblokApi.get('cdn/stories/home/')
 
 .filera-zero {
   background: var(--background);
-  color: var(--secondary);
+  color: var(--foreground);
 }
 
 .filera-btn {
     margin-top: 1.5em;
     font-size: $font-size-md;
     max-width: 40ch;
-    background: var(--secondary);
-    color: var(--background);
+    background: transparent;
+    color: var(--foreground);
+    border: 1px solid var(--foreground);
     width: 100%;
     line-height: 1;
     transition: .15s ease;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-top-left-radius: 4em;
-    border-bottom-right-radius: 4em;
+    border-radius: 4em;
     padding: .75em .25em;
     height: fit-content;
 

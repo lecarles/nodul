@@ -21,17 +21,6 @@
         <div class="artist-details">
           <div v-if="artist.content.concert[0]">
             {{ getConcert(artist.content.concert[0])[0].content.town }}
-            <span v-if="artist.content.concert[1]">
-              i {{getConcert(artist.content.concert[1])[0].content.town}}
-            </span>
-          </div>
-          <div v-if="artist.content.concert[0]">
-              {{ useDateFormatter(getConcert(artist.content.concert[0])[0].content.date).fullDay }}
-              {{ useDateFormatter(getConcert(artist.content.concert[0])[0].content.date).day }}
-              <span v-if="artist.content.concert[1]">
-              i {{ useDateFormatter(getConcert(artist.content.concert[1])[0].content.date).fullDay }}
-                {{ useDateFormatter(getConcert(artist.content.concert[1])[0].content.date).day }}
-              </span>
           </div>
         </div>
       </div>
@@ -64,7 +53,7 @@ import nodulvertJSON from '@/assets/anim-vert.json'
 const { data } = await storyblokApi.get('cdn/stories', {
   version: 'draft',
   starts_with: 'artists/24',
-  sort_by: 'content.name:asc'
+  sort_by: 'slug:asc'
 })
 
 const concerts = await storyblokApi.get('cdn/stories', {
@@ -147,8 +136,8 @@ function getConcert(id) {
       &-details {
         border-bottom: 1px solid var(--foreground);
         border-right: 1px solid var(--foreground);
-        padding: 0 .4em .1em 0;
-        min-width: 10ch;
+        padding: 0 2ch .2em 0;
+        height: fit-content;
       }
     }
   }
