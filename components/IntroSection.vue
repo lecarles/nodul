@@ -2,20 +2,20 @@
   <div class="intro-section font-size-sm grid-1 color-foreground">
     <div class="navbar a-self-start">
       <!-- <nodul-logo></nodul-logo> -->
-      <div class="intro-section-festi">
+      <div class="navbar-item intro-section-festi">
         <div>II Festival de <br>La Vall del Xúquer <br>
         9 → 13 d’octubre ‘24</div>
       </div>
-      <div class="intro-section-pobles">
+      <div class="navbar-item intro-section-pobles">
         Alcàntera de Xúquer, Antella, Beneixida, Cotes, Càrcer, Gavarda, Sellent, Sumacàrcer
       </div>
-      <div class="intro-section-collab">
+      <div class="navbar-item intro-section-collab">
         <a href="#colabora" class="collab-btn">
-          <span>Col·labora amb Nòdul</span>
+          <span class="text-center">Col·labora amb Nòdul</span>
         </a>
       </div>
     </div>
-    <div class="intro-section-artists p-md">
+    <div class="intro-section-artists">
       <div class="artist" v-for="artist in data.stories" :key="artist.uuid">
         <div class="artist-name font-size-lg">{{artist.content.name}}</div>
         <div class="artist-details">
@@ -47,8 +47,28 @@
 
 <script setup >
 const storyblokApi = useStoryblokApi()
+import gsap from 'gsap'
 import nodulJSON from '@/assets/anim.json'
 import nodulvertJSON from '@/assets/anim-vert.json'
+import { onMounted } from 'vue';
+
+onMounted(() => {
+  const intro = gsap.timeline()
+  intro.to('.logo', {
+    opacity: 1,
+    duration: 0.1,
+  })
+  intro.to('.navbar-item', {
+    opacity: 1,
+    duration: 0.1,
+    stagger: 0.1
+  }, '>0.1')
+  intro.to('.artist', {
+    opacity: 1,
+    duration: 0.1,
+    stagger: 0.1
+  }, '>')
+})
 
 const { data } = await storyblokApi.get('cdn/stories', {
   version: 'draft',
@@ -77,6 +97,10 @@ function getConcert(id) {
     grid-template-columns: repeat(10, 1fr);
     padding: $padding-x-md 0;
 
+    &-item {
+      opacity: 0;
+    }
+
     .nodul-logo-svg {
       height: 3.2em;
     }
@@ -98,6 +122,7 @@ function getConcert(id) {
   }
 
   .logo {
+    opacity: 0;
     position: absolute;
     left: 0;
     right: 0;
@@ -117,17 +142,20 @@ function getConcert(id) {
 
   &-artists {
     display: flex;
+    flex-wrap: wrap;
     align-self: start;
     width: 100%;
-    flex-wrap: wrap;
     column-gap: 1em;
-    row-gap: .9em;
     align-items: center;
     color: var(--foreground);
+    padding: 0 $padding-x-md 5vw;
 
     .artist {
       display: flex;
       gap: .5em;
+      height: 5vw;
+      align-items: flex-end;
+      opacity: 0;
 
       &-name {
         line-height: .78;
@@ -206,6 +234,11 @@ function getConcert(id) {
     &-artists {
       column-gap: .65em;
       row-gap: .65em;
+      padding: $padding-x-md;
+    }
+
+    .artist {
+      height: auto;
     }
 
     .artist-name {

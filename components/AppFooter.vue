@@ -3,10 +3,9 @@
     <footer-logos />
     <div class="footer-links mt-row-2">
       <div class="social-links">
-        <a target="_blank" href="https://www.instagram.com/nodulfestival/">Instagram</a>
-        <div class="ml-auto">
-          Nòdul – II Festival de la Vall del Xúquer
-        </div>
+        <a class="mr-auto" target="_blank" href="https://www.instagram.com/nodulfestival/">Instagram</a>
+        <div class="nodul-brand">Nòdul – Festival de la Vall del Xúquer</div>
+        <a target="_blank" href="https://2023.nodulfestival.com">I Edició (2023)</a>
       </div>
     </div>
   </div>
@@ -23,23 +22,25 @@
   .social-links {
     display: flex;
     gap: 1rem;
-    color: var(--primary);
+    color: var(--foreground);
   }
 
   a {
+    color: var(--foreground);
     display: block;
+    text-decoration: underline;
   }
 }
 
 @media (max-width: $sm-breakpoint) {
   .footer {
-
-    &-links {
-      display: flex;
-      gap: 1rem;
-    }
     .social-links {
-      justify-self: center;
+      display: block;
+      justify-self: flex-start;
+
+      .nodul-brand {
+        margin-top: 1em;
+      }
     }
   }
 }
