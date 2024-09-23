@@ -18,12 +18,15 @@
     <div class="intro-section-artists">
       <div class="artist" v-for="artist in data.stories" :key="artist.uuid">
         <div class="artist-name font-size-lg">{{artist.content.name}}</div>
-        <div class="artist-details">
-          <div v-if="artist.content.concert[0]">
-            {{ getConcert(artist.content.concert[0])[0].content.town }}
-          </div>
+        <div class="artist-details" v-if="artist.content.concert[0]">
+          {{ getConcert(artist.content.concert[0])[0].content.town }}
         </div>
       </div>
+    </div>
+    <div class="intro-section-artists-sm font-size-lg p-md">
+      <template v-for="artist in data.stories" :key="artist.uuid">
+        {{artist.content.name}},
+      </template>
     </div>
     <div class="logo color-primary">
       <client-only>
@@ -150,6 +153,10 @@ function getConcert(id) {
     color: var(--foreground);
     padding: 0 $padding-x-md 5vw;
 
+    &-sm {
+      display: none;
+    }
+
     .artist {
       display: flex;
       gap: .5em;
@@ -227,28 +234,16 @@ function getConcert(id) {
       grid-column: 2;
     }
 
+    &-artists {
+      display: none;
+    }
+
     &-collab {
       display: none;
     }
 
-    &-artists {
-      column-gap: .65em;
-      row-gap: .65em;
-      padding: $padding-x-md;
-    }
-
-    .artist {
-      height: auto;
-    }
-
-    .artist-name {
-      &::after {
-        content: ',';
-      }
-    }
-
-    .artist-details {
-      display: none;
+    &-artists-sm {
+      display: block;
     }
   }
 }
