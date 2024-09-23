@@ -7,7 +7,7 @@
         9 → 13 d’octubre ‘24</div>
       </div>
       <div class="navbar-item intro-section-pobles">
-        Alcàntera de Xúquer, Antella, Beneixida, Cotes, Càrcer, Gavarda, Sellent, Sumacàrcer
+        Alcàntera de Xúquer, Antella, Beneixida, Cotes, Sellent, Sumacàrcer
       </div>
       <div class="navbar-item intro-section-collab">
         <a href="#colabora" class="collab-btn">
