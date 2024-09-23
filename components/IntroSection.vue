@@ -151,7 +151,7 @@ function getConcert(id) {
     column-gap: 1em;
     align-items: center;
     color: var(--foreground);
-    padding: 0 $padding-x-md 5vw;
+    padding: 0 $padding-x-md 3.33vw;
 
     &-sm {
       display: none;
@@ -160,12 +160,12 @@ function getConcert(id) {
     .artist {
       display: flex;
       gap: .5em;
-      height: 5vw;
+      height: 3.33vw;
       align-items: flex-end;
       opacity: 0;
 
       &-name {
-        line-height: .78;
+        line-height: .7;
       }
 
       &-details {
