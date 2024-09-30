@@ -1,21 +1,11 @@
 <template>
-  <div class="artist-images">
-    <div class="artist-image-wrapper" v-for="artist in data.stories" :key="artist.uuid">
-      <img 
-        v-if="artist.uuid === sergiStore.activeArtist" 
-        class="artist-image" 
-        :src="artist.content.image.filename" 
-        :alt="artist.content.name"
-        :style="{clipPath: 'url(#' + artist.uuid + ')'}"
-      >
-      <svg>
-        <defs>
-          <clipPath transform="scale(0.00148148148)" :id="artist.uuid" clipPathUnits="objectBoundingBox">
-              <path :d="artist.content.path"/>
-          </clipPath>
-        </defs>
-      </svg>
-    </div>
+  <div class="artist-image-wrapper" v-for="artist in data.stories" :key="artist.uuid">
+    <img 
+      v-if="artist.uuid === sergiStore.activeArtist" 
+      class="artist-image" 
+      :src="artist.content.image.filename" 
+      :alt="artist.content.name"
+    >
   </div>
 </template>
 
@@ -39,45 +29,15 @@ const props = defineProps({
 </script>
 
 <style lang="scss">
-.artist-images {
-  position: relative;
-  top: calc((100vh/16) * 3);
-  left: calc((100vh/16) * 3);
-  height: calc((100vh/16) * 10);
-  overflow: hidden;
-  z-index: 1;
-  
-  .artist-image {
-    height: calc((100vh/16) * 10);
-    position: absolute;
-    top: 0;
+.artist-image {
+  object-fit: contain;
+  width: calc(100% - 10vw);
+  height: calc(100% - 10vw);
 
-    &-wrapper {
-      overflow: hidden;
-    }
-  }
-}
-
-@media (max-aspect-ratio: 6/5) {
-  .artist-images {
-    top: calc((100vh/16) * 4);
-    height: calc((100vh/16) * 8);
-    left: calc((100vh/16) * 5);
-
-    .artist-image {
-      height: calc((100vh/16) * 8);
-    }
-  }
-}
-
-@media (max-aspect-ratio: 1/1) {
-  .background-pattern {
-    display: none;
-  }
-
-  .artist-images {
-    width: calc((100vh/16) * 8);
-    left: 50%;
+  &-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 </style>

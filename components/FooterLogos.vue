@@ -14,6 +14,10 @@
       <img src="@/assets/logos/sellent.svg" alt="Ajuntament de Sellent">
       <img src="@/assets/logos/sumacarcer.svg" alt="Ajuntament de Sumacàrcer">
     </div>
+    <div class="logos logos-patrocinadors">
+      <img src="@/assets/logos/vondom.svg" alt="Vondom">
+      <img src="@/assets/logos/blauverd.svg" alt="Blauverd Impressors">
+    </div>
   </div>
 </template>
 

@@ -1,26 +1,20 @@
 <template>
-  <div :class="['artist-item-wrapper', {'active' : props.artist.uuid === sergiStore.activeBio }]">
-    <div class="artist-item" @mouseenter="setHoverArtist(props.artist.uuid)" @click="handleActiveBio(props.artist.uuid)">
-      <span class="mr-1">{{props.artist.content.name}}</span>
-      <span class="more"> + </span>
+  <div :class="['artist-item-wrapper', {'active' : props.artist[0].uuid === sergiStore.activeBio }]" v-if="props.artist[0]">
+    <div class="artist-item" @mouseenter="setHoverArtist(props.artist[0].uuid)" @click="handleActiveBio(props.artist[0].uuid)">
+      <div>
+        <span class="mr-1">{{props.artist[0].content.name}}</span>
+        <span class="more"> + </span>
+      </div>
+      <div class="italic" v-if="props.artist[0].content.subtitle">{{ props.artist[0].content.subtitle }}</div>
     </div>
     <Transition name="slide">
-      <div class="artist-bio" v-show="props.artist.uuid === sergiStore.activeBio">
-        <div class="font-size-sm" v-html="renderRichText(props.artist.content.bio)"></div>
+      <div class="artist-bio" v-show="props.artist[0].uuid === sergiStore.activeBio">
+        <div class="font-size-sm" v-html="renderRichText(props.artist[0].content.bio)"></div>
         <img 
-        v-if="artist.uuid === sergiStore.activeArtist" 
         class="artist-image-mb" 
-        :src="artist.content.image.filename" 
-        :alt="artist.content.name"
-        :style="{clipPath: 'url(#' + artist.uuid + '-mb )'}"
+        :src="props.artist[0].content.image.filename" 
+        :alt="props.artist[0].content.name"
       >
-      <svg class="mask">
-        <defs>
-          <clipPath transform="scale(0.00148148148)" :id="artist.uuid + '-mb'" clipPathUnits="objectBoundingBox">
-              <path :d="artist.content.path"/>
-          </clipPath>
-        </defs>
-      </svg>
       </div>
     </Transition>
   </div>
@@ -35,8 +29,7 @@ import ScrollTrigger from 'gsap/ScrollTrigger'
 const sergiStore = useSergiStore()
 const props = defineProps({
   artist: {
-    type: Object,
-    default: null
+    type: Object
   },
 })
 
@@ -66,6 +59,10 @@ function handleActiveBio(id) {
   width: 0;
 }
 
+.italic {
+  font-style: italic;
+}
+
 .artist-item-wrapper {
   p {
     padding-top: .6em;
@@ -88,6 +85,7 @@ function handleActiveBio(id) {
 .artist-item {
   transition: .2s ease;
   display: flex;
+  flex-direction: column;
   width: 100%;
 
   .more {
