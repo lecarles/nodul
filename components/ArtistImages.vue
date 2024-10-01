@@ -1,11 +1,13 @@
 <template>
   <div class="artist-image-wrapper" v-for="artist in data.stories" :key="artist.uuid">
-    <img 
-      v-if="artist.uuid === sergiStore.activeArtist" 
-      class="artist-image" 
-      :src="artist.content.image.filename" 
-      :alt="artist.content.name"
-    >
+    <template v-if="artist.content.image.filename">
+      <img 
+        v-if="artist.uuid === sergiStore.activeArtist" 
+        class="artist-image" 
+        :src="artist.content.image.filename" 
+        :alt="artist.content.name"
+      >
+    </template>
   </div>
 </template>
 

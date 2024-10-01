@@ -14,6 +14,7 @@
         class="artist-image-mb" 
         :src="props.artist[0].content.image.filename" 
         :alt="props.artist[0].content.name"
+        v-if="props.artist[0].content.image.filename"
       >
       </div>
     </Transition>

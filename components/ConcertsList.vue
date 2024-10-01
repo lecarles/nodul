@@ -97,7 +97,7 @@ function computedDate(date){
   padding: 0 $padding-x-md;
   margin-top: 10vw;
   display: grid;
-  grid-template-columns: 32em 1fr;
+  grid-template-columns: 60ch 1fr;
 }
 
 .concert-image {
@@ -117,7 +117,7 @@ function computedDate(date){
 
 .concert-item {
   display: grid;
-  grid-template-columns: 7em 1fr;
+  grid-template-columns: 10ch 1fr;
   gap: calc($row-gap / 3);
   column-gap: $col-gap;
   margin-bottom: calc($row-gap * 1);
