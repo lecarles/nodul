@@ -2,10 +2,10 @@
   <section class="bars-section p-md font-size-sm">
     <div class="mt-row mb-row font-size-md">Bars i restaurants de la Vall del Xúquer</div>
     <div v-for="bar in data.story.content.bars" :key="bar._uid" class="bar-item">
-      <a :href="`https://www.google.es/maps/search/${bar.name} ${bar.town}`" class="bar-item-info">{{ bar.name }}</a>
-      <a :href="`tel:${bar.phone}`" class="bar-item-info bar-item-info-phone" >{{ bar.phone }}</a>
-      <a :href="`https://www.google.es/maps/search/${bar.name} ${bar.town}`" class="bar-item-info bar-item-info-location">{{ bar.location }}</a>
-      <a :href="`https://www.google.es/maps/search/${bar.name} ${bar.town}`" class="bar-item-info bar-item-info-town">{{ bar.town }}</a>
+      <a target="_blank" :href="`https://www.google.es/maps/search/${bar.name} ${bar.town}`" class="bar-item-info">{{ bar.name }}</a>
+      <a target="_blank" :href="`tel:${bar.phone}`" class="bar-item-info bar-item-info-phone" >{{ bar.phone }}</a>
+      <a target="_blank" :href="`https://www.google.es/maps/search/${bar.name} ${bar.town}`" class="bar-item-info bar-item-info-location">{{ bar.location }}</a>
+      <a target="_blank" :href="`https://www.google.es/maps/search/${bar.name} ${bar.town}`" class="bar-item-info bar-item-info-town">{{ bar.town }}</a>
     </div>
   </section>
 </template>
