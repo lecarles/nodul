@@ -1,23 +1,23 @@
 <template>
   <div>
-    <div class="about-grid p-md">
+    <section class="about-grid p-md">
       <div class="font-size-md about-header">
         {{ data.story.content.aboutHeader }}
       </div>
       <div class="font-size-md about-grid-text" v-html="renderRichText(data.story.content.aboutText)">
       </div>
-    </div>
-    <div class="filera-zero p-md" id="colabora">
+    </section>
+    <section class="filera-zero p-md" id="colabora">
       <div class="font-size-md about-header">
         {{ data.story.content.zeroHeader }}
       </div>
       <div>
         <div class="font-size-md filera-zero-text" v-html="renderRichText(data.story.content.zeroText)"></div>
-        <a href="https://www.primaveradh.com/tenda/producto/fila-zero/" target="blank" class="filera-btn">
+        <a href="https://www.primaveradh.com/tenda/producto/fila-zero/" target="blank" class="filera-btn mb-row-2">
           <span>Col·labora amb Nòdul</span>
         </a>
       </div>
-    </div>
+    </section>
   </div>
 </template>
 
@@ -29,11 +29,8 @@ const { data } = await storyblokApi.get('cdn/stories/home/')
 
 <style lang="scss">
 .about-grid, .filera-zero {
-  background: var(--primary);
-  color: var(--foreground);
   display: grid;
   grid-template-columns: 2fr 3fr;
-  height: calc(var(--vh, 1vh) * 100);
 
   p {
     margin-bottom: 1rem;
@@ -45,17 +42,22 @@ const { data } = await storyblokApi.get('cdn/stories/home/')
 }
 
 .about-grid {
+  background: var(--primary);
+  color: var(--foreground);
+}
+
+.filera-zero {
+  background: var(--secondary);
+  color: var(--foreground);
+}
+
+.about-grid {
   margin-top: 10vw;
 }
 
 .about-header {
   max-width: 20ch;
   line-height: 1.2;
-}
-
-.filera-zero {
-  background: var(--background);
-  color: var(--foreground);
 }
 
 .filera-btn {
@@ -83,8 +85,8 @@ const { data } = await storyblokApi.get('cdn/stories/home/')
 @media (max-width: $sm-breakpoint) {
   .about-grid, .filera-zero {
     grid-template-columns: 1fr;
+    grid-template-rows: min-content;
     gap: 2rem;
-    height: auto;
 
     &-text {
       font-size: $font-size-sm;
