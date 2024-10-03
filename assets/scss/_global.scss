@@ -73,6 +73,10 @@ a.button-link {
   }
 }
 
+section {
+  min-height: 100vh;
+}
+
 h1, .font-size-xl {
   font-family: $font-family-sans;
   font-size: $font-size-xl;

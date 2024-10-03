@@ -13,6 +13,7 @@ useSeoMeta({
     <intro-section />
     <concerts-list />
     <about-section /> 
+    <bars-section />
     <app-footer />
   </div>
 </template>
