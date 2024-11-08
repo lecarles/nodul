@@ -2,7 +2,7 @@
   <div class="grid-1">
     <div class="logos">
       <img src="@/assets/logos/generalitat-ivc.svg" alt="Generalitat Valenciana Institut Valencià de Cultura">
-      <img src="@/assets/logos/dipu.svg" alt="Diputació de València">
+      <img src="@/assets/logos/dipu-sarc.svg" alt="Diputació de València">
       <img src="@/assets/logos/aie.svg" alt="AIE Artistas Intérpretes o Ejecutantes">
       <img src="@/assets/logos/primavera.svg" alt="Primavera d'Hivern">
     </div>
