@@ -10,6 +10,6 @@
 <style lang="scss" scoped>
 .nav {
   align-items: start;
-  padding: $padding-x-md;
+  padding: var(--md);
 }
 </style>

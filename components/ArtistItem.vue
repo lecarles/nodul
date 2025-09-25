@@ -109,7 +109,7 @@ function handleActiveBio(id) {
   display: none;
 }
 
-@media (max-width: $sm-breakpoint) {
+@media (max-width: 1000px) {
   .artist-image-mb {
     display: block;
     width: 100%;

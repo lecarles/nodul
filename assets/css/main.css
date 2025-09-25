@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "SF-Mono", monospaced;
+  --font-italic: "SF-Mono-Italic", monospaced;
+  --color-black: #2E2E2E;
+  --color-white: #F0F1E9;
+  --color-orange: #EA5531;
+  --text-sm: clamp(0.8rem, 1vi + 0.25rem, 1.25rem);
+  --text-base: clamp(1rem, 1vi + 0.3rem, 1.8rem);
+  --text-md: clamp(1.2rem, 1.2vi + 0.6rem, 3rem);
+  --text-lg: clamp(1.35rem, 1vi + 0.8rem, 3rem);
+  --text-xl: clamp(2.5rem, 4.5vi + 2rem, 12rem);
+  --text-2xl: clamp(3rem, 5.5vi + 2rem, 14rem);
+  --xs: calc(var(--spacing));
+  --sm: calc(var(--spacing) * 3);
+  --md: calc(var(--spacing) * 12);
+  --lg: calc(var(--spacing) * 30);
+  --xl: calc(var(--spacing) * 60);
+  --2xl: calc(var(--spacing) * 120);
+  --spacing: clamp(0.12rem, 0.2vi + 0.05rem, .25rem);
+  --nav-height: calc(var(--text-md) * 1.75 + var(--sm) * 2);
+}
+
+@layer base {
+  p {
+    font-size: var(--text-base);
+    text-shadow: var(--text-shadow);
+    line-height: 1.2;
+  }
+  h1 {
+    font-size: var(--text-2xl);
+    line-height: 1.1;
+    letter-spacing: -0.05em;
+  }
+  h2 {
+    font-size: var(--text-xl);
+    text-transform: uppercase;
+    line-height: 1.1;
+    letter-spacing: -0.05em;
+  }
+  h3 {
+    font-size: var(--text-lg);
+    text-transform: uppercase;
+    line-height: 1.1;
+    letter-spacing: -0.05em;
+  }
+  h4 {
+    font-size: var(--text-md);
+    text-transform: uppercase;
+  }
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--color-white);
+  letter-spacing: -0.025em;
+}
+
+@font-face {
+  font-family: 'SF-Mono';
+  src: url('../fonts/sf-mono-regular.woff2') format('woff2'),
+       url('../fonts/sf-mono-regular.woff') format('woff');
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SF-Mono-Italic';
+  src: url('../fonts/sf-mono-regularitalic.woff2') format('woff2'),
+       url('../fonts/sf-mono-regularitalic.woff') format('woff');
+  font-weight: 400;
+  font-display: swap;
+  font-style: italic;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}

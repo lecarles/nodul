@@ -8,17 +8,17 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "@nuxtjs/i18n": "^8.0.0-beta.12",
-    "nuxt": "^3.13.2",
+    "nuxt": "^3.19.2",
     "sass": "^1.55.0",
     "sass-loader": "^10.3.1"
   },
   "dependencies": {
     "@pinia/nuxt": "^0.4.8",
     "@storyblok/nuxt": "^5.5.2",
-    "gsap": "npm:@gsap/shockingly@^3.12.2",
+    "@tailwindcss/vite": "^4.1.13",
+    "gsap": "^3.13.0",
     "pinia": "^2.0.34",
-    "vue3-lottie": "^3.3.1"
+    "tailwindcss": "^4.1.13"
   },
   "overrides": {
     "vue": "latest"

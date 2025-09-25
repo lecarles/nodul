@@ -49,7 +49,7 @@
 }
 
 
-@media (max-width: $sm-breakpoint) {
+@media (max-width: 1000px) {
   .logos {
     display: flex;
     flex-wrap: wrap;

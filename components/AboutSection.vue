@@ -1,18 +1,18 @@
 <template>
   <div>
     <section class="about-grid p-md">
-      <div class="font-size-md about-header">
+      <div class="text-md about-header">
         {{ data.story.content.aboutHeader }}
       </div>
-      <div class="font-size-md about-grid-text" v-html="renderRichText(data.story.content.aboutText)">
+      <div class="text-md about-grid-text" v-html="renderRichText(data.story.content.aboutText)">
       </div>
     </section>
     <section class="filera-zero p-md" id="colabora">
-      <div class="font-size-md about-header">
+      <div class="text-md about-header">
         {{ data.story.content.zeroHeader }}
       </div>
       <div>
-        <div class="font-size-md filera-zero-text" v-html="renderRichText(data.story.content.zeroText)"></div>
+        <div class="text-md filera-zero-text" v-html="renderRichText(data.story.content.zeroText)"></div>
         <a href="https://www.primaveradh.com/tenda/producto/fila-zero/" target="blank" class="filera-btn mb-row-2">
           <span>Col·labora amb Nòdul</span>
         </a>
@@ -62,7 +62,7 @@ const { data } = await storyblokApi.get('cdn/stories/home/')
 
 .filera-btn {
     margin-top: 1.5em;
-    font-size: $font-size-md;
+    font-size: var(--text-md);
     max-width: 40ch;
     background: transparent;
     color: var(--foreground);
@@ -82,14 +82,14 @@ const { data } = await storyblokApi.get('cdn/stories/home/')
     }
   }
 
-@media (max-width: $sm-breakpoint) {
+@media (max-width: 1000px) {
   .about-grid, .filera-zero {
     grid-template-columns: 1fr;
     grid-template-rows: min-content;
     gap: 2rem;
 
     &-text {
-      font-size: $font-size-sm;
+      font-size: var(--text-sm);
     }
   }
 }

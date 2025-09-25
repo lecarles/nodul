@@ -15,7 +15,7 @@
 <style lang="scss" scoped>
 .footer {
   display: grid;
-  column-gap: $col-gap;
+  column-gap: var(--md);
   line-height: 1.1;
   //border-top: 1px solid var(--foreground);
 
@@ -32,7 +32,7 @@
   }
 }
 
-@media (max-width: $sm-breakpoint) {
+@media (max-width: 1000px) {
   .footer {
     .social-links {
       display: block;

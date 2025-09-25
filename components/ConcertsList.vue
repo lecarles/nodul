@@ -1,7 +1,7 @@
 <template>
   <div class="concerts-section">
     <div class="concert-list" ref="trigger">
-      <div class="concert-grid font-size-md">
+      <div class="concert-grid text-md">
         <div :class="['concert-item', { 'new-day' : computedDate(concert.content.date).day.value !== computedDate(data.stories[wtf(i)].content.date).day.value }]" 
               v-for="(concert, i) in data.stories" :key="concert.uuid"
         >
@@ -13,7 +13,7 @@
             <div class="concert-item-town">{{concert.content.town}}</div>
           </div>
           <div class="concert-item-time col-1 font-size-sm">{{computedDate(concert.content.date).time.value}}<span v-if="computedDate(concert.content.date).minutes.value !== '00'">:{{ computedDate(concert.content.date).minutes.value }}</span>h</div>
-          <div class="font-size-md concert-item-artists col-2">
+          <div class="text-md concert-item-artists col-2">
             <artist-item v-for="artist in concert.content.artists" :artist="getArtist(artist)" :key="artist.id"></artist-item>
           </div>
         </div>
@@ -94,7 +94,7 @@ function computedDate(date){
   width: 100%;
   box-sizing: border-box;
   position: relative;
-  padding: 0 $padding-x-md;
+  padding: 0 var(--md);
   margin-top: 10vw;
   display: grid;
   grid-template-columns: 60ch 1fr;
@@ -118,9 +118,9 @@ function computedDate(date){
 .concert-item {
   display: grid;
   grid-template-columns: 10ch 1fr;
-  gap: calc($row-gap / 3);
-  column-gap: $col-gap;
-  margin-bottom: calc($row-gap * 1);
+  gap: calc(var(--md) / 3);
+  column-gap: var(--md);
+  margin-bottom: calc(var(--md) * 1);
 
   &-place {
     max-width: 25ch;
@@ -140,16 +140,16 @@ function computedDate(date){
     }
 
     &:not(:first-child) {
-      margin-top: calc($row-gap * 2);
+      margin-top: calc(var(--md) * 2);
     }
   }
 
   &.disclaimer {
-    margin-top: calc($row-gap * 2);
+    margin-top: calc(var(--md) * 2);
 
     .disclaimer-text {
       max-width: 18ch;
-      font-size: $font-size-xs;
+      font-size: var(--text-xs);
       line-height: 0.9;
     }
   }
@@ -159,7 +159,7 @@ function computedDate(date){
   pointer-events: none;
 }
 
-@media (max-width: $sm-breakpoint) {
+@media (max-width: 1000px) {
   .concert-image {
     display: none;
   }
@@ -173,11 +173,11 @@ function computedDate(date){
 
   .concert-item {
     grid-template-columns: 1fr 2fr;
-    gap: calc($row-gap / 2);
+    gap: calc(var(--md) / 2);
   }
 
   .concert-item-date {
-    font-size: $font-size-sm;
+    font-size: var(--text-sm);
   }
 }
 </style>

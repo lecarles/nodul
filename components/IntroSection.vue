@@ -98,7 +98,7 @@ function getConcert(id) {
     gap: 0;
     display: grid;
     grid-template-columns: repeat(10, 1fr);
-    padding: $padding-x-md 0;
+    padding: var(--md) 0;
 
     &-item {
       opacity: 0;
@@ -121,7 +121,7 @@ function getConcert(id) {
 
   &-collab {
     grid-column: 9 / span 2;
-    max-width: calc(100% - $padding-x-md);
+    max-width: calc(100% - var(--md));
   }
 
   .logo {
@@ -151,7 +151,7 @@ function getConcert(id) {
     column-gap: 1em;
     align-items: center;
     color: var(--foreground);
-    padding: 0 $padding-x-md 3.33vw;
+    padding: 0 var(--md) 3.33vw;
 
     &-sm {
       display: none;
@@ -185,7 +185,7 @@ function getConcert(id) {
   }
 
   .collab-btn {
-    font-size: $font-size-xs;
+    font-size: var(--text-xs);
     max-width: 40ch;
     border: 1px solid var(--foreground);
     color: var(--foreground);
@@ -205,11 +205,11 @@ function getConcert(id) {
   }
 }
 
-@media (max-width: $sm-breakpoint) {
+@media (max-width: 1000px) {
   .intro-section {
     .navbar {
       grid-template-columns: repeat(2, 1fr);
-      padding: $padding-x-md;
+      padding: var(--md);
     }
 
     .logo {
