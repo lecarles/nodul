@@ -67,7 +67,6 @@ function handleActiveBio(id) {
 .artist-item-wrapper {
   p {
     padding-top: .6em;
-    max-width: 25ch;
 
     &:last-child {
       padding-bottom: 1em;

@@ -1,19 +1,19 @@
 <template>
   <div class="concerts-section">
     <div class="concert-list" ref="trigger">
-      <div class="concert-grid text-md">
+      <div class="concert-grid text-sm">
         <div :class="['concert-item', { 'new-day' : computedDate(concert.content.date).day.value !== computedDate(data.stories[wtf(i)].content.date).day.value }]" 
               v-for="(concert, i) in data.stories" :key="concert.uuid"
         >
           <div class="concert-item-date">
             {{ computedDate(concert.content.date).day.value }} d’{{ computedDate(data.stories[wtf(i)].content.date).fullMonth.value.ca }}
           </div>
-          <div class="concert-item-schedule col-2 font-size-sm">
+          <div class="concert-item-time col-1 text-sm">{{computedDate(concert.content.date).time.value}}<span v-if="computedDate(concert.content.date).minutes.value !== '00'">:{{ computedDate(concert.content.date).minutes.value }}</span>h</div>
+          <div class="concert-item-schedule col-2 text-sm">
             <div class="concert-item-place">{{concert.content.place}}</div>
             <div class="concert-item-town">{{concert.content.town}}</div>
           </div>
-          <div class="concert-item-time col-1 font-size-sm">{{computedDate(concert.content.date).time.value}}<span v-if="computedDate(concert.content.date).minutes.value !== '00'">:{{ computedDate(concert.content.date).minutes.value }}</span>h</div>
-          <div class="text-md concert-item-artists col-2">
+          <div class="text-base concert-item-artists col-2">
             <artist-item v-for="artist in concert.content.artists" :artist="getArtist(artist)" :key="artist.id"></artist-item>
           </div>
         </div>
@@ -95,9 +95,9 @@ function computedDate(date){
   box-sizing: border-box;
   position: relative;
   padding: 0 var(--md);
-  margin-top: 10vw;
+  margin-top: 5vw;
   display: grid;
-  grid-template-columns: 60ch 1fr;
+  grid-template-columns: 70ch 1fr;
 }
 
 .concert-image {
@@ -114,16 +114,36 @@ function computedDate(date){
   pointer-events: none;
 }
 
-
 .concert-item {
   display: grid;
-  grid-template-columns: 10ch 1fr;
-  gap: calc(var(--md) / 3);
-  column-gap: var(--md);
-  margin-bottom: calc(var(--md) * 1);
+  grid-template-columns: 16ch 1fr;
 
-  &-place {
-    max-width: 25ch;
+  &-time {
+    border-top: var(--md) solid var(--color-black);
+  }
+
+  &-schedule {
+    border-top: 2px solid var(--color-black);
+    border-left: 2px solid var(--color-black);
+    border-right: 2px solid var(--color-black);
+    background-color: var(--color-orange);
+    font-family: var(--font-italic);
+    padding: var(--sm);
+    line-height: 1.2;
+    max-width: 30ch;
+    margin-top: calc(var(--md) - 2px);
+  }
+
+  .artist-item-wrapper {
+    border-left: 2px solid var(--color-black);
+    border-right: 2px solid var(--color-black);
+    border-bottom: 2px solid var(--color-black);
+    padding: var(--sm);
+    line-height: 1.2;
+
+    &:first-child {
+      border-top: 2px solid var(--color-black);
+    }
   }
 
   &:last-child {
@@ -148,7 +168,6 @@ function computedDate(date){
     margin-top: calc(var(--md) * 2);
 
     .disclaimer-text {
-      max-width: 18ch;
       font-size: var(--text-xs);
       line-height: 0.9;
     }
@@ -173,7 +192,6 @@ function computedDate(date){
 
   .concert-item {
     grid-template-columns: 1fr 2fr;
-    gap: calc(var(--md) / 2);
   }
 
   .concert-item-date {

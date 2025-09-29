@@ -1,18 +1,18 @@
 <template>
-  <div>
-    <section class="about-grid p-md">
-      <div class="text-md about-header">
+  <div class="p-(--md)">
+    <section class="about-grid p-(--md)">
+      <div class="text-base about-header">
         {{ data.story.content.aboutHeader }}
       </div>
-      <div class="text-md about-grid-text" v-html="renderRichText(data.story.content.aboutText)">
+      <div class="text-base about-grid-text" v-html="renderRichText(data.story.content.aboutText)">
       </div>
     </section>
-    <section class="filera-zero p-md" id="colabora">
-      <div class="text-md about-header">
+    <section class="filera-zero p-(--md)" id="colabora">
+      <div class="text-base about-header">
         {{ data.story.content.zeroHeader }}
       </div>
       <div>
-        <div class="text-md filera-zero-text" v-html="renderRichText(data.story.content.zeroText)"></div>
+        <div class="text-base filera-zero-text" v-html="renderRichText(data.story.content.zeroText)"></div>
         <a href="https://www.primaveradh.com/tenda/producto/fila-zero/" target="blank" class="filera-btn mb-row-2">
           <span>Col·labora amb Nòdul</span>
         </a>
@@ -31,6 +31,7 @@ const { data } = await storyblokApi.get('cdn/stories/home/')
 .about-grid, .filera-zero {
   display: grid;
   grid-template-columns: 2fr 3fr;
+  min-height: 50dvh;
 
   p {
     margin-bottom: 1rem;
@@ -42,13 +43,15 @@ const { data } = await storyblokApi.get('cdn/stories/home/')
 }
 
 .about-grid {
-  background: var(--primary);
-  color: var(--foreground);
+  background: var(--color-orange);
+  border: 2px solid var(--color-black);
 }
 
 .filera-zero {
-  background: var(--secondary);
-  color: var(--foreground);
+  border: 2px solid var(--color-black);
+  border-top: none;
+  background: var(--color-white);
+  color: var(--color-black);
 }
 
 .about-grid {
@@ -56,29 +59,21 @@ const { data } = await storyblokApi.get('cdn/stories/home/')
 }
 
 .about-header {
-  max-width: 20ch;
+  max-width: 45ch;
   line-height: 1.2;
 }
 
 .filera-btn {
     margin-top: 1.5em;
-    font-size: var(--text-md);
-    max-width: 40ch;
-    background: transparent;
-    color: var(--foreground);
-    border: 1px solid var(--foreground);
-    width: 100%;
-    line-height: 1;
-    transition: .15s ease;
+    font-size: var(--text-base);
+    width: fit-content;
+    padding: var(--sm);
+    color: var(--color-black);
+    border: 2px solid var(--color-black);
     display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 4em;
-    padding: .75em .25em;
-    height: fit-content;
 
     &:hover {
-      background: var(--primary);
+      background: var(--color-orange);
     }
   }
 

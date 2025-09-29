@@ -9,15 +9,11 @@ useSeoMeta({
 </script>
 
 <template>
-  <div class="flex items-center justify-center h-screen text-center p-md flex-col">
-    <div>Nòdul - III Festival de la Vall del Xúquer</div>
-    <div>9 → 12 d’octubre 2025</div>
-    <div>Web disponible pròximament</div>
-    <a href="https://www.instagram.com/nodulfestival/" class="underline" target="_blank">@nodulfestival</a>
-    <!-- <intro-section />
+  <div>
+    <intro-section />
     <concerts-list />
     <about-section /> 
     <bars-section />
-    <app-footer /> -->
+    <app-footer />
   </div>
 </template>

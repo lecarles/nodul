@@ -1,11 +1,12 @@
 <template>
-  <div class="footer font-size-sm p-md mt-row-2">
+  <div class="footer text-sm p-(--md) mt-(--lg)">
     <footer-logos />
-    <div class="footer-links mt-row-2">
+    <div class="footer-links mt-(--lg)">
       <div class="social-links">
         <a class="mr-auto" target="_blank" href="https://www.instagram.com/nodulfestival/">Instagram</a>
         <div class="nodul-brand">Nòdul – Festival de la Vall del Xúquer</div>
         <a target="_blank" href="https://2023.nodulfestival.com">I Edició (2023)</a>
+        <a target="_blank" href="https://2024.nodulfestival.com">II Edició (2024)</a>
       </div>
     </div>
   </div>

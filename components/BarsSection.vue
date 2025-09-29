@@ -1,6 +1,6 @@
 <template>
-  <section class="bars-section p-md font-size-sm">
-    <div class="mt-row mb-row text-md">Bars i restaurants de la Vall del Xúquer</div>
+  <section class="bars-section p-(--md) text-sm">
+    <div class="mt-(--md) mb-(--md) text-base">Bars i restaurants de la Vall del Xúquer</div>
     <div v-for="bar in data.story.content.bars" :key="bar._uid" class="bar-item">
       <a target="_blank" :href="`https://www.google.es/maps/search/${bar.name} ${bar.town}`" class="bar-item-info">{{ bar.name }}</a>
       <a target="_blank" :href="`tel:${bar.phone}`" class="bar-item-info bar-item-info-phone" >{{ bar.phone }}</a>
@@ -38,22 +38,22 @@ function groupBy(arr, property) {
     display: grid;
     grid-template-columns: 1.25fr .5fr 1fr .75fr;
     gap: 1em;
-    border-top: 1px solid var(--foreground);
+    border-top: 2px dashed rgba(0, 0, 0, .35);
 
     a {
-      color: var(--foreground);
+      color: var(--color-black);
     }
 
     &:last-child {
-      border-bottom: 1px solid var(--foreground);
+       border-bottom: 2px dashed rgba(0, 0, 0, .35);
     }
 
     &:hover {
-      background: var(--primary);
+      background: var(--color-orange);
     }
 
     &:hover a {
-      background: var(--primary);
+      background: var(--color-orange);
     }
 
 
