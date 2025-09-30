@@ -3203,7 +3203,7 @@
       }
 
       .cls-14, .cls-15, .cls-16, .cls-17, .cls-18 {
-        font-family: SFMono-Regular, 'SF Mono';
+        font-family: var(--font-sans);
       }
 
       .cls-14, .cls-16, .cls-17, .cls-19, .cls-20 {
@@ -3268,7 +3268,7 @@
       }
 
       .cls-19 {
-        font-family: SFMono-RegularItalic, 'SF Mono';
+        font-family: var(--font-italic);
         font-size: 25px;
         letter-spacing: -.03em;
       }
