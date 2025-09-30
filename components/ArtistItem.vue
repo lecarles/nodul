@@ -5,10 +5,10 @@
         <span class="mr-1">{{props.artist[0].content.name}}</span>
         <span class="more"> + </span>
       </div>
-      <div class="italic" v-if="props.artist[0].content.subtitle">{{ props.artist[0].content.subtitle }}</div>
     </div>
     <Transition name="slide">
       <div class="artist-bio" v-show="props.artist[0].uuid === sergiStore.activeBio">
+        <div class="italic" v-if="props.artist[0].content.subtitle">{{ props.artist[0].content.subtitle }}</div>
         <div class="font-size-sm" v-html="renderRichText(props.artist[0].content.bio)"></div>
         <img 
         class="artist-image-mb" 
@@ -61,7 +61,7 @@ function handleActiveBio(id) {
 }
 
 .italic {
-  font-style: italic;
+  font-family: var(--font-italic);
 }
 
 .artist-item-wrapper {

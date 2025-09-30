@@ -19,7 +19,7 @@ const sergiStore = useSergiStore()
 
 const { data } = await storyblokApi.get('cdn/stories', {
   version: 'draft',
-  starts_with: 'artists/24',
+  starts_with: 'artists/25',
 })
 
 const props = defineProps({
@@ -37,9 +37,21 @@ const props = defineProps({
   height: calc(100% - 10vw);
 
   &-wrapper {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
+
+    .grid-overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      pointer-events: none;
+      opacity: 0.1;
+      inset: 0;
+      z-index: 10;
+    }
   }
 }
 </style>

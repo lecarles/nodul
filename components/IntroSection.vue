@@ -13,12 +13,8 @@
       </div>
     </div>
     <div class="main-content">
-      <div class="artist" v-for="artist in data.stories" :key="artist.uuid">
-        <div class="artist-name">{{artist.content.name}}</div>
-        <div class="artist-details" v-if="artist.content.concert[0]">
-          {{ getConcert(artist.content.concert[0])[0].content.town }}
-        </div>
-      </div>
+      <div class="pattern-container" ref="pattern"></div>
+      <grups-vector class="grups-vector" />
     </div>
     <div class="sidebar-secondary justify-end">
       <div class="navbar-item intro-section-collab mr-(--sm)">
@@ -35,23 +31,21 @@
 
 <script setup >
 const storyblokApi = useStoryblokApi()
+const pattern = ref(null)
 import gsap from 'gsap'
-import { onMounted } from 'vue';
+import { SteppedEase } from 'gsap'
+import { onMounted, ref } from 'vue'
 
-const { data } = await storyblokApi.get('cdn/stories', {
-  version: 'draft',
-  starts_with: 'artists/24',
-  sort_by: 'slug:asc'
+onMounted(() => {
+  let steps = 8
+
+  gsap.to(pattern.value, { 
+    backgroundPosition: "100% 0",
+    duration: 4.5,
+    ease: SteppedEase.config(steps), 
+    repeat: -1
+  })
 })
-
-const concerts = await storyblokApi.get('cdn/stories', {
-  starts_with: 'concerts/24',
-  sort_by: 'content.date:asc'
-})
-
-function getConcert(id) {
-  return concerts.data.stories.filter((story) => story.uuid === id)
-}
 </script>
 
 <style lang="scss">
@@ -63,10 +57,34 @@ function getConcert(id) {
   padding: var(--md);
 
   .main-content {
-    background: lightblue;
+    position: relative;
     width: 100%;
     height: 100%;
-    aspect-ratio: 6/7;
+    aspect-ratio: 6/7; //haha
+
+    .pattern-container {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      height: 100%;
+      overflow: hidden;
+      aspect-ratio: 6/7;
+      background: url('@/assets/riu-pat.png');
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .grups-vector {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      height: 100%;
+      overflow: hidden;
+      aspect-ratio: 6/7;
+      pointer-events: none;
+    }
   }
 
   .sidebar-primary, .sidebar-secondary {
@@ -146,7 +164,7 @@ function getConcert(id) {
         }
       }
 
-    .main-content {
+    .main-content, .grups-vector, .pattern-container {
       height: auto;
     }
   }
