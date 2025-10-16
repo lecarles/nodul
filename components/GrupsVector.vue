@@ -3166,7 +3166,6 @@
     <text class="cls-17" transform="translate(429.09 969.9)"><tspan x="0" y="0">Paco Pecado</tspan></text>
     <text class="cls-17" transform="translate(670.09 1051.9)"><tspan x="0" y="0">Ana Lua Caiano</tspan></text>
     <text class="cls-14" transform="translate(344.84 113.72)"><tspan x="0" y="0">Inka Romaní</tspan></text>
-    <text class="cls-14" transform="translate(89.84 765.72)"><tspan x="0" y="0">Atrapasomnis</tspan></text>
     <text class="cls-14" transform="translate(665.84 846.72)"><tspan x="0" y="0">Musgö</tspan></text>
     <text class="cls-14" transform="translate(502.41 195.72)"><tspan x="0" y="0">Caamaño&amp;Ameixeiras</tspan></text>
     <text class="cls-14" transform="translate(432.41 317.72)"><tspan x="0" y="0">Bèrnia</tspan></text>
