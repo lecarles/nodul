@@ -6,7 +6,7 @@
               v-for="(concert, i) in data.stories" :key="concert.uuid"
         >
           <div class="concert-item-date">
-            {{ computedDate(concert.content.date).day.value }} d’{{ computedDate(data.stories[wtf(i)].content.date).fullMonth.value.ca }}
+            {{ computedDate(concert.content.date).day.value }} {{ computedDate(concert.content.date).fullMonth.value.ca }}
           </div>
           <div class="concert-item-time col-1 text-sm">{{computedDate(concert.content.date).time.value}}<span v-if="computedDate(concert.content.date).minutes.value !== '00'">:{{ computedDate(concert.content.date).minutes.value }}</span>h</div>
           <div class="concert-item-schedule col-2 text-sm">

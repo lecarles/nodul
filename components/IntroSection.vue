@@ -8,7 +8,7 @@
         <nodul-logo class="text-orange"></nodul-logo>
         <div class="mt-(--md) leading-[0.9]">
           <div>III Festival de <br> La Vall del Xúquer </div>
-          <div class="mt-(--xs)">9 → 12 d’octubre 2025</div>
+          <div class="mt-(--xs)">31/10/25 → 2/11/25</div>
         </div>
       </div>
     </div>
