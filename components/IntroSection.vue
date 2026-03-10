@@ -61,6 +61,7 @@ onMounted(() => {
     width: 100%;
     height: 100%;
     aspect-ratio: 6/7; //haha
+    max-width: calc(100% - 2 * var(--md));
 
     .pattern-container {
       position: absolute;
@@ -105,6 +106,7 @@ onMounted(() => {
     width: var(--sm);
     display: grid;
     grid-template-rows: repeat(6, 1fr);
+    max-width: calc(100% - 2 * var(--md));
 
     &-item {
       border: 2px solid var(--color-orange);
@@ -153,6 +155,7 @@ onMounted(() => {
         height: var(--md);
         grid-template-columns: repeat(6, 1fr);
         grid-template-rows: none;
+        max-width: calc(100% - 2 * var(--md));
 
         &-item {
           height: 100%;
