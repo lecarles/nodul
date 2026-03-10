@@ -18,6 +18,9 @@
       <img src="@/assets/logos/vondom.svg" alt="Vondom">
       <img src="@/assets/logos/blauverd.svg" alt="Blauverd Impressors">
     </div>
+    <div>
+      <img src="@/assets/logoseu.png" class="max-w-[600px] grayscale brightness-70">
+    </div>
   </div>
 </template>
 
