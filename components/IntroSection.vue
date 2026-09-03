@@ -1,174 +1,123 @@
 <template>
-  <div class="intro-section text-sm color-foreground">
-    <div class="sidebar-primary">
-      <div class="map-scale">
-        <div v-for="i in 6" :key="i" class="map-scale-item"></div>
-      </div>
-      <div class="px-(--md) sidebar-primary-content">
-        <nodul-logo class="text-orange"></nodul-logo>
-        <div class="mt-(--md) leading-[0.9]">
-          <div>III Festival de <br> La Vall del Xúquer </div>
-          <div class="mt-(--xs)">31/10/25 → 2/11/25</div>
-        </div>
-      </div>
+  <div class="intro-section relative text-sm color-foreground">
+    <div class="squares-grid">
+      <square-anim v-for="i in 32" :key="i" :class="`square-${i}`"/>
     </div>
-    <div class="main-content">
-      <div class="pattern-container" ref="pattern"></div>
-      <grups-vector class="grups-vector" />
-    </div>
-    <div class="sidebar-secondary justify-end">
-      <div class="navbar-item intro-section-collab mr-(--sm)">
-        <a href="#colabora" class="collab-btn underline">
-          <span class="text-right">Col·labora amb Nòdul</span>
-        </a>
+    <div class="cartell flex flex-col p-(--md) md:p-(--lg) text-white">
+      <div class="header flex items-baseline text-base xl:text-md gap-2 leading-[1]">
+        <div class="data">2 → 4 Octubre 2026 </div>
+        <div class="f">IV Festival de la Vall del Xúquer</div>
+        <nodul-logo class="h-[1.35em] w-auto ml-auto"/>
       </div>
-      <div class="map-scale">
-        <div v-for="i in 6" :key="i" class="map-scale-item"></div>
+      <div class="flex text-md md:text-lg xl:text-xl flex-wrap gap-x-2 gap-y-1 leading-[1] items-baseline mt-(--lg)">
+        <svg class="town-icon text-blue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34.59 34.59">
+          <path class="cls-1" d="M17.3,0h0c9.55,0,17.3,7.74,17.3,17.3v17.3H0v-17.3C0,7.74,7.74,0,17.3,0Z"/>
+        </svg>
+        <div class="town font-serif">Alcàntera de Xúquer</div>
+        <div>L’Arannà</div> + <div class="mr-3">Romàntic Dimoni</div>
+        <svg class="town-icon text-orange" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35.64 35.64">
+          <rect class="cls-1" x="0" y="0" width="35.64" height="35.64" rx="17.82" ry="17.82"/>
+        </svg>
+        <div class="town font-serif">Beneixida</div>
+        <div>Anna Ferrer</div> + <div class="mr-3">Anna Andreu</div>
+        <svg class="town-icon text-blue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34.59 34.59">
+          <path class="cls-1" d="M34.59,17.3h0c0,9.55-7.74,17.3-17.3,17.3H0V0h17.3c9.55,0,17.3,7.74,17.3,17.3Z"/>
+        </svg>
+        <div class="town font-serif">Cotes</div>
+        <div>Isla Kumé</div> + <div class="mr-3">Terrae</div>
+        <svg class="town-icon text-orange" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34.59 34.59">
+          <path class="cls-1" d="M17.3,34.59h0C7.74,34.59,0,26.85,0,17.3V0h34.59v17.3c0,9.55-7.74,17.3-17.3,17.3Z"/>
+        </svg>
+        <div class="town font-serif">Sellent</div>
+        <div>Animal Persona</div> <div>+</div> <div class="mr-3">La Ludwig Band</div>
+        <svg class="town-icon text-blue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34.59 34.59">
+          <path class="cls-1" d="M17.3,0H0v17.3c0,9.55,7.74,17.3,17.3,17.3h0c9.55,0,17.3-7.74,17.3-17.3h-17.3V0Z"/>
+        </svg>
+        <div class="town font-serif">Sumacàrcer</div>
+        <div>Doña Manteca</div> + <div>Marea Danza</div> + <div>Xaloq</div>
       </div>
+      <div class="mt-auto text-base xl:text-md leading-[1]">Entrada gratuïta fins completar aforament</div>
     </div>
   </div>
 </template>
 
-<script setup >
-const storyblokApi = useStoryblokApi()
-const pattern = ref(null)
+<script setup>
 import gsap from 'gsap'
-import { SteppedEase } from 'gsap'
-import { onMounted, ref } from 'vue'
 
 onMounted(() => {
   let steps = 8
-
-  gsap.to(pattern.value, { 
-    backgroundPosition: "100% 0",
-    duration: 4.5,
-    ease: SteppedEase.config(steps), 
-    repeat: -1
-  })
 })
 </script>
 
 <style lang="scss">
 .intro-section {
-  height: 100dvh;
-  position: relative;
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  padding: var(--md);
+  background-color: var(--color-black);
 
-  .main-content {
+  .squares-grid {
     position: relative;
-    width: 100%;
-    height: 100%;
-    aspect-ratio: 6/7; //haha
-    max-width: calc(100% - 2 * var(--md));
-
-    .pattern-container {
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      height: 100%;
-      overflow: hidden;
-      aspect-ratio: 6/7;
-      background: url('@/assets/riu-pat.png');
-      background-repeat: no-repeat;
-      background-size: cover;
-    }
-
-    .grups-vector {
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      height: 100%;
-      overflow: hidden;
-      aspect-ratio: 6/7;
-      pointer-events: none;
-    }
-  }
-
-  .sidebar-primary, .sidebar-secondary {
-    display: flex;
-    width: 100%;
-  }
-
-  .sidebar-primary{
-    &-content {
-      .nodul-logo-svg {
-        max-height: 3em;
-      }
-    }
-  }
-
-  .map-scale {
-    height: 100%;
-    width: var(--sm);
     display: grid;
-    grid-template-rows: repeat(6, 1fr);
-    max-width: calc(100% - 2 * var(--md));
+    gap: 0;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+  }
+  
+  .cartell {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+    height: 50%;
+    background-color: var(--color-black);
+    z-index: 10;
+    text-wrap: wrap;
+  }
 
-    &-item {
-      border: 2px solid var(--color-orange);
+  .town-icon {
+    fill: currentColor;
+    width: .8em;
+    height: .8em;
+  }
+}
 
-      &:nth-child(odd) {
-        background: var(--color-orange);
-      }
+
+@media (max-width: 96rem) {
+  .intro-section {
+    .squares-grid {
+      grid-template-columns: repeat(6, 1fr);
+      grid-template-rows: repeat(4, 1fr);
+    }
+
+    .cartell {
+      width: 66.67%;
+      height: 50%;
+    }
+    
+    .square-25, .square-26, .square-27, .square-28, .square-29, .square-30, .square-31, .square-32 {
+      display: none;
     }
   }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 60rem) {
   .intro-section {
-    grid-template-columns: 1fr;
-    width: 100vw;
+    min-height: 100dvh;
+    display: grid;
+    grid-template-rows: auto 1fr;
 
-    .sidebar-primary, .sidebar-secondary {
-      flex-direction: column-reverse;
+    .squares-grid {
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(4, 1fr);
     }
 
-    .sidebar-primary {
-      margin-bottom: auto;
+    .cartell {
+      width: 100%;
+      position: relative;
+      height: 100%;
     }
 
-    .sidebar-secondary {
-      margin-top: auto;
-
-      .intro-section-collab {
-        display: none;
-      }
-    }
-
-    .sidebar-primary-content {
-      display: flex;
-      margin-bottom: var(--md);
-      gap: var(--sm);
-      
-      .nodul-logo-svg {
-        margin-right: auto;
-        max-height: 3.2em;
-      }
-    }
-
-    .map-scale {
-        width: 100%;
-        height: var(--md);
-        grid-template-columns: repeat(6, 1fr);
-        grid-template-rows: none;
-        max-width: calc(100% - 2 * var(--md));
-
-        &-item {
-          height: 100%;
-          width: 100%;
-
-          &:nth-child(odd) {
-            background: var(--color-orange);
-          }
-        }
-      }
-
-    .main-content, .grups-vector, .pattern-container {
-      height: auto;
+    .square-17, .square-18, .square-19, .square-20, .square-21, .square-22, .square-23, .square-24 {
+      display: none;
     }
   }
 }

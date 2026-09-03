@@ -1,16 +1,18 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "SF-Mono", monospaced;
-  --font-italic: "SF-Mono-Italic", monospaced;
-  --color-black: #2E2E2E;
-  --color-white: #F0F1E9;
-  --color-orange: #EA5531;
-  --text-sm: clamp(0.9rem, 0.6vi + 0.5rem, 1.2rem);
-  --text-base: clamp(1rem, 0.6vi + 0.7rem, 1.4rem);
-  --text-md: clamp(1.2rem, 1.2vi + 0.3rem, 2rem);
-  --text-lg: clamp(1.35rem, 1vi + 0.8rem, 3rem);
-  --text-xl: clamp(2.5rem, 4.5vi + 2rem, 12rem);
+  --font-sans: "Uncut Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  --font-italic: "Uncut Sans Italic", monospaced;
+  --font-serif: "Mor", serif;
+  --color-black: #232323;
+  --color-white: #f0f1e9;
+  --color-orange: #ff4c29;
+  --color-blue: #66ccff;
+  --text-sm: 1rem;
+  --text-base: 1.2rem;
+  --text-md: 1.6rem;
+  --text-lg: 2rem;
+  --text-xl: 2.4rem;
   --text-2xl: clamp(3rem, 5.5vi + 2rem, 14rem);
   --xs: calc(var(--spacing));
   --sm: calc(var(--spacing) * 2);
@@ -18,8 +20,11 @@
   --lg: calc(var(--spacing) * 8);
   --xl: calc(var(--spacing) * 24);
   --2xl: calc(var(--spacing) * 120);
-  --spacing: clamp(0.1rem, 0.15vi + 0.05rem, .25rem);
+  --spacing: .2rem;
   --nav-height: calc(var(--text-md) * 1.75 + var(--sm) * 2);
+  --breakpoint-xs: 40rem;
+  --breakpoint-md: 60rem;
+  --breakpoint-xl: 96rem;
 }
 
 @layer base {
@@ -62,21 +67,22 @@ body {
 }
 
 @font-face {
-  font-family: 'SF-Mono';
-  src: url('../fonts/sf-mono-regular.woff2') format('woff2'),
-       url('../fonts/sf-mono-regular.woff') format('woff');
-  font-weight: 400;
+  font-family: 'Uncut Sans';
+  src: url('../fonts/UncutSans-Variable.woff2') format('woff2-variations'),
+       url('../fonts/UncutSans-Variable.ttf') format('truetype-variations'),;
+  font-weight: 550;
   font-display: swap;
   font-style: normal;
+  font-variant-alternates: ss03, ss04, ss05, ss06, ss07, ss08, ss09, ss10, ss11, ss12, ss13, ss14, ss15;
 }
 
 @font-face {
-  font-family: 'SF-Mono-Italic';
-  src: url('../fonts/sf-mono-regularitalic.woff2') format('woff2'),
-       url('../fonts/sf-mono-regularitalic.woff') format('woff');
-  font-weight: 400;
+  font-family: 'Mor';
+  src: url('../fonts/Moranga-Regular.woff2') format('woff2'),
+        url('../fonts/Moranga-Regular.ttf') format('truetype'),
+       url('../fonts/Moranga-Regular.woff') format('woff');
+  font-weight: 500;
   font-display: swap;
-  font-style: italic;
 }
 
 .fade-enter-active,

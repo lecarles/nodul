@@ -19,7 +19,7 @@
       <img src="@/assets/logos/blauverd.svg" alt="Blauverd Impressors">
     </div>
     <div>
-      <img src="@/assets/logoseu.png" class="max-w-[600px] grayscale brightness-70 w-full">
+      <img src="@/assets/logoseu.png" class="max-w-[600px] brightness-0 invert w-full">
     </div>
   </div>
 </template>

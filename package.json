@@ -8,17 +8,17 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "nuxt": "^3.19.2",
+    "@pinia/nuxt": "^1.0.2",
+    "nuxt": "^4.5.2",
+    "pinia": "^4.0.3",
     "sass": "^1.55.0",
     "sass-loader": "^10.3.1"
   },
   "dependencies": {
-    "@pinia/nuxt": "^0.4.8",
     "@storyblok/nuxt": "^5.5.2",
     "@tailwindcss/vite": "^4.1.13",
     "gsap": "^3.13.0",
     "p5": "^1.11.2",
-    "pinia": "^2.0.34",
     "tailwindcss": "^4.1.13"
   },
   "overrides": {
