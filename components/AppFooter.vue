@@ -1,5 +1,5 @@
 <template>
-  <div class="footer bg-black text-white text-base md:text-md p-(--md)">
+  <div class="footer bg-black text-white text-sm md:text-base p-(--md)">
     <footer-logos />
     <div class="footer-links mt-(--lg)">
       <div class="social-links">

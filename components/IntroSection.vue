@@ -36,7 +36,7 @@
         <div class="town font-serif">Sumacàrcer</div>
         <div>Doña Manteca</div> + <div>Marea Danza</div> + <div>Xaloq</div>
       </div>
-      <div class="mt-auto text-base xl:text-md leading-[1]">Entrada gratuïta fins completar aforament</div>
+      <div class="mt-auto text-base xl:text-md leading-[1] pt-3">Entrada gratuïta fins completar aforament</div>
     </div>
   </div>
 </template>
