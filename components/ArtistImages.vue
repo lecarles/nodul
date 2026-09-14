@@ -19,7 +19,7 @@ const sergiStore = useSergiStore()
 
 const { data } = await storyblokApi.get('cdn/stories', {
   version: 'draft',
-  starts_with: 'artists/25',
+  starts_with: 'artists/26',
 })
 
 const props = defineProps({
@@ -33,8 +33,10 @@ const props = defineProps({
 <style lang="scss">
 .artist-image {
   object-fit: contain;
-  width: calc(100% - 10vw);
-  height: calc(100% - 10vw);
+  width: 100%;
+  height: 100%;
+  max-height: 90vh;
+  max-width: 95%;
 
   &-wrapper {
     position: relative;

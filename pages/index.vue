@@ -10,10 +10,10 @@ useSeoMeta({
 
 <template>
   <div>
-    <intro-section /><!-- 
+    <intro-section />
     <concerts-list />
     <about-section /> 
-    <bars-section /> -->
+    <bars-section />
     <app-footer />
   </div>
 </template>

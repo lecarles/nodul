@@ -8,6 +8,8 @@
   --color-white: #f0f1e9;
   --color-orange: #ff4c29;
   --color-blue: #66ccff;
+  --color-background: var(--color-black);
+  --color-foreground: var(--color-white);
   --text-sm: 1rem;
   --text-base: 1.2rem;
   --text-md: 1.5rem;
@@ -63,7 +65,8 @@ html {
 }
 
 body {
-  background-color: var(--color-white);
+  background-color: var(--color-background);
+  color: var(--color-foreground);
   letter-spacing: -0.025em;
 }
 
