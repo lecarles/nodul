@@ -5,7 +5,7 @@
     </div>
     <div class="cartell flex flex-col p-(--md) md:p-(--lg) text-white">
       <div class="header flex items-baseline text-base xl:text-md gap-2 leading-[1]">
-        <div class="data text-balance">2 → 4 Octubre 2026 </div>
+        <div class="data text-balance">9 → 31 Octubre 2026 </div>
         <div class="f text-balance">IV Festival de la Vall del Xúquer</div>
         <nodul-logo class="h-[1.35em] w-auto ml-auto"/>
       </div>
