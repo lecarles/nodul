@@ -10,30 +10,15 @@
         <nodul-logo class="h-[1.35em] w-auto ml-auto"/>
       </div>
       <div class="flex text-md md:text-lg xl:text-xl flex-wrap gap-x-2 gap-y-1 leading-[1] items-baseline mt-(--lg)">
-        <svg class="town-icon text-blue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34.59 34.59">
-          <path class="cls-1" d="M17.3,0h0c9.55,0,17.3,7.74,17.3,17.3v17.3H0v-17.3C0,7.74,7.74,0,17.3,0Z"/>
-        </svg>
-        <div class="town font-serif">Alcàntera de Xúquer</div>
+        <div class="town font-serif"><town-icon town="Alcàntera de Xúquer" />Alcàntera de Xúquer</div>
         <div>L’Arannà</div> + <div class="mr-3">Romàntic Dimoni</div>
-        <svg class="town-icon text-orange" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35.64 35.64">
-          <rect class="cls-1" x="0" y="0" width="35.64" height="35.64" rx="17.82" ry="17.82"/>
-        </svg>
-        <div class="town font-serif">Beneixida</div>
+        <div class="town font-serif"><town-icon town="Beneixida" />Beneixida</div>
         <div>Anna Ferrer</div> + <div class="mr-3">Anna Andreu</div>
-        <svg class="town-icon text-blue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34.59 34.59">
-          <path class="cls-1" d="M34.59,17.3h0c0,9.55-7.74,17.3-17.3,17.3H0V0h17.3c9.55,0,17.3,7.74,17.3,17.3Z"/>
-        </svg>
-        <div class="town font-serif">Cotes</div>
+        <div class="town font-serif"><town-icon town="Cotes" />Cotes</div>
         <div>Isla Kumé</div> + <div class="mr-3">Terrae</div>
-        <svg class="town-icon text-orange" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34.59 34.59">
-          <path class="cls-1" d="M17.3,34.59h0C7.74,34.59,0,26.85,0,17.3V0h34.59v17.3c0,9.55-7.74,17.3-17.3,17.3Z"/>
-        </svg>
-        <div class="town font-serif">Sellent</div>
-        <div>Animal Persona</div> <div>+</div> <div class="mr-3">La Ludwig Band</div>
-        <svg class="town-icon text-blue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34.59 34.59">
-          <path class="cls-1" d="M17.3,0H0v17.3c0,9.55,7.74,17.3,17.3,17.3h0c9.55,0,17.3-7.74,17.3-17.3h-17.3V0Z"/>
-        </svg>
-        <div class="town font-serif">Sumacàrcer</div>
+        <div class="town font-serif"><town-icon town="Sellent" />Sellent</div>
+        <div>Animal Persona</div>
+        <div class="town font-serif"><town-icon town="Sumacàrcer" />Sumacàrcer</div>
         <div>Doña Manteca</div> + <div>Marea Danza</div> + <div>Xaloq</div>
       </div>
       <div class="mt-auto text-base xl:text-md leading-[1] pt-3">Entrada gratuïta fins completar aforament</div>
@@ -52,6 +37,12 @@ onMounted(() => {
 <style lang="scss">
 .intro-section {
   background-color: var(--color-black);
+
+  .town {
+    display: flex;
+    align-items: baseline;
+    gap: .3em;
+  }
 
   .squares-grid {
     position: relative;

@@ -1,19 +1,19 @@
 <template>
   <div class="concerts-section">
-    <div class="concert-list" ref="trigger">
-      <div class="concert-grid text-sm">
+    <div class="concert-list text-base sm:text-md p-(--md) md:p-(--lg)" ref="trigger">
+      <div class="concert-grid flex flex-col gap-(--lg)">
         <div :class="['concert-item', { 'new-day' : computedDate(concert.content.date).day.value !== computedDate(data.stories[wtf(i)].content.date).day.value }]" 
               v-for="(concert, i) in data.stories" :key="concert.uuid"
         >
           <div class="concert-item-date">
             {{ computedDate(concert.content.date).day.value }} {{ computedDate(concert.content.date).fullMonth.value.ca }}
           </div>
-          <div class="concert-item-time col-1 text-sm">{{computedDate(concert.content.date).time.value}}<span v-if="computedDate(concert.content.date).minutes.value !== '00'">:{{ computedDate(concert.content.date).minutes.value }}</span>h</div>
-          <div class="concert-item-schedule col-2 text-sm">
+          <div class="concert-item-time col-1">{{computedDate(concert.content.date).time.value}}<span v-if="computedDate(concert.content.date).minutes.value !== '00'">:{{ computedDate(concert.content.date).minutes.value }}</span>h</div>
+          <div class="concert-item-schedule col-2">
+            <div class="concert-item-town flex items-baseline gap-2"><town-icon :town="concert.content.town" />{{ concert.content.town }}</div>
             <div class="concert-item-place">{{concert.content.place}}</div>
-            <div class="concert-item-town">{{concert.content.town}}</div>
           </div>
-          <div class="text-base concert-item-artists col-2">
+          <div class="concert-item-artists col-2">
             <artist-item v-for="artist in concert.content.artists" :artist="getArtist(artist)" :key="artist.id"></artist-item>
           </div>
         </div>
@@ -55,12 +55,12 @@ onMounted (() => {
 })
 
 const { data } = await storyblokApi.get('cdn/stories', {
-  starts_with: 'concerts/25',
+  starts_with: 'concerts/26',
   sort_by: 'content.date:asc'
 })
 
 const artists = await storyblokApi.get('cdn/stories', {
-  starts_with: 'artists/25',
+  starts_with: 'artists/26',
   sort_by: 'content.date:asc'
 })
 
@@ -82,7 +82,7 @@ function computedDate(date){
 
 <style lang="scss">
 .concerts-section {
-  color: var(--foreground);
+  color: var(--color-foreground);
   min-height: 100vh;
 
   .pin-section {
@@ -94,10 +94,9 @@ function computedDate(date){
   width: 100%;
   box-sizing: border-box;
   position: relative;
-  padding: 0 var(--md);
   margin-top: 5vw;
   display: grid;
-  grid-template-columns: 70ch 1fr;
+  grid-template-columns: 35ch 1fr;
 }
 
 .concert-image {
@@ -105,7 +104,6 @@ function computedDate(date){
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 5vw;
   width: 100%;
   pointer-events: none;
   height: 100vh;
@@ -116,34 +114,17 @@ function computedDate(date){
 
 .concert-item {
   display: grid;
-  grid-template-columns: 16ch 1fr;
-
-  &-time {
-    border-top: var(--md) solid var(--color-black);
-  }
+  grid-template-columns: 12ch 1fr;
+  row-gap: var(--sm);
 
   &-schedule {
-    border-top: 2px solid var(--color-black);
-    border-left: 2px solid var(--color-black);
-    border-right: 2px solid var(--color-black);
-    background-color: var(--color-orange);
-    font-family: var(--font-italic);
-    padding: var(--sm);
-    line-height: 1.2;
+    font-family: var(--font-serif);
+    line-height: 1.1;
     max-width: 30ch;
-    margin-top: calc(var(--md) - 2px);
   }
 
   .artist-item-wrapper {
-    border-left: 2px solid var(--color-black);
-    border-right: 2px solid var(--color-black);
-    border-bottom: 2px solid var(--color-black);
-    padding: var(--sm);
     line-height: 1.2;
-
-    &:first-child {
-      border-top: 2px solid var(--color-black);
-    }
   }
 
   &:last-child {
@@ -168,7 +149,6 @@ function computedDate(date){
     margin-top: calc(var(--md) * 2);
 
     .disclaimer-text {
-      font-size: var(--text-xs);
       line-height: 0.9;
     }
   }
@@ -185,6 +165,7 @@ function computedDate(date){
 
   .concert-list {
     grid-template-columns: 1fr;
+
     .col-2 {
       grid-column: 2;
     }
@@ -192,10 +173,6 @@ function computedDate(date){
 
   .concert-item {
     grid-template-columns: 1fr 2fr;
-  }
-
-  .concert-item-date {
-    font-size: var(--text-sm);
   }
 }
 </style>

@@ -1,18 +1,18 @@
 <template>
-  <div class="p-(--md)">
-    <section class="about-grid p-(--md)">
-      <div class="text-base about-header">
+  <div class="p-(--md) text-base sm:text-md max-w-[1400px] mx-auto mt-(--xl)">
+    <section class="about-grid bg-blue text-background p-(--md)">
+      <div class="about-header">
         {{ data.story.content.aboutHeader }}
       </div>
-      <div class="text-base about-grid-text" v-html="renderRichText(data.story.content.aboutText)">
+      <div class="about-grid-text" v-html="renderRichText(data.story.content.aboutText)">
       </div>
     </section>
-    <section class="filera-zero p-(--md)" id="colabora">
-      <div class="text-base about-header">
+    <section class="filera-zero bg-orange text-background p-(--md) mt-4" id="colabora">
+      <div class="about-header">
         {{ data.story.content.zeroHeader }}
       </div>
       <div>
-        <div class="text-base filera-zero-text" v-html="renderRichText(data.story.content.zeroText)"></div>
+        <div class="filera-zero-text" v-html="renderRichText(data.story.content.zeroText)"></div>
         <a href="https://www.primaveradh.com/tenda/producto/fila-zero/" target="blank" class="filera-btn mb-row-2">
           <span>Col·labora amb Nòdul</span>
         </a>
@@ -24,7 +24,7 @@
 <script setup>
 const storyblokApi = useStoryblokApi()
 const route = useRoute()
-const { data } = await storyblokApi.get('cdn/stories/home25/')
+const { data } = await storyblokApi.get('cdn/stories/home26/')
 </script>
 
 <style lang="scss">
@@ -32,6 +32,7 @@ const { data } = await storyblokApi.get('cdn/stories/home25/')
   display: grid;
   grid-template-columns: 2fr 3fr;
   min-height: 50dvh;
+  gap: var(--lg);
 
   p {
     margin-bottom: 1rem;
@@ -42,38 +43,23 @@ const { data } = await storyblokApi.get('cdn/stories/home25/')
   }
 }
 
-.about-grid {
-  background: var(--color-orange);
-  border: 2px solid var(--color-black);
-}
-
-.filera-zero {
-  border: 2px solid var(--color-black);
-  border-top: none;
-  background: var(--color-white);
-  color: var(--color-black);
-}
-
-.about-grid {
-  margin-top: 10vw;
-}
-
 .about-header {
   max-width: 45ch;
   line-height: 1.2;
+  text-wrap: balance;
 }
 
 .filera-btn {
     margin-top: 1.5em;
-    font-size: var(--text-base);
     width: fit-content;
-    padding: var(--sm);
+    padding: var(--sm) var(--lg);
     color: var(--color-black);
     border: 2px solid var(--color-black);
     display: flex;
 
     &:hover {
-      background: var(--color-orange);
+      background: var(--color-background);
+      color: var(--color-orange);
     }
   }
 
@@ -82,10 +68,6 @@ const { data } = await storyblokApi.get('cdn/stories/home25/')
     grid-template-columns: 1fr;
     grid-template-rows: min-content;
     gap: 2rem;
-
-    &-text {
-      font-size: var(--text-sm);
-    }
   }
 }
 </style>

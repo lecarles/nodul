@@ -113,7 +113,8 @@ function handleActiveBio(id) {
     display: block;
     width: 100%;
     height: auto;
-    margin-bottom: 1em;
+    margin: 1em 0;
+    max-height: 90vh;
   }
 }
 

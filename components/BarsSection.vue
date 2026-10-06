@@ -1,5 +1,5 @@
 <template>
-  <section class="bars-section p-(--md) text-sm">
+  <section class="bars-section p-(--md) text-sm max-w-[1440px] mx-auto mt-(--xl)">
     <div class="mt-(--md) mb-(--md) text-base">Bars i restaurants de la Vall del Xúquer</div>
     <div v-for="bar in data.story.content.bars" :key="bar._uid" class="bar-item">
       <a target="_blank" :href="`https://www.google.es/maps/search/${bar.name} ${bar.town}`" class="bar-item-info">{{ bar.name }}</a>
@@ -15,7 +15,7 @@ import { onMounted } from 'vue'
 
 const storyblokApi = useStoryblokApi()
 const route = useRoute()
-const { data } = await storyblokApi.get('cdn/stories/home25/')
+const { data } = await storyblokApi.get('cdn/stories/home26/')
 
 let bars = null
 
@@ -38,22 +38,14 @@ function groupBy(arr, property) {
     display: grid;
     grid-template-columns: 1.25fr .5fr 1fr .75fr;
     gap: 1em;
-    border-top: 2px dashed rgba(0, 0, 0, .35);
-
-    a {
-      color: var(--color-black);
-    }
+    border-top: 2px dashed var(--color-foreground);
 
     &:last-child {
-       border-bottom: 2px dashed rgba(0, 0, 0, .35);
-    }
-
-    &:hover {
-      background: var(--color-orange);
+       border-bottom: 2px dashed var(--color-foreground);
     }
 
     &:hover a {
-      background: var(--color-orange);
+      color: var(--color-blue);
     }
 
 
