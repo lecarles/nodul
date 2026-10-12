@@ -17,7 +17,7 @@
         <div class="town font-serif"><town-icon town="Cotes" />Cotes</div>
         <div>Isla Kumé</div> + <div class="mr-3">Terrae</div>
         <div class="town font-serif"><town-icon town="Sellent" />Sellent</div>
-        <div>Animal Persona</div>
+        <div>Ferran Palau</div> + <div class="mr-3">Animal Persona</div>
         <div class="town font-serif"><town-icon town="Sumacàrcer" />Sumacàrcer</div>
         <div>Doña Manteca</div> + <div>Marea Danza</div> + <div>Xaloq</div>
       </div>
