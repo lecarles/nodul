@@ -1,7 +1,10 @@
 <template>
   <div class="footer bg-black text-white text-sm md:text-base p-(--md)">
     <footer-logos />
-    <div class="footer-links mt-(--lg)">
+    <div class="footer-links">
+      <div class="text-sm text-center mb-(--xl)">
+        El Nòdul està subvencionat per l'IVC amb una ajuda al Foment de la Música de 14.099,93€
+      </div>
       <div class="social-links">
         <a class="mr-auto" target="_blank" href="https://www.instagram.com/nodulfestival/">Instagram</a>
         <div class="nodul-brand">Nòdul – Festival de la Vall del Xúquer</div>

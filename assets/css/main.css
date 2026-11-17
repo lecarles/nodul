@@ -10,8 +10,8 @@
   --color-blue: #66ccff;
   --color-background: var(--color-black);
   --color-foreground: var(--color-white);
-  --text-sm: 1rem;
-  --text-base: 1.2rem;
+  --text-sm: 1.1rem;
+  --text-base: 1.25rem;
   --text-md: 1.5rem;
   --text-lg: 1.9rem;
   --text-xl: 2.4rem;
@@ -22,7 +22,7 @@
   --lg: calc(var(--spacing) * 8);
   --xl: calc(var(--spacing) * 24);
   --2xl: calc(var(--spacing) * 120);
-  --spacing: .2rem;
+  --spacing: .25rem;
   --nav-height: calc(var(--text-md) * 1.75 + var(--sm) * 2);
   --breakpoint-xs: 40rem;
   --breakpoint-md: 60rem;
